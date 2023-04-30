@@ -9,12 +9,14 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.image.Image?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
     <BorderPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
         <top>
-            <HBox spacing="10.0">
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
                 <ImageView fitHeight="50.0" fitWidth="50.0">
                     <image>
+                        <Image url="@../photos/airoporti.jpg"/>
                     </image>
                 </ImageView>
                 <Label text="Kosovo International Airport" />
@@ -32,7 +34,14 @@
             </VBox>
         </left>
         <center>
-            <VBox alignment="CENTER" />
+            <VBox alignment="CENTER" spacing="10.0">
+                <Label text="Welcome to Kosovo International Airport" />
+                <ImageView fitHeight="200.0" fitWidth="200.0">
+                    <image>
+                        <Image url="@../photos/airoporti.jpg"/>
+                    </image>
+                </ImageView>
+            </VBox>
         </center>
     </BorderPane>
 </AnchorPane>
