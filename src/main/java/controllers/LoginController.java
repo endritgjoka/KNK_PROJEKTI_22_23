@@ -33,6 +33,5 @@ public class LoginController {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
 }
 
