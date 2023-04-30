@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-image: url(../photos/nature.jpg);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #8ca7d1;">
+         <children>
+            <Label text="Help" textFill="#1a1174">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" top="2.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mire se erdhet ne faqen e aeroportit te Prishtines!">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="13.0" top="50.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ketu mund te gjeni biletat me te lira ">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="70.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="dhe sherbimin me te mire te mundshem">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="24.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="50.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nese deshironi te dini me shume mund te na">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="70.0" top="50.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="shkruani ne emailin tone zyrtar">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="130.0" />
+         </VBox.margin>
+      </Text>
+      <ImageView fitHeight="150.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../photos/maska.jpg" />
+         </image>
+         <VBox.margin>
+            <Insets left="170.0" top="30.0" />
+         </VBox.margin>
+      </ImageView>
+   </children>
+</VBox>
