@@ -10,6 +10,9 @@ public class Perdoruesi {
     private String adresa;
     private String numri_telefonit;
     private boolean admin;
+    public Perdoruesi (){
+
+    }
 
     public Perdoruesi(String emri, String mbiemri, String email, String fjalekalimi, int mosha,
                       String gjinia, String adresa, String numri_telefonit, boolean admin) {
