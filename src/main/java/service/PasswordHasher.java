@@ -33,7 +33,7 @@ public class PasswordHasher {
         byte[] expectedHash = new byte[HASH_LENGTH];
         for (int i = 0; i < HASH_LENGTH; i++) {
             int index = (SALT_LENGTH + i) * 2;
-            expectedHash[i] = (byte) Integer.parseInt(saltedHash.substring(index-3, index -1), 16);
+            expectedHash[i] = (byte) Integer.parseInt(saltedHash.substring(index, index + 2), 16);
         }
         byte[] actualHash = hashWithSalt(password, salt);
         return MessageDigest.isEqual(expectedHash, actualHash);

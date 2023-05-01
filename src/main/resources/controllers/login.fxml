@@ -20,7 +20,7 @@
             <Label layoutX="136.0" layoutY="274.0" text="Don't have an account?" />
             <TitledPane animated="false" layoutY="-89.0" text="untitled" />
             <Button fx:id="submit" layoutX="204.0" layoutY="319.0" mnemonicParsing="false" onAction="#loginClick" text="SUBMIT" />
-            <PasswordField layoutX="136.0" layoutY="245.0" prefHeight="26.0" prefWidth="204.0" />
+            <PasswordField fx:id="password" layoutX="136.0" layoutY="245.0" prefHeight="26.0" prefWidth="204.0" />
          </children>
       </Pane>
    </children>
