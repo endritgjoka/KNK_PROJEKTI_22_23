@@ -13,6 +13,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class LoginController {
 
@@ -51,6 +55,22 @@ public class LoginController {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    private void saveData() throws NoSuchAlgorithmException {
+
+        try {
+
+            String st = "INSERT INTO perdoruesit (emri, mbiemri, email, fjalekalimi, mosha, gjinia, adresa, numri_telefonit, admin) VALUES (?,?,?,?,?,?,?,?,?)";
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] digest = md.digest((password.getText()).getBytes());
+            String encodedHash =digest.toString();
+            // ...
+
+        }
+        catch (Exception e){}
+//        catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
     }
 }
 
