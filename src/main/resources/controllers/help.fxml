@@ -65,7 +65,7 @@
       </Text>
       <ImageView fitHeight="150.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../photos/airoporti.jpg" />
+            <Image url="@../photos/help-photo.jpg" />
          </image>
          <VBox.margin>
             <Insets left="170.0" top="30.0" />

@@ -17,4 +17,12 @@ public class Pasagjeri extends Perdoruesi {
     public String getAdresa() {
         return adresa;
     }
+
+    public String getNacionaliteti() {
+        return nacionaliteti;
+    }
+
+    public void setNacionaliteti(String nacionaliteti) {
+        this.nacionaliteti = nacionaliteti;
+    }
 }
