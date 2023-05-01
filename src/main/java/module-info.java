@@ -7,6 +7,6 @@ module com.example.knk_projekti {
 //    opens controllers to javafx.fxml;
     opens controllers to javafx.fxml;
 
-//    exports com.example.knk_projekti;
+    exports com.example.knk_projekti;
     exports controllers to javafx.graphics;
 }
