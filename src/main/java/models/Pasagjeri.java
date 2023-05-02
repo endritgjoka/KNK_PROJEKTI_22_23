@@ -1,7 +1,7 @@
 package models;
 
 public class Pasagjeri extends Perdoruesi {
-
+     private int id;
     private String adresa;
     private String nacionaliteti;
     private String numri_telefonit;
