@@ -65,6 +65,7 @@ public class SignUpController {
             primaryStage.show();
         }else{
             Alert  alert = new Alert(Alert.AlertType.ERROR,"Passwords don't match!");
+            alert.show();
         }
 
 

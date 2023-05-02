@@ -29,7 +29,7 @@
                <toggleGroup>
                   <ToggleGroup fx:id="gjinia" />
                </toggleGroup></RadioButton>
-            <RadioButton fx:id="femer" layoutX="236.0" layoutY="251.0" mnemonicParsing="false" onAction="#getPgjinia" text="Femër" toggleGroup="$pgjinia" />
+            <RadioButton fx:id="femer" layoutX="236.0" layoutY="251.0" mnemonicParsing="false" onAction="#getPgjinia" text="Femër" toggleGroup="$gjinia" />
             <DatePicker fx:id="ditelindja" blendMode="COLOR_DODGE" cache="true" editable="false" layoutX="146.0" layoutY="331.0" />
             <PasswordField fx:id="fjalekalimi" layoutX="148.0" layoutY="412.0" prefHeight="26.0" prefWidth="170.0" />
             <PasswordField fx:id="rishkruajFjalekalimin" layoutX="148.0" layoutY="502.0" prefHeight="26.0" prefWidth="170.0" />
