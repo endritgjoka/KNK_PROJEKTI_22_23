@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RezervimetController">
+    <BorderPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+        <top>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <ImageView fitHeight="50.0" fitWidth="100.0">
+                    <image>
+                        <Image url="@../photos/airport_logo.png" />
+                    </image>
+                </ImageView>
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Kosovo International Airport" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Hyperlink style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Sign Out" />
+            </HBox>
+        </top>
+        <left>
+            <VBox prefHeight="550.0" prefWidth="135.0" spacing="10.0">
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Flights" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Passengers" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Security" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Baggage" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Services" />
+            </VBox>
+        </left>
+        <center>
+
+            <VBox alignment="CENTER" style="-fx-padding: 1px 0 0 50px;">
+
+                <Label text="Zgjidhni mënyrën e pagesës:">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+
+                <HBox spacing="10">
+                    <RadioButton fx:id="creditCardRadio">
+                        <graphic>
+                            <ImageView fitHeight="49.0" fitWidth="71.0">
+                                <image>
+                                    <Image url="@../photos/mastercard.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                  <toggleGroup>
+                     <ToggleGroup fx:id="pagesa" />
+                  </toggleGroup>
+                    </RadioButton>
+                    <RadioButton fx:id="debitCardRadio" toggleGroup="$pagesa">
+                        <graphic>
+                            <ImageView fitHeight="52.0" fitWidth="60.0">
+                                <image>
+                                    <Image url="@../photos/visa.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </RadioButton>
+                    <RadioButton fx:id="paypalRadio" prefHeight="50.0" prefWidth="10.0" style="-fx-graphic-size: 50px;" toggleGroup="$pagesa">
+                        <graphic>
+                            <ImageView fitHeight="54.0" fitWidth="63.0">
+                                <image>
+                                    <Image url="@../photos/paypal.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </RadioButton>
+                </HBox>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Emri i kartës:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="cardNameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label text="Numri i kartës:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="cardNumberField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label text="Data e skadimit:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="expirationDateField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label text="Kodi CVV:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField fx:id="cvvField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+
+                <Button text="Rezervo" />
+
+            </VBox>
+
+
+        </center>
+
+    </BorderPane>
+</AnchorPane>
