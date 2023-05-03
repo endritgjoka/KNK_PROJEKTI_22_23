@@ -1,30 +1,49 @@
 package models;
 
 public class Perdoruesi {
+    private int id;
     private String emri;
     private String mbiemri;
-    private String email;
-    private String fjalekalimi;
+    private String username;
+    private String fjalekalimi_salted;
+    private String salt;
+
     private int mosha;
-    private String gjinia;
-    private String adresa;
-    private String numri_telefonit;
+    private char gjinia;
+
     private boolean admin;
-    public Perdoruesi (){
+
+    public Perdoruesi() {
 
     }
 
-    public Perdoruesi(String emri, String mbiemri, String email, String fjalekalimi, int mosha,
-                      String gjinia, String adresa, String numri_telefonit, boolean admin) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Perdoruesi(int id, String emri, String mbiemri, String username, String fjalekalimi_salted,
+                      String salt, int mosha, char gjinia, boolean admin) {
+        this.id = id;
         this.emri = emri;
         this.mbiemri = mbiemri;
-        this.email = email;
-        this.fjalekalimi = fjalekalimi;
+        this.username = username;
+        this.fjalekalimi_salted = fjalekalimi_salted;
+        this.salt = salt;
         this.mosha = mosha;
         this.gjinia = gjinia;
-        this.adresa = adresa;
-        this.numri_telefonit = numri_telefonit;
         this.admin = admin;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
     public String getEmri() {
@@ -43,20 +62,20 @@ public class Perdoruesi {
         this.mbiemri = mbiemri;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getFjalekalimi() {
-        return fjalekalimi;
+    public String getFjalekalimi_salted() {
+        return fjalekalimi_salted;
     }
 
-    public void setFjalekalimi(String fjalekalimi) {
-        this.fjalekalimi = fjalekalimi;
+    public void setFjalekalimi_salted(String fjalekalimi_salted) {
+        this.fjalekalimi_salted = fjalekalimi_salted;
     }
 
     public int getMosha() {
@@ -67,28 +86,12 @@ public class Perdoruesi {
         this.mosha = mosha;
     }
 
-    public String getGjinia() {
+    public char getGjinia() {
         return gjinia;
     }
 
-    public void setGjinia(String gjinia) {
+    public void setGjinia(char gjinia) {
         this.gjinia = gjinia;
-    }
-
-    public String getAdresa() {
-        return adresa;
-    }
-
-    public void setAdresa(String adresa) {
-        this.adresa = adresa;
-    }
-
-    public String getNumri_telefonit() {
-        return numri_telefonit;
-    }
-
-    public void setNumri_telefonit(String numri_telefonit) {
-        this.numri_telefonit = numri_telefonit;
     }
 
     public boolean isAdmin() {

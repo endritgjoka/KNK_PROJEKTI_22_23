@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 public class PasswordHasher {
 
     private static final int SALT_LENGTH = 16; // length of salt in bytes
-    private static final int HASH_LENGTH = 256; // length of hash in bytes
+    private static final int HASH_LENGTH = 32; // length of hash in bytes
     private static final String HASH_ALGORITHM = "SHA-256";
 
 
@@ -30,14 +30,10 @@ public class PasswordHasher {
     }
 
     public static boolean compareSaltedHash(String password, String salt, String saltedHash) {
-        byte[] expectedHash = new byte[HASH_LENGTH];
-        for (int i = 0; i < HASH_LENGTH; i++) {
-            int index = (SALT_LENGTH + i) * 2;
-            expectedHash[i] = (byte) Integer.parseInt(saltedHash.substring(index, index + 2), 16);
-        }
-        byte[] actualHash = hashWithSalt(password, salt);
-        return MessageDigest.isEqual(expectedHash, actualHash);
+        String passwordInput = generateSaltedHash(password,salt);
+        return saltedHash.equals(passwordInput);
     }
+
 
     private static byte[] hashWithSalt(String password, String salt) {
         try {

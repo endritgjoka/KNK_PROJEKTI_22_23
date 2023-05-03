@@ -6,16 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import models.Perdoruesi;
+import service.UserSevice;
 
 import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Paths;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class LoginController {
@@ -23,31 +21,13 @@ public class LoginController {
     @FXML
     private TextField username;
     @FXML
-    private TextField password;
+    private PasswordField password;
+
     @FXML
-    private Button submit;
-    @FXML
-    private void loginClick(ActionEvent event){
-        System.out.println("Login button clicked!");
-        String username = this.username.getText();
-        String password = this.password.getText();
-//        System.out.printf("Username: %s, Password: %s \n", username,password);
+    private Button btnLoginClick;
 
-        if (event.getSource() == submit) {
 
-            try {
-                Node node = (Node) event.getSource();
-                Stage stage = (Stage) node.getScene().getWindow();
-                stage.close();
-                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("home.fxml")));
-                stage.setScene(scene);
-                stage.show();
 
-            } catch (IOException ex) {
-                System.err.println(ex.getMessage());
-            }
-        }
-    };
     @FXML
     private void goToSignUp(ActionEvent event) throws IOException {
         Parent parenti = FXMLLoader.load(getClass().getResource("signup.fxml"));
@@ -56,21 +36,47 @@ public class LoginController {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    private void saveData() throws NoSuchAlgorithmException {
 
+    @FXML
+    private void loginClick(ActionEvent event) throws SQLException {
+        // System.out.println("Login button clicked!");
+        String usernamei = this.username.getText();
+        String passwordi = this.password.getText();
+
+        Alert alert;
         try {
-
-            String st = "INSERT INTO perdoruesit (emri, mbiemri, email, fjalekalimi, mosha, gjinia, adresa, numri_telefonit, admin) VALUES (?,?,?,?,?,?,?,?,?)";
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            byte[] digest = md.digest((password.getText()).getBytes());
-            String encodedHash =digest.toString();
-            // ...
-
+            Perdoruesi perdoruesi = UserSevice.login(usernamei, passwordi);
+            if (perdoruesi != null) {
+                // System.out.println("User login successfully!");
+                // alert = new Alert(Alert.AlertType.CONFIRMATION,"User login successfully!");
+                // alert.show();
+                Parent parenti = FXMLLoader.load(getClass().getResource("home.fxml"));
+                Scene scene = new Scene(parenti);
+                Stage primaryStage = (Stage) username.getScene().getWindow();
+                primaryStage.setScene(scene);
+                primaryStage.show();
+            } else {
+                System.out.println("Incorrect username/password!");
+                alert = new Alert(Alert.AlertType.ERROR, "Incorrect username/password!");
+                alert.show();
+            }
+        } catch (SQLException | IOException ex) {
+            throw new RuntimeException(ex);
         }
-        catch (Exception e){}
-//        catch (SQLException ex) {
-//            System.out.println(ex.getMessage());
-//        }
-    }
-}
 
+    };
+
+
+    @FXML
+    public void login(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            try {
+                loginClick(new ActionEvent());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+
+}
