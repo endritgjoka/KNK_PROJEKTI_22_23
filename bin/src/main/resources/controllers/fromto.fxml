@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import com.gluonhq.charm.glisten.mvc.SplashView?>-->
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RezervimetController">
+    <BorderPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+        <top>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <ImageView fitHeight="50.0" fitWidth="100.0">
+                    <image>
+                        <Image url="@../photos/airport_logo.png" />
+                    </image>
+                </ImageView>
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Kosovo International Airport" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Hyperlink style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Sign Out" />
+            </HBox>
+        </top>
+        <left>
+            <VBox prefHeight="550.0" prefWidth="135.0" spacing="10.0">
+                <Hyperlink prefHeight="35.0" prefWidth="70.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Flights" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Passengers" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Security" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Baggage" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Services" />
+            </VBox>
+        </left>
+       <center>
+
+               <HBox prefHeight="550.0" prefWidth="714.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <Label text="Prej" />
+                     <ChoiceBox prefWidth="150.0" />
+                     <Label text="Te" />
+                     <ChoiceBox prefWidth="150.0" />
+                     <Label text="Data e nisnjes" />
+                     <DatePicker prefHeight="22.0" prefWidth="114.0" />
+                     <Label text="Data e kthimit" />
+                     <DatePicker prefHeight="23.0" prefWidth="100.0" />
+                  </children>
+               </HBox>
+
+      </center>
+
+    </BorderPane>
+</AnchorPane>

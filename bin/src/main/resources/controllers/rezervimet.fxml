@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RezervimetController">
+    <BorderPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+        <top>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <ImageView fitHeight="50.0" fitWidth="100.0">
+                    <image>
+                        <Image url="@../photos/airport_logo.png" />
+                    </image>
+                </ImageView>
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Kosovo International Airport" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Hyperlink style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Sign Out" />
+            </HBox>
+        </top>
+        <left>
+            <VBox prefHeight="550.0" prefWidth="135.0" spacing="10.0">
+                <Hyperlink prefHeight="35.0" prefWidth="70.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Flights" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Passengers" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Security" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Baggage" />
+                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Services" />
+            </VBox>
+        </left>
+        <center>
+            <GridPane hgap="10" vgap="10" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+                <padding>
+                    <Insets bottom="10.0" left="100.0" right="10.0" top="110.0" />
+                </padding>
+
+                <Label text="Emri:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label text="Mbiemri:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="Ditëlindja:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField promptText="dd/mm/yyyy" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label text="Adresa:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Label text="Nacionaliteti:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                <Label text="Numri i telefonit:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                <Label text="Gjinia:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <RadioButton text="Mashkull" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gjinia" />
+               </toggleGroup></RadioButton>
+                <RadioButton text="Femër" toggleGroup="$gjinia" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+
+                <Label text="Kategoria e fluturimit:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                <ChoiceBox GridPane.columnIndex="1" GridPane.rowIndex="7">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Ekonimike" />
+                            <String fx:value="Biznes" />
+                            <String fx:value="Klasa e pare" />
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+
+                <Button text="Rezervo" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+            </GridPane>
+        </center>
+
+    </BorderPane>
+</AnchorPane>
