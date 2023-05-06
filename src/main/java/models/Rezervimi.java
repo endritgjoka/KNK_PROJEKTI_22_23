@@ -37,9 +37,16 @@ public class Rezervimi {
    public void setId(int id){
        this.id=id;
    }
-
-
-
-
-
+  public void setPerdoruesi_id(int perdoruesi_id){
+       this.perdoruesi_id=perdoruesi_id;
+  }
+  public void setAdresa(String adresa){
+       this.adresa=adresa;
+  }
+  public void setNacionaliteti(String nacionaliteti){
+       this.nacionaliteti=nacionaliteti;
+  }
+  public void setNumri_telefonit(String numri_telefonit){
+       this.numri_telefonit=numri_telefonit;
+  }
 }
