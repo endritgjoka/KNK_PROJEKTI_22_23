@@ -18,5 +18,28 @@ public class Rezervimi {
        this.nacionaliteti=nacionaliteti;
        this.numri_telefonit=numri_telefonit;
    }
+   public int getId(){
+       return id;
+   }
+   public int getPerdoruesi_id(){
+       return perdoruesi_id;
+   }
+   public String getAdresa(){
+       return adresa;
+
+   }
+   public String getNacionaliteti(){
+       return nacionaliteti;
+   }
+   public String getNumri_telefonit(){
+       return nacionaliteti;
+   }
+   public void setId(int id){
+       this.id=id;
+   }
+
+
+
+
 
 }
