@@ -28,15 +28,16 @@ public class HomeController {
         primaryStage.show();
 
     }
-
+    
     @FXML
-    public void goToLogin(ActionEvent event) throws IOException {
+    private void goToFluturimet(ActionEvent event) throws Exception {
 
-        Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent parenti = FXMLLoader.load(getClass().getResource("fluturimet.fxml"));
         Scene scene = new Scene(parenti);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.show();
-        login.setVisible(false);
+
     }
+
 }

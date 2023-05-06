@@ -14,10 +14,10 @@ public class App extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login.fxml"));
         Pane pane = fxmlLoader.load();
-        Scene scene = new Scene(pane, 800, 600);
-        stage.setTitle("Hello!");
+        Scene scene = new Scene(pane, 800, 480);
+        stage.setTitle("Log In");
         stage.setScene(scene);
         stage.show();
     }
