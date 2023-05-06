@@ -7,33 +7,40 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="555.0" prefWidth="451.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignUpController">
+<AnchorPane prefHeight="461.0" prefWidth="834.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignUpController">
    <children>
-      <Pane cache="true" prefHeight="602.0" prefWidth="470.0">
+      <Pane cache="true" layoutX="336.0" prefHeight="494.0" prefWidth="320.0">
          <children>
-            <Label layoutX="154.0" layoutY="170.0" text="Username" />
-            <TextField fx:id="username" layoutX="151.0" layoutY="188.0" />
-            <Label layoutX="151.0" layoutY="225.0" text="Gjinia" />
-            <Label layoutX="156.0" layoutY="301.0" text="Ditëlindja" />
-            <Label layoutX="150.0" layoutY="384.0" text="Fjalëkalimi" />
-            <Label layoutX="148.0" layoutY="464.0" text="Rishkruaj fjalëkalimin" />
+            <Label layoutX="151.0" layoutY="154.0" text="Email" />
+            <TextField fx:id="username" layoutX="151.0" layoutY="178.0" prefHeight="25.0" prefWidth="201.0" />
+            <Label layoutX="151.0" layoutY="215.0" text="Gjinia" />
+            <Label layoutX="152.0" layoutY="271.0" text="Ditëlindja" />
+            <Label layoutX="149.0" layoutY="329.0" text="Fjalëkalimi" />
+            <Label layoutX="148.0" layoutY="388.0" text="Rishkruaj fjalëkalimin" />
             <Label layoutX="154.0" layoutY="44.0" prefHeight="18.0" prefWidth="38.0" text="Emri" />
             <Label layoutX="151.0" layoutY="96.0" text="Mbiemri" />
-            <TextField fx:id="mbiemri" layoutX="151.0" layoutY="120.0" />
-            <TextField fx:id="emri" layoutX="151.0" layoutY="62.0" />
-            <Button layoutX="192.0" layoutY="545.0" mnemonicParsing="false" onAction="#btnSignUp" text="Sign Up" />
-            <RadioButton fx:id="mashkull" layoutX="146.0" layoutY="251.0" mnemonicParsing="false" onAction="#getPgjinia" text="Mashkull">
+            <TextField fx:id="mbiemri" layoutX="151.0" layoutY="120.0" prefHeight="25.0" prefWidth="201.0" />
+            <TextField fx:id="emri" layoutX="151.0" layoutY="62.0" prefHeight="27.0" prefWidth="201.0" />
+            <Button layoutX="148.0" layoutY="453.0" mnemonicParsing="false" onAction="#btnSignUp" prefHeight="33.0" prefWidth="201.0" stylesheets="@../styling/style.css" text="Sign Up" />
+            <RadioButton fx:id="mashkull" layoutX="147.0" layoutY="242.0" mnemonicParsing="false" onAction="#getPgjinia" text="Mashkull">
                <toggleGroup>
                   <ToggleGroup fx:id="gjinia" />
                </toggleGroup></RadioButton>
-            <RadioButton fx:id="femer" layoutX="236.0" layoutY="251.0" mnemonicParsing="false" onAction="#getPgjinia" text="Femër" toggleGroup="$gjinia" />
-            <DatePicker fx:id="ditelindja" blendMode="COLOR_DODGE" cache="true" editable="false" layoutX="146.0" layoutY="331.0" />
-            <PasswordField fx:id="fjalekalimi" layoutX="148.0" layoutY="412.0" prefHeight="26.0" prefWidth="170.0" />
-            <PasswordField fx:id="rishkruajFjalekalimin" layoutX="148.0" layoutY="502.0" prefHeight="26.0" prefWidth="170.0" />
+            <RadioButton fx:id="femer" layoutX="252.0" layoutY="242.0" mnemonicParsing="false" onAction="#getPgjinia" text="Femër" toggleGroup="$gjinia" />
+            <DatePicker fx:id="ditelindja" blendMode="COLOR_DODGE" cache="true" editable="false" layoutX="147.0" layoutY="295.0" prefHeight="25.0" prefWidth="201.0" />
+            <PasswordField fx:id="fjalekalimi" layoutX="148.0" layoutY="353.0" prefHeight="26.0" prefWidth="201.0" />
+            <PasswordField fx:id="rishkruajFjalekalimin" layoutX="148.0" layoutY="412.0" prefHeight="26.0" prefWidth="201.0" />
          </children>
       </Pane>
+      <ImageView fitHeight="555.0" fitWidth="347.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../photos/airport_signup.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
