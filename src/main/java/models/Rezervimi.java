@@ -7,5 +7,9 @@ public class Rezervimi {
    String nacionaliteti;
    String numri_telefonit;
 
+   public Rezervimi(){
+
+   }
+
 
 }
