@@ -27,12 +27,12 @@
                   <TableColumn prefWidth="86.40008544921875" text="Statusi" />
                     </columns>
                 </TableView>
-                <TextField fx:id="txtFilterUsername" layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="264.0" promptText="Kerko fluturimin..." />
+                <TextField fx:id="filterField" layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="264.0" promptText="Kerko fluturimin..." />
                 <Label layoutX="22.0" layoutY="14.0" text="Fluturimet">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Label>
-                <Button layoutX="501.0" layoutY="362.0" mnemonicParsing="false" onAction="#btnFilter" prefHeight="27.0" prefWidth="84.0" stylesheets="@../styling/style.css" text="Kthehu" />
+                <Button layoutX="501.0" layoutY="362.0" mnemonicParsing="false" onAction="#shkoMbrapa" prefHeight="27.0" prefWidth="84.0" stylesheets="@../styling/style.css" text="Kthehu" />
                 <CheckBox fx:id="checkBoxFilterIsActive" layoutX="365.0" layoutY="54.0" mnemonicParsing="false" text="Active" />
                 <Pagination layoutX="207.0" layoutY="301.0" maxPageIndicatorCount="2" prefHeight="100.0" prefWidth="200.0" />
             <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="543.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
