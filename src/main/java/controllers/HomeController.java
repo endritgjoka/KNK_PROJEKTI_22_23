@@ -28,7 +28,7 @@ public class HomeController {
         primaryStage.show();
 
     }
-    
+
     @FXML
     private void goToFluturimet(ActionEvent event) throws Exception {
 
@@ -40,4 +40,12 @@ public class HomeController {
 
     }
 
+    @FXML
+    public void goToRezervimet(ActionEvent event) throws Exception {
+        Parent parenti = FXMLLoader.load(getClass().getResource("rezervimet.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 }

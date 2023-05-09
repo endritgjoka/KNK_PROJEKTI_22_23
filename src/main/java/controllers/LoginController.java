@@ -11,6 +11,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import models.Perdoruesi;
+import models.Rezervimi;
 import service.UserSevice;
 
 import java.io.IOException;
@@ -45,6 +46,7 @@ public class LoginController {
         Alert alert;
         try {
             Perdoruesi perdoruesi = UserSevice.login(usernamei, passwordi);
+            Rezervimi.setPerdoruesi(perdoruesi);
             if (perdoruesi != null) {
                 // System.out.println("User login successfully!");
                 // alert = new Alert(Alert.AlertType.CONFIRMATION,"User login successfully!");

@@ -1,5 +1,7 @@
 package models;
 
+import java.sql.Date;
+
 public class Perdoruesi {
     private int id;
     private String emri;
@@ -8,10 +10,10 @@ public class Perdoruesi {
     private String fjalekalimi_salted;
     private String salt;
 
-    private int mosha;
     private char gjinia;
 
     private boolean admin;
+    private Date ditelindja;
 
     public Perdoruesi() {
 
@@ -25,17 +27,25 @@ public class Perdoruesi {
         this.id = id;
     }
 
+    public Date getDitelindja() {
+        return ditelindja;
+    }
+
+    public void setDitelindja(Date ditelindja) {
+        this.ditelindja = ditelindja;
+    }
+
     public Perdoruesi(int id, String emri, String mbiemri, String username, String fjalekalimi_salted,
-                      String salt, int mosha, char gjinia, boolean admin) {
+                      String salt, char gjinia, boolean admin, Date ditelindja) {
         this.id = id;
         this.emri = emri;
         this.mbiemri = mbiemri;
         this.username = username;
         this.fjalekalimi_salted = fjalekalimi_salted;
         this.salt = salt;
-        this.mosha = mosha;
         this.gjinia = gjinia;
         this.admin = admin;
+        this.ditelindja = ditelindja;
     }
 
     public String getSalt() {
@@ -78,13 +88,6 @@ public class Perdoruesi {
         this.fjalekalimi_salted = fjalekalimi_salted;
     }
 
-    public int getMosha() {
-        return mosha;
-    }
-
-    public void setMosha(int mosha) {
-        this.mosha = mosha;
-    }
 
     public char getGjinia() {
         return gjinia;

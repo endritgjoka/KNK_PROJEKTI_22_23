@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import models.Perdoruesi;
 import service.UserSevice;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -51,13 +52,13 @@ public class SignUpController {
         String pusername = username.getText();
         String pfjalekalimi = fjalekalimi.getText();
         String prishkruajFjalekalimin = rishkruajFjalekalimin.getText();
-        int pmosha = this.kalkuloMoshen();
+        Date pditelindja = Date.valueOf(ditelindja.getValue());
         char pgjinia = this.getPgjinia();
         boolean isAdmin = false;
 
         if (pfjalekalimi.equals(prishkruajFjalekalimin)){
             Perdoruesi user = UserSevice.signUp(pemri, pmbiemri, pusername,pfjalekalimi,
-                    pmosha,pgjinia,isAdmin);
+                    pgjinia,isAdmin,pditelindja);
             Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
             Scene scene = new Scene(parenti);
             Stage primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -72,16 +73,16 @@ public class SignUpController {
 
     }
 
-    private int kalkuloMoshen(){
-        LocalDate selectedDate = ditelindja.getValue();
-        LocalDate currentDate = LocalDate.now();
-
-        if (selectedDate != null) {
-            int mosha = Period.between(selectedDate, currentDate).getYears();
-            return mosha;
-        }
-        return 0;
-    }
+//    private int kalkuloMoshen(){
+//        LocalDate selectedDate = ditelindja.getValue();
+//        LocalDate currentDate = LocalDate.now();
+//
+//        if (selectedDate != null) {
+//            int mosha = Period.between(selectedDate, currentDate).getYears();
+//            return mosha;
+//        }
+//        return 0;
+//    }
 
     public void getGjinia(ActionEvent actionEvent) {
         if(mashkull.isSelected()){

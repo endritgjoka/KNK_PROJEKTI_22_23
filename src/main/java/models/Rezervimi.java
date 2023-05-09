@@ -1,15 +1,22 @@
 package models;
 
 public class Rezervimi {
-  private int id;
+    private int id;
     private int pasagjeri_id;
     private int fluturimi_id;
     private int numri_uleses;
     private String kategoria;
 
-   public Rezervimi(){
 
-   }
+    private static Perdoruesi perdoruesi;
+    public static Perdoruesi getPerdoruesi() {
+        return perdoruesi;
+    }
+
+
+    public Rezervimi(){
+
+    }
 
     public Rezervimi(int id, int pasagjeri_id, int fluturimi_id, int numri_uleses, String kategoria) {
         this.id = id;
@@ -17,6 +24,10 @@ public class Rezervimi {
         this.fluturimi_id = fluturimi_id;
         this.numri_uleses = numri_uleses;
         this.kategoria = kategoria;
+    }
+
+    public static void setPerdoruesi(Perdoruesi perdoruesii) {
+        perdoruesi = perdoruesii;
     }
 
     public int getId() {

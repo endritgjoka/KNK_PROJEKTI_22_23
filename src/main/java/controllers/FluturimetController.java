@@ -3,7 +3,6 @@ package controllers;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,14 +20,14 @@ import repository.FluturimetRepository;
 
 public class FluturimetController {
     @FXML
-    TableColumn  nisja, arritja, vendi_nisjes, vendi_arritjes, statusi,linja;
+    private TableColumn  nisja, arritja, vendi_nisjes, vendi_arritjes, statusi,linja;
     @FXML
-    TableView tabela;
+    private TableView tabela;
     @FXML
-    CheckBox checkBoxFilterIsActive;
+    private CheckBox checkBoxFilterIsActive;
     public void btnFilter(ActionEvent actionEvent) {
     }
-    
+
     @FXML
     private void shkoMbrapa(ActionEvent event) throws IOException {
         Parent parenti = FXMLLoader.load(getClass().getResource("home.fxml"));
