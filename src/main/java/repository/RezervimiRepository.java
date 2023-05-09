@@ -1,4 +1,50 @@
 package repository;
 
+import models.Rezervimi;
+import service.DBConnection;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class RezervimiRepository {
+    public static void insert(Rezervimi rezervim) throws SQLException {
+        String sql = "INSERT INTO rezervimet (pasagjeri_id, fluturimi_id, numri_uleses, kategoria) VALUES (?,?,?,?);";
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, rezervim.getPasagjeri_id());
+        statement.setInt(2, rezervim.getFluturimi_id());
+        statement.setInt(3, rezervim.getNumri_uleses());
+        statement.setString(4, rezervim.getKategoria());
+        statement.executeUpdate();
+    }
+
+    public static Rezervimi getById(int id) throws SQLException {
+        String sql = "SELECT * FROM rezervimet WHERE id=?";
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int pasagjeriId = resultSet.getInt("pasagjeri_id");
+                int fluturimiId = resultSet.getInt("fluturimi_id");
+                int numriUleses = resultSet.getInt("numri_uleses");
+                String kategoria = resultSet.getString("kategoria");
+                return new Rezervimi(id, pasagjeriId, fluturimiId, numriUleses, kategoria);
+            }
+            return null;
+        }
+    }
+
+
+    public static void delete(int id) throws SQLException {
+        String sql = "DELETE FROM rezervimet WHERE id=?";
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        }
+    }
+
 }

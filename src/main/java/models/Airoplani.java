@@ -1,7 +1,8 @@
 package models;
 
 public class Airoplani {
-    private String kompania;
+    private int id;
+     String kompania;
     private int kapaciteti;
     private String tipi;
 
@@ -9,10 +10,19 @@ public class Airoplani {
 
     }
 
-    public Airoplani(String kompania, int kapaciteti, String tipi) {
+    public Airoplani(int id,String kompania, int kapaciteti, String tipi) {
+        this.id = id;
         this.kompania = kompania;
         this.kapaciteti = kapaciteti;
         this.tipi = tipi;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getKompania() {

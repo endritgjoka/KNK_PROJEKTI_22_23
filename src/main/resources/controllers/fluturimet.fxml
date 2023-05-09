@@ -13,18 +13,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FluturimetController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FluturimetController">
     <children>
-        <Pane layoutX="-3.0" layoutY="-1.0" prefHeight="415.0" prefWidth="606.0" style="-fx-background-color: white;">
+        <Pane layoutX="-3.0" layoutY="-1.0" prefHeight="555.0" prefWidth="769.0" style="-fx-background-color: white;">
             <children>
-                <TableView layoutX="1.0" layoutY="86.0" prefHeight="265.0" prefWidth="606.0">
+                <TableView fx:id="tabela" layoutX="1.0" layoutY="86.0" prefHeight="267.0" prefWidth="767.0">
                     <columns>
-                        <TableColumn prefWidth="115.20001077651978" text="Linja ajrore" />
-                        <TableColumn prefWidth="106.39997100830078" text="Vendi i nisjes" />
-                        <TableColumn prefWidth="91.20001220703125" text="Ora e nisjes" />
-                        <TableColumn prefWidth="104.0" text="Vendi i arritjes" />
-                  <TableColumn prefWidth="99.19998168945312" text="Ora e arritjes" />
-                  <TableColumn prefWidth="86.40008544921875" text="Statusi" />
+                        <TableColumn fx:id="linja" prefWidth="189.60000002384186" text="Linja ajrore" />
+                        <TableColumn fx:id="vendi_nisjes" prefWidth="78.4000244140625" text="Vendi i nisjes" />
+                        <TableColumn fx:id="nisja" prefWidth="116.00006103515625" text="Nisja" />
+                        <TableColumn fx:id="vendi_arritjes" prefWidth="158.40011596679688" text="Vendi i arritjes" />
+                  <TableColumn fx:id="arritja" prefWidth="136.79998779296875" text="Arritja" />
+                  <TableColumn fx:id="statusi" prefWidth="88.7999267578125" text="Statusi" />
                     </columns>
                 </TableView>
                 <TextField fx:id="filterField" layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="264.0" promptText="Kerko fluturimin..." />
@@ -32,14 +32,15 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Label>
-                <Button layoutX="501.0" layoutY="362.0" mnemonicParsing="false" onAction="#shkoMbrapa" prefHeight="27.0" prefWidth="84.0" stylesheets="@../styling/style.css" text="Kthehu" />
-                <CheckBox fx:id="checkBoxFilterIsActive" layoutX="365.0" layoutY="54.0" mnemonicParsing="false" text="Active" />
+                <Button layoutX="672.0" layoutY="360.0" mnemonicParsing="false" onAction="#shkoMbrapa" prefHeight="27.0" prefWidth="84.0" stylesheets="@../styling/style.css" text="Kthehu" />
+                <CheckBox fx:id="checkBoxFilterIsActive" layoutX="365.0" layoutY="54.0" mnemonicParsing="false" onAction="#active" text="Active" />
                 <Pagination layoutX="207.0" layoutY="301.0" maxPageIndicatorCount="2" prefHeight="100.0" prefWidth="200.0" />
             <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="543.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../photos/airport_logo.png" />
                </image>
             </ImageView>
+            <Button layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithaFluturimet" text="Te gjitha" />
             </children>
         </Pane>
     </children>

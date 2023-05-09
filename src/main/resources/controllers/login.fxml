@@ -11,12 +11,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="486.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="486.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
     <children>
         <Pane layoutX="476.0" layoutY="137.0" AnchorPane.bottomAnchor="36.0" AnchorPane.topAnchor="137.0">
             <children>
                 <TextField fx:id="username" layoutX="7.0" prefHeight="34.0" prefWidth="275.0" promptText="Email" />
-                <PasswordField fx:id="password" layoutX="7.0" layoutY="61.0" prefHeight="34.0" prefWidth="275.0" promptText="Password" stylesheets="@../styling/style.css" />
+                <PasswordField fx:id="password" layoutX="7.0" layoutY="61.0" onKeyPressed="#login" prefHeight="34.0" prefWidth="275.0" promptText="Password" stylesheets="@../styling/style.css" />
                 <Button fx:id="submit" layoutX="4.0" layoutY="118.0" mnemonicParsing="false" onAction="#loginClick" prefHeight="34.0" prefWidth="275.0" stylesheets="@../styling/style.css" text="Sign in" />
                 <Button fx:id="sign_up" layoutX="4.0" layoutY="214.0" mnemonicParsing="false" onAction="#goToSignUp" prefHeight="34.0" prefWidth="275.0" stylesheets="@../styling/style.css" text="Sign up" />
                 <Separator layoutX="4.0" layoutY="181.0" prefHeight="7.0" prefWidth="275.0" />

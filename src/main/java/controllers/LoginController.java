@@ -39,7 +39,6 @@ public class LoginController {
 
     @FXML
     private void loginClick(ActionEvent event) throws SQLException {
-        // System.out.println("Login button clicked!");
         String usernamei = this.username.getText();
         String passwordi = this.password.getText();
 
@@ -56,9 +55,9 @@ public class LoginController {
                 primaryStage.setScene(scene);
                 primaryStage.show();
             } else {
-                System.out.println("Incorrect username/password!");
                 alert = new Alert(Alert.AlertType.ERROR, "Incorrect username/password!");
                 alert.show();
+                password.setText("");
             }
         } catch (SQLException | IOException ex) {
             throw new RuntimeException(ex);

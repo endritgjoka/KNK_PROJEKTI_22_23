@@ -26,7 +26,8 @@ public class BiletaRepository {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 int cmimi = resultSet.getInt("cmimi");
-                return new Bileta(cmimi);
+                boolean dy_drejtimeshe = resultSet.getBoolean("dy_drejtimeshe");
+                return new Bileta(id, cmimi, dy_drejtimeshe);
             } else {
                 return null;
             }

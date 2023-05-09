@@ -1,52 +1,61 @@
 package models;
 
 public class Rezervimi {
-   int id;
-   int perdoruesi_id;
-   String adresa;
-   String nacionaliteti;
-   String numri_telefonit;
+  private int id;
+    private int pasagjeri_id;
+    private int fluturimi_id;
+    private int numri_uleses;
+    private String kategoria;
 
    public Rezervimi(){
 
    }
 
-   public Rezervimi(int id,int perdoruesi_id, String adresa,String nacionaliteti, String numri_telefonit ){
-       this.id=id;
-       this.perdoruesi_id=perdoruesi_id;
-       this.adresa=adresa;
-       this.nacionaliteti=nacionaliteti;
-       this.numri_telefonit=numri_telefonit;
-   }
-   public int getId(){
-       return id;
-   }
-   public int getPerdoruesi_id(){
-       return perdoruesi_id;
-   }
-   public String getAdresa(){
-       return adresa;
+    public Rezervimi(int id, int pasagjeri_id, int fluturimi_id, int numri_uleses, String kategoria) {
+        this.id = id;
+        this.pasagjeri_id = pasagjeri_id;
+        this.fluturimi_id = fluturimi_id;
+        this.numri_uleses = numri_uleses;
+        this.kategoria = kategoria;
+    }
 
-   }
-   public String getNacionaliteti(){
-       return nacionaliteti;
-   }
-   public String getNumri_telefonit(){
-       return nacionaliteti;
-   }
-   public void setId(int id){
-       this.id=id;
-   }
-  public void setPerdoruesi_id(int perdoruesi_id){
-       this.perdoruesi_id=perdoruesi_id;
-  }
-  public void setAdresa(String adresa){
-       this.adresa=adresa;
-  }
-  public void setNacionaliteti(String nacionaliteti){
-       this.nacionaliteti=nacionaliteti;
-  }
-  public void setNumri_telefonit(String numri_telefonit){
-       this.numri_telefonit=numri_telefonit;
-  }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPasagjeri_id() {
+        return pasagjeri_id;
+    }
+
+    public void setPasagjeri_id(int pasagjeri_id) {
+        this.pasagjeri_id = pasagjeri_id;
+    }
+
+    public int getFluturimi_id() {
+        return fluturimi_id;
+    }
+
+    public void setFluturimi_id(int fluturimi_id) {
+        this.fluturimi_id = fluturimi_id;
+    }
+
+    public int getNumri_uleses() {
+        return numri_uleses;
+    }
+
+    public void setNumri_uleses(int numri_uleses) {
+        this.numri_uleses = numri_uleses;
+    }
+
+    public String getKategoria() {
+        return kategoria;
+    }
+
+    public void setKategoria(String kategoria) {
+        this.kategoria = kategoria;
+    }
 }
