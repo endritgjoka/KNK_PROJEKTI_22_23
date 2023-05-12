@@ -150,4 +150,61 @@ public class FluturimetRepository {
         }
         return fluturimet;
     }
+
+    public static ObservableList<Fluturimet> getSearched(String fromSearch) throws Exception {
+        ObservableList<Fluturimet> fluturimet = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM fluturimet f \n" +
+                "INNER JOIN bileta b ON b.id = f.bileta_id " +
+                "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
+                "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
+                "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id" +
+                " WHERE a.kompania LIKE '%" + fromSearch+"%' OR nisjet.qyteti LIKE '%" + fromSearch+ "%' OR arritjet.qyteti LIKE '%"+fromSearch+"%'";
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+
+            int id = resultSet.getInt("id");
+            int bileta_id = resultSet.getInt("bileta_id");
+            int aeroplani_id = resultSet.getInt("aeroplani_id");
+            int aeroporti_nisjes_id = resultSet.getInt("aeroporti_nisjes_id");
+            Timestamp nisja = resultSet.getTimestamp("nisja");
+            int aeroporti_arritjes_id = resultSet.getInt("aeroporti_arritjes_id");
+            Timestamp arritja = resultSet.getTimestamp("arritja");
+            String status = resultSet.getString("status");
+            Fluturimet fluturim = new Fluturimet(id, bileta_id, aeroplani_id, aeroporti_nisjes_id, nisja, aeroporti_arritjes_id, arritja, status);
+
+
+            bileta_id = resultSet.getInt("bileta_id");
+            int çmimi = resultSet.getInt("çmimi");
+            boolean dy_drejtimeshe = resultSet.getBoolean("dy_drejtimeshe");
+            fluturim.setBileta(new Bileta(bileta_id,çmimi,dy_drejtimeshe ));
+
+            aeroplani_id = resultSet.getInt("id");
+            String kompania = resultSet.getString("kompania");
+            int kapaciteti = resultSet.getInt("kapaciteti");
+            String tipi = resultSet.getString("tipi");
+            fluturim.setAiroplani(new Airoplani(aeroplani_id, kompania, kapaciteti, tipi));
+            fluturim.setLinja(fluturim.getAiroplani().getKompania());
+
+
+            int aeroporti_id = resultSet.getInt("nisjet.id");
+            String emri = resultSet.getString("nisjet.emri");
+            String qyteti = resultSet.getString("nisjet.qyteti");
+            fluturim.setAeroporti1(new Aeroporti(aeroporti_id, emri, qyteti));
+            fluturim.setQyteti1(fluturim.getAeroporti1().getQyteti());
+
+
+            int aeroporti_id1 = resultSet.getInt("arritjet.id");
+            String emri1 = resultSet.getString("arritjet.emri");
+            String qyteti1 = resultSet.getString("arritjet.qyteti");
+            fluturim.setAeroporti2(new Aeroporti(aeroporti_id1, emri1, qyteti1));
+            fluturim.setQyteti2(fluturim.getAeroporti2().getQyteti());
+
+            fluturimet.add(fluturim);
+
+        }
+        return fluturimet;
+    }
 }

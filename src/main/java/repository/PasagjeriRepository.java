@@ -9,13 +9,14 @@ import java.sql.*;
 
 public class PasagjeriRepository {
     public static void insert(Pasagjeri pasagjeri) throws SQLException {
-        String sql = "INSERT INTO pasagjeret (perdoruesi_id,adresa,nacionaliteti,numri_telefonit) VALUES (?, ?,?,?)";
+        String sql = "INSERT INTO pasagjeret (perdoruesi_id,adresa,nacionaliteti,numri_telefonit, numri_pasaportes) VALUES (?, ?,?,?,?)";
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, Rezervimi.getPerdoruesi().getId());
         statement.setString(2, pasagjeri.getAdresa());
         statement.setString(3, pasagjeri.getNacionaliteti());
         statement.setString(4, pasagjeri.getNumri_telefonit());
+        statement.setString(5, pasagjeri.getNumri_pasaportes());
         statement.executeUpdate();
     }
 
@@ -31,8 +32,9 @@ public class PasagjeriRepository {
                 String adresa = resultSet.getString("adresa");
                 String nacionaliteti = resultSet.getString("nacionaliteti");
                 String numriTelefonit = resultSet.getString("numri_telefonit");
+                String numriPasaportes = resultSet.getString("numri_pasaportes");
 
-                return new Pasagjeri(id, perdoruesiId, adresa, nacionaliteti, numriTelefonit);
+                return new Pasagjeri(id, perdoruesiId, adresa, nacionaliteti, numriTelefonit,numriPasaportes);
             }
 
             return null;

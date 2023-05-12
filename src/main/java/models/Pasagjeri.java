@@ -21,6 +21,26 @@ public class Pasagjeri extends Perdoruesi {
     private String nacionaliteti;
     private String numri_telefonit;
 
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNumri_pasaportes() {
+        return numri_pasaportes;
+    }
+
+    public void setNumri_pasaportes(String numri_pasaportes) {
+        this.numri_pasaportes = numri_pasaportes;
+    }
+
+    private String numri_pasaportes;
+
     public Pasagjeri() {
 
     }
@@ -35,12 +55,13 @@ public class Pasagjeri extends Perdoruesi {
 //        perdoruesi_id = perdoruesiId;
 //    }
 
-    public Pasagjeri(int id, int perdoruesi_id, String adresa, String nacionaliteti, String numri_telefonit) {
+    public Pasagjeri(int id, int perdoruesi_id, String adresa, String nacionaliteti, String numri_telefonit, String numri_pasaportes) {
         this.id = id;
         this.perdoruesi_id = perdoruesi_id;
         this.adresa = adresa;
         this.nacionaliteti = nacionaliteti;
         this.numri_telefonit = numri_telefonit;
+        this.numri_pasaportes = numri_pasaportes;
     }
 
     public void setAdresa(String adresa) {

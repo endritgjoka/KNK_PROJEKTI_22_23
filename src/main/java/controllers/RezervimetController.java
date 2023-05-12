@@ -25,7 +25,8 @@ public class RezervimetController implements Initializable {
 
 
     @FXML
-    private TextField emri, mbiemri, adresa, nacionaliteti, numriTelefonit;
+    TextField emri, mbiemri, adresa, nacionaliteti, numriTelefonit, pasaporta;
+
     @FXML
     private DatePicker ditelindja;
 
@@ -36,8 +37,9 @@ public class RezervimetController implements Initializable {
         String padresa = this.adresa.getText();
         String pnacionaliteti = this.nacionaliteti.getText();
         String pNumriTelefonit = this.numriTelefonit.getText();
+        String pNumriPasaportes = this.pasaporta.getText();
         if (!padresa.equals("") && !pnacionaliteti.equals("") && !pNumriTelefonit.equals("")){
-            Pasagjeri pasagjeri = PasagjeriService.regjistroPasagjerin(Rezervimi.getPerdoruesi().getId(), padresa, pnacionaliteti, pNumriTelefonit);
+            Pasagjeri pasagjeri = PasagjeriService.regjistroPasagjerin(Rezervimi.getPerdoruesi().getId(), padresa, pnacionaliteti, pNumriTelefonit, pNumriPasaportes);
 
             Parent parenti = FXMLLoader.load(getClass().getResource("pagesa.fxml"));
             Scene scene = new Scene(parenti);
@@ -59,6 +61,16 @@ public class RezervimetController implements Initializable {
         this.mbiemri.setText(perdoruesi.getMbiemri());
         this.ditelindja.setValue(perdoruesi.getDitelindja().toLocalDate());
 
+    }
+
+    @FXML
+    public void goToLogin(ActionEvent event) throws Exception{
+        Rezervimi.setPerdoruesi(null);
+        Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
 
