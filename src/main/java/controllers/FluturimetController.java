@@ -10,9 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.Fluturimet;
@@ -25,6 +23,9 @@ public class FluturimetController {
     private TableView tabela;
     @FXML
     private CheckBox checkBoxFilterIsActive;
+    @FXML
+    private TextField filterField;
+
     public void btnFilter(ActionEvent actionEvent) {
     }
 
@@ -75,5 +76,20 @@ public class FluturimetController {
             tabela.getItems().clear();
         }
 
+    }
+
+    @FXML
+    public void kerkoFluturimin(ActionEvent actionEvent) throws Exception{
+        String fromSearch = filterField.getText();
+        ObservableList<Fluturimet> data = FluturimetRepository.getSearched(fromSearch);
+
+        linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
+        nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
+        arritja.setCellValueFactory(new PropertyValueFactory<>("arritja"));
+        statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
+        vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
+        vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
+
+        tabela.setItems(data);
     }
 }

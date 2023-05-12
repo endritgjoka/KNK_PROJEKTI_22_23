@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
+import models.Rezervimi;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +19,7 @@ public class HomeController {
 
     @FXML
     private Hyperlink login;
+
     @FXML
     private void help(ActionEvent event) throws Exception {
 
@@ -43,6 +45,16 @@ public class HomeController {
     @FXML
     public void goToRezervimet(ActionEvent event) throws Exception {
         Parent parenti = FXMLLoader.load(getClass().getResource("rezervimet.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    @FXML
+    public void goToLogin(ActionEvent event) throws Exception {
+        Rezervimi.setPerdoruesi(null);
+        Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(parenti);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);
