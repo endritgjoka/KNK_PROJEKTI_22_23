@@ -29,5 +29,10 @@
          </HBox.margin>
       </Button>
     </HBox>
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Button mnemonicParsing="false" text="Rezervo" />
+      </children>
+   </HBox>
 
 </VBox>
