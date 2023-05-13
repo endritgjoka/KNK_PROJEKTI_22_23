@@ -21,7 +21,7 @@ import service.PasagjeriService;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RezervimetController implements Initializable {
+public class RezervimetController extends BaseController implements Initializable{
 
 
     @FXML
@@ -74,4 +74,13 @@ public class RezervimetController implements Initializable {
     }
 
 
+    @Override
+    void translateEnglish() {
+
+    }
+
+    @Override
+    void translateAlbanian() {
+
+    }
 }

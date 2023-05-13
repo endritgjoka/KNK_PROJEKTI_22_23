@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 
-public class HomeController {
+public class HomeController extends BaseController {
 
 
     @FXML
@@ -55,6 +55,26 @@ public class HomeController {
     public void goToLogin(ActionEvent event) throws Exception {
         Rezervimi.setPerdoruesi(null);
         Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    @Override
+    void translateEnglish() {
+
+    }
+
+    @Override
+    void translateAlbanian() {
+
+    }
+
+    @FXML
+    public void goToProfile(ActionEvent event) throws Exception{
+
+        Parent parenti = FXMLLoader.load(getClass().getResource("userProfile.fxml"));
         Scene scene = new Scene(parenti);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);

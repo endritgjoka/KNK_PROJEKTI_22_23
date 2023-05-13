@@ -5,14 +5,11 @@ import repository.UserRepository;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.List;
+
 
 public class UserSevice {
-    private UserRepository userRepository;
 
-    // public UserSevice() {
-    // this.userRepository = new UserRepository();
-    // }
+
 
     public static Perdoruesi login(String username, String password) throws SQLException {
         Perdoruesi loginUser = UserRepository.getByUsername(username);
@@ -44,12 +41,35 @@ public class UserSevice {
 
     }
 
-    // public static List<User> filterUsers(UserFilter filter, Pagination
-    // pagination){
-    // try {
-    // return UserRepository.getByFilter(filter, pagination);
-    // }catch(SQLException e){
-    // return null;
-    // }
-    // }
+    public static Perdoruesi editPassword(Perdoruesi perdoruesi, String oldPassword, String newPassword) throws SQLException {
+        boolean isOldPasswordCorrect = PasswordHasher.compareSaltedHash(oldPassword, perdoruesi.getSalt(),
+                perdoruesi.getFjalekalimi_salted());
+        if (isOldPasswordCorrect){
+            perdoruesi.setFjalekalimi_salted(PasswordHasher.generateSaltedHash(newPassword, perdoruesi.getSalt()));
+            UserRepository.updatePassword(perdoruesi);
+            return perdoruesi;
+
+        }
+        return null;
+    }
+
+    public static Perdoruesi editProfile(Perdoruesi perdoruesi, String username, String emri, String mbiemri, Date ditelindja) throws SQLException {
+        perdoruesi.setUsername(username);
+        perdoruesi.setEmri(emri);
+        perdoruesi.setMbiemri(mbiemri);
+        perdoruesi.setDitelindja(ditelindja);
+        UserRepository.update(perdoruesi);
+        return perdoruesi;
+    }
+
+
+    public static boolean validUsername(String username, int id) throws SQLException {
+        Perdoruesi perdoruesi = UserRepository.getByUsername(username);
+        if (perdoruesi == null || perdoruesi.getId() == id){
+            return true;
+        }
+        return false;
+    }
+
+
 }

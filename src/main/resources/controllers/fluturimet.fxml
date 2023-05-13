@@ -41,6 +41,7 @@
                </image>
             </ImageView>
             <Button layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithaFluturimet" text="Te gjitha" />
+            <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoFluturimin" text="Kërko" />
             </children>
         </Pane>
     </children>

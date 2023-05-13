@@ -6,7 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 
-public class PagesaController {
+public class PagesaController extends BaseController{
 
     @FXML
     private TextField cardNameField;
@@ -35,4 +35,13 @@ public class PagesaController {
     @FXML
     private BorderPane root;
 
+    @Override
+    void translateEnglish() {
+
+    }
+
+    @Override
+    void translateAlbanian() {
+
+    }
 }

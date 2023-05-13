@@ -45,12 +45,23 @@ public class UserRepository {
     }
 
     public static void update(Perdoruesi user) throws SQLException {
-        String sql = "UPDATE perdoruesit SET username=?, fjalekalimi_salted=? WHERE id=?";
+        String sql = "UPDATE perdoruesit SET username=?, emri=?, mbiemri = ?, ditelindja = ? WHERE id=?";
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, user.getUsername());
-            statement.setString(2, user.getFjalekalimi_salted());
-            statement.setInt(4, user.getId());
+            statement.setString(2, user.getEmri());
+            statement.setString(3, user.getMbiemri());
+            statement.setDate(4, user.getDitelindja());
+            statement.setInt(5, user.getId());
+            statement.executeUpdate();
+        }
+    }
+    public static void updatePassword(Perdoruesi user) throws SQLException {
+        String sql = "UPDATE perdoruesit SET fjalekalimi_salted = ? WHERE id=?";
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, user.getFjalekalimi_salted());
+            statement.setInt(2, user.getId());
             statement.executeUpdate();
         }
     }

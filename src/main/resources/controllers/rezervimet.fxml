@@ -29,7 +29,7 @@
                 </ImageView>
                 <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Kosovo International Airport" />
                 <Region HBox.hgrow="ALWAYS" />
-                <Hyperlink style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Sign Out" />
+                <Hyperlink onAction="#goToLogin" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Sign Out" />
             </HBox>
         </top>
         <left>
@@ -52,16 +52,22 @@
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="emri" promptText="Shenoni emrin..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="emri" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                 <Label text="Mbiemri:" GridPane.rowIndex="2">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="mbiemri" promptText="Shenoni mbiemrin..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="mbiemri" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                 <Label text="Ditëlindja:" GridPane.rowIndex="3">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="pasaporta" promptText="Shenoni numrin e pasaportes..." GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                <Label text="Numri i pasaportës" GridPane.rowIndex="8">
                     <font>
                         <Font size="14.0" />
                     </font>

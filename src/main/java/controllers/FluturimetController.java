@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import models.Fluturimet;
 import repository.FluturimetRepository;
 
-public class FluturimetController {
+public class FluturimetController extends BaseController{
     @FXML
     private TableColumn  nisja, arritja, vendi_nisjes, vendi_arritjes, statusi,linja;
     @FXML
@@ -91,5 +91,15 @@ public class FluturimetController {
         vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
 
         tabela.setItems(data);
+    }
+
+    @Override
+    void translateEnglish() {
+
+    }
+
+    @Override
+    void translateAlbanian() {
+
     }
 }

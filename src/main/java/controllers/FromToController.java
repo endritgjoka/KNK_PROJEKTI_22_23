@@ -11,7 +11,7 @@ import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import models.Rezervimi;
 
-public class FromToController {
+public class FromToController extends BaseController {
     @FXML
     private ChoiceBox prej;
     @FXML
@@ -29,5 +29,18 @@ public class FromToController {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    @Override
+    void translateEnglish() {
+
+    }
+
+    @Override
+    void translateAlbanian() {
+
+    }
+
+    public void handleFilterAction(ActionEvent actionEvent) {
     }
 }

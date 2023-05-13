@@ -17,7 +17,7 @@ import service.UserSevice;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class LoginController {
+public class LoginController extends  BaseController{
 
     @FXML
     private TextField username;
@@ -80,4 +80,13 @@ public class LoginController {
     }
 
 
+    @Override
+    void translateEnglish() {
+
+    }
+
+    @Override
+    void translateAlbanian() {
+
+    }
 }

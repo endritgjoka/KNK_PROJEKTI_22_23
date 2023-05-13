@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
     <BorderPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
         <top>
             <HBox alignment="CENTER_LEFT" spacing="10.0">
@@ -21,16 +21,16 @@
                 </ImageView>
                 <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Kosovo International Airport" />
                 <Region HBox.hgrow="ALWAYS" />
-                <Hyperlink style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Sign Out" />
+                <Hyperlink onAction="#goToLogin" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Sign Out" />
             </HBox>
         </top>
         <left>
             <VBox prefHeight="509.0" prefWidth="135.0" spacing="10.0">
                 <Hyperlink onAction="#goToFluturimet" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Flights" />
                 <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Passengers" />
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Security" />
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Baggage" />
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Services" />
+                <Hyperlink onAction="#goToRezervimet" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Reservations" />
+                <Hyperlink onAction="#goToProfile" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="UserProfile" />
+                <Hyperlink  style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Services" />
                 <Hyperlink onAction="#help" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Help" />
             </VBox>
         </left>
