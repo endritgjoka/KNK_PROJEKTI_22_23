@@ -32,7 +32,7 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Label>
-                <Button layoutX="672.0" layoutY="360.0" mnemonicParsing="false" onAction="#shkoMbrapa" prefHeight="27.0" prefWidth="84.0" stylesheets="@../styling/style.css" text="Kthehu" />
+                <Button layoutX="614.0" layoutY="360.0" mnemonicParsing="false" onAction="#shkoMbrapa" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shto Fluturim" />
                 <CheckBox fx:id="checkBoxFilterIsActive" layoutX="365.0" layoutY="54.0" mnemonicParsing="false" onAction="#active" text="Active" />
                 <Pagination layoutX="207.0" layoutY="301.0" maxPageIndicatorCount="2" prefHeight="100.0" prefWidth="200.0" />
             <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="543.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
@@ -42,6 +42,8 @@
             </ImageView>
             <Button layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithaFluturimet" text="Te gjitha" />
             <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoFluturimin" text="Kërko" />
+            <Button layoutX="614.0" layoutY="394.0" mnemonicParsing="false" onAction="#shkoMbrapa" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Menaxho Perdoruesit" />
+            <Button layoutX="614.0" layoutY="429.0" mnemonicParsing="false" onAction="#shkoMbrapa" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shiko Diagramet" />
             </children>
         </Pane>
     </children>
