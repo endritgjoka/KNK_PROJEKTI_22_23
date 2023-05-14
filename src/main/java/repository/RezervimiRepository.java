@@ -10,13 +10,14 @@ import java.sql.SQLException;
 
 public class RezervimiRepository {
     public static void insert(Rezervimi rezervim) throws SQLException {
-        String sql = "INSERT INTO rezervimet (pasagjeri_id, fluturimi_id, numri_uleses, kategoria) VALUES (?,?,?,?);";
+        String sql = "INSERT INTO rezervimet (pasagjeri_id, fluturimi_id, numri_uleses, kategoria, biletad_id) VALUES (?,?,?,?,?);";
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, rezervim.getPasagjeri_id());
         statement.setInt(2, rezervim.getFluturimi_id());
         statement.setInt(3, rezervim.getNumri_uleses());
         statement.setString(4, rezervim.getKategoria());
+        statement.setInt(5, rezervim.getBileta_id());
         statement.executeUpdate();
     }
 
@@ -31,7 +32,8 @@ public class RezervimiRepository {
                 int fluturimiId = resultSet.getInt("fluturimi_id");
                 int numriUleses = resultSet.getInt("numri_uleses");
                 String kategoria = resultSet.getString("kategoria");
-                return new Rezervimi(id, pasagjeriId, fluturimiId, numriUleses, kategoria);
+                int biletaId = resultSet.getInt("bileta_id");
+                return new Rezervimi(id, pasagjeriId, fluturimiId, numriUleses, kategoria, biletaId);
             }
             return null;
         }

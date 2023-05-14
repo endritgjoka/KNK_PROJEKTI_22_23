@@ -18,7 +18,7 @@ import repository.FluturimetRepository;
 
 public class FluturimetController extends BaseController{
     @FXML
-    private TableColumn  nisja, arritja, vendi_nisjes, vendi_arritjes, statusi,linja;
+    private TableColumn  nisja, kthimi, vendi_nisjes, vendi_arritjes, statusi,linja;
     @FXML
     private TableView tabela;
     @FXML
@@ -49,7 +49,7 @@ public class FluturimetController extends BaseController{
 
         linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
         nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
-        arritja.setCellValueFactory(new PropertyValueFactory<>("arritja"));
+        kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));
         statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
         vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
         vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
@@ -65,7 +65,7 @@ public class FluturimetController extends BaseController{
 
             linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
             nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
-            arritja.setCellValueFactory(new PropertyValueFactory<>("arritja"));
+            kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));
             statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
             vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
             vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
@@ -85,7 +85,7 @@ public class FluturimetController extends BaseController{
 
         linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
         nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
-        arritja.setCellValueFactory(new PropertyValueFactory<>("arritja"));
+        kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));
         statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
         vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
         vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
@@ -100,6 +100,24 @@ public class FluturimetController extends BaseController{
 
     @Override
     void translateAlbanian() {
+
+    }
+
+    @FXML
+    public void menaxhoPerdoruesit(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void shikoDiagramet(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void shtoFluturim(ActionEvent actionEvent) throws Exception {
+        Parent parent = FXMLLoader.load(App.class.getResource("shtoFluturim.fxml"));
+        Scene scene = new Scene(parent);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
     }
 }

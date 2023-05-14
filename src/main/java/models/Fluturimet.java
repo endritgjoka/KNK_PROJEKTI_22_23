@@ -4,30 +4,24 @@ import java.sql.Timestamp;
 
 public class Fluturimet {
     private int id;
-    private int bileta_id;
     private int aeroplani_id;
     private int aeroporti_nisjes_id;
 
     private Timestamp nisja;
     private int aeroporti_arritjes_id;
-    private Timestamp arritja;
+    private Timestamp kthimi;
     private  String status;
+    private boolean dy_drejtimeshe;
+    private int kohezgjatja;
     private Airoplani airoplani;
+
     private Aeroporti aeroporti1;
     private Aeroporti aeroporti2;
-    private Bileta bileta;
     private String qyteti1;
     private String qyteti2;
     private String linja;
 
 
-    public Bileta getBileta() {
-        return bileta;
-    }
-
-    public void setBileta(Bileta bileta) {
-        this.bileta = bileta;
-    }
 
     public Airoplani getAiroplani() {
         return airoplani;
@@ -66,13 +60,6 @@ public class Fluturimet {
         this.id = id;
     }
 
-    public int getBileta_id() {
-        return bileta_id;
-    }
-
-    public void setBileta_id(int bileta_id) {
-        this.bileta_id = bileta_id;
-    }
 
     public int getAeroplani_id() {
         return aeroplani_id;
@@ -106,12 +93,12 @@ public class Fluturimet {
         this.aeroporti_arritjes_id = aeroporti_arritjes_id;
     }
 
-    public Timestamp getArritja() {
-        return arritja;
+    public Timestamp getKthimi() {
+        return kthimi;
     }
 
-    public void setArritja(Timestamp arritja) {
-        this.arritja = arritja;
+    public void setKthimi(Timestamp kthimi) {
+        this.kthimi = kthimi;
     }
 
     public String getStatus() {
@@ -122,15 +109,16 @@ public class Fluturimet {
         this.status = status;
     }
 
-    public Fluturimet(int id, int bileta_id, int aeroplani_id, int aeroporti_nisjes_id, Timestamp nisja, int aeroporti_arritjes_id, Timestamp arritja, String status) {
+    public Fluturimet(int id, int aeroplani_id, int aeroporti_nisjes_id, Timestamp nisja, int aeroporti_arritjes_id, Timestamp arritja, String status, boolean dyDrejtimeshe, int kohezgjatja) {
         this.id = id;
-        this.bileta_id = bileta_id;
         this.aeroplani_id = aeroplani_id;
         this.aeroporti_nisjes_id = aeroporti_nisjes_id;
         this.nisja = nisja;
         this.aeroporti_arritjes_id = aeroporti_arritjes_id;
-        this.arritja = arritja;
+        this.kthimi = arritja;
         this.status = status;
+        dy_drejtimeshe = dyDrejtimeshe;
+        this.kohezgjatja = kohezgjatja;
     }
 
     public String getQyteti1() {
@@ -155,6 +143,22 @@ public class Fluturimet {
 
     public void setLinja(String linja) {
         this.linja = linja;
+    }
+
+    public boolean isDy_drejtimeshe() {
+        return dy_drejtimeshe;
+    }
+
+    public void setDy_drejtimeshe(boolean dy_drejtimeshe) {
+        this.dy_drejtimeshe = dy_drejtimeshe;
+    }
+
+    public int getKohezgjatja() {
+        return kohezgjatja;
+    }
+
+    public void setKohezgjatja(int kohezgjatja) {
+        this.kohezgjatja = kohezgjatja;
     }
 }
 

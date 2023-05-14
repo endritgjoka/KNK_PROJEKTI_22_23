@@ -42,8 +42,9 @@ public class BagazhetRepository {
         String sql = "UPDATE bagazhet SET numri_bagazhit=?, pesha_bagazhit=?  WHERE id=?";
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(2, bagazh.getNumri_bagazhit());
-            statement.setDouble(3, bagazh.getPesha_bagazhit());
+            statement.setInt(1, bagazh.getNumri_bagazhit());
+            statement.setDouble(2, bagazh.getPesha_bagazhit());
+            statement.setInt(3, bagazh.getId());
             statement.executeUpdate();
         }
     }

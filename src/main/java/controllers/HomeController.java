@@ -44,7 +44,7 @@ public class HomeController extends BaseController {
 
     @FXML
     public void goToRezervimet(ActionEvent event) throws Exception {
-        Parent parenti = FXMLLoader.load(getClass().getResource("rezervimet.fxml"));
+        Parent parenti = FXMLLoader.load(getClass().getResource("pasagjer.fxml"));
         Scene scene = new Scene(parenti);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);

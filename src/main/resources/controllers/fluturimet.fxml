@@ -23,7 +23,7 @@
                         <TableColumn fx:id="vendi_nisjes" prefWidth="78.4000244140625" text="Vendi i nisjes" />
                         <TableColumn fx:id="nisja" prefWidth="116.00006103515625" text="Nisja" />
                         <TableColumn fx:id="vendi_arritjes" prefWidth="158.40011596679688" text="Vendi i arritjes" />
-                  <TableColumn fx:id="arritja" prefWidth="136.79998779296875" text="Arritja" />
+                  <TableColumn fx:id="kthimi" prefWidth="136.79998779296875" text="Kthimi" />
                   <TableColumn fx:id="statusi" prefWidth="88.7999267578125" text="Statusi" />
                     </columns>
                 </TableView>
@@ -32,7 +32,7 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Label>
-                <Button layoutX="614.0" layoutY="360.0" mnemonicParsing="false" onAction="#shkoMbrapa" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shto Fluturim" />
+                <Button layoutX="614.0" layoutY="360.0" mnemonicParsing="false" onAction="#shtoFluturim" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shto Fluturim" />
                 <CheckBox fx:id="checkBoxFilterIsActive" layoutX="365.0" layoutY="54.0" mnemonicParsing="false" onAction="#active" text="Active" />
                 <Pagination layoutX="207.0" layoutY="301.0" maxPageIndicatorCount="2" prefHeight="100.0" prefWidth="200.0" />
             <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="543.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
@@ -42,8 +42,8 @@
             </ImageView>
             <Button layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithaFluturimet" text="Te gjitha" />
             <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoFluturimin" text="Kërko" />
-            <Button layoutX="614.0" layoutY="394.0" mnemonicParsing="false" onAction="#shkoMbrapa" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Menaxho Perdoruesit" />
-            <Button layoutX="614.0" layoutY="429.0" mnemonicParsing="false" onAction="#shkoMbrapa" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shiko Diagramet" />
+            <Button layoutX="614.0" layoutY="394.0" mnemonicParsing="false" onAction="#menaxhoPerdoruesit" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Menaxho Perdoruesit" />
+            <Button layoutX="614.0" layoutY="429.0" mnemonicParsing="false" onAction="#shikoDiagramet" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shiko Diagramet" />
             </children>
         </Pane>
     </children>

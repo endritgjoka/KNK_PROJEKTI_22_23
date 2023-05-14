@@ -4,20 +4,27 @@ package repository;
 import models.Airoplani;
 import service.DBConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class AiroplaniRepository {
-    public static void insert(Airoplani airoplani) throws SQLException {
+    public static int insert(Airoplani airoplani) throws SQLException {
         String sql = "INSERT INTO aeroplanet(kompania,kapaciteti, tipi) VALUES (?,?,?)";
         Connection connection = DBConnection.getConnection();
-        PreparedStatement statement = connection.prepareStatement(sql);
+        PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, airoplani.getKompania());
         statement.setInt(2, airoplani.getKapaciteti());
         statement.setString(3, airoplani.getTipi());
         statement.executeUpdate();
+
+        ResultSet generatedKeys = statement.getGeneratedKeys();
+        int airoplaniId;
+        if (generatedKeys.next()) {
+            airoplaniId = generatedKeys.getInt(1);// përdor airoplaniId në shtimin e një rekordi në tabelën aeroplanet
+        } else {
+            throw new SQLException("Can not get id of added plane!");
+        }
+
+        return airoplaniId;
     }
 
     public static Airoplani getById(int id) throws SQLException {

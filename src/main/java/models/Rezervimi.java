@@ -6,7 +6,7 @@ public class Rezervimi {
     private int fluturimi_id;
     private int numri_uleses;
     private String kategoria;
-
+    private int bileta_id;
 
     private static Perdoruesi perdoruesi;
     public static Perdoruesi getPerdoruesi() {
@@ -18,12 +18,13 @@ public class Rezervimi {
 
     }
 
-    public Rezervimi(int id, int pasagjeri_id, int fluturimi_id, int numri_uleses, String kategoria) {
+    public Rezervimi(int id, int pasagjeri_id, int fluturimi_id, int numri_uleses, String kategoria, int biletaId) {
         this.id = id;
         this.pasagjeri_id = pasagjeri_id;
         this.fluturimi_id = fluturimi_id;
         this.numri_uleses = numri_uleses;
         this.kategoria = kategoria;
+        bileta_id = biletaId;
     }
 
     public static void setPerdoruesi(Perdoruesi perdoruesii) {
@@ -68,5 +69,13 @@ public class Rezervimi {
 
     public void setKategoria(String kategoria) {
         this.kategoria = kategoria;
+    }
+
+    public int getBileta_id() {
+        return bileta_id;
+    }
+
+    public void setBileta_id(int bileta_id) {
+        this.bileta_id = bileta_id;
     }
 }

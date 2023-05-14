@@ -14,14 +14,12 @@ import javafx.stage.Stage;
 import models.Pasagjeri;
 import models.Perdoruesi;
 import models.Rezervimi;
-import repository.PasagjeriRepository;
-import repository.UserRepository;
 import service.PasagjeriService;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RezervimetController extends BaseController implements Initializable{
+public class PasagjerController extends BaseController implements Initializable{
 
 
     @FXML
@@ -41,7 +39,7 @@ public class RezervimetController extends BaseController implements Initializabl
         if (!padresa.equals("") && !pnacionaliteti.equals("") && !pNumriTelefonit.equals("")){
             Pasagjeri pasagjeri = PasagjeriService.regjistroPasagjerin(Rezervimi.getPerdoruesi().getId(), padresa, pnacionaliteti, pNumriTelefonit, pNumriPasaportes);
 
-            Parent parenti = FXMLLoader.load(getClass().getResource("pagesa.fxml"));
+            Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
             Scene scene = new Scene(parenti);
             Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             primaryStage.setScene(scene);
@@ -81,6 +79,12 @@ public class RezervimetController extends BaseController implements Initializabl
 
     @Override
     void translateAlbanian() {
+
+    }
+
+
+    @FXML
+    public void vazhdo(ActionEvent actionEvent) {
 
     }
 }

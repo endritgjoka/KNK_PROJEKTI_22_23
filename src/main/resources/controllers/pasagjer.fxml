@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="542.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RezervimetController">
+<AnchorPane prefHeight="542.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PasagjerController">
     <BorderPane fx:id="root" prefHeight="527.0" prefWidth="752.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
         <top>
             <HBox alignment="CENTER_LEFT" prefHeight="87.0" prefWidth="800.0" spacing="10.0">
@@ -52,14 +52,14 @@
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="emri" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="emri" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                 <Label text="Mbiemri:" GridPane.rowIndex="2">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="mbiemri" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="mbiemri" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                 <Label text="Ditëlindja:" GridPane.rowIndex="3">
                     <font>
@@ -99,7 +99,7 @@
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <DatePicker fx:id="ditelindja" prefHeight="26.0" prefWidth="193.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <DatePicker fx:id="ditelindja" disable="true" prefHeight="26.0" prefWidth="193.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <columnConstraints>
                     <ColumnConstraints />
                     <ColumnConstraints />

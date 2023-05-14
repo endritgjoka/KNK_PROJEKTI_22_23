@@ -2,8 +2,6 @@ package repository;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import models.*;
 import service.DBConnection;
 
@@ -13,16 +11,17 @@ public class FluturimetRepository {
 
 
     public static void insert(Fluturimet fluturim) throws SQLException {
-        String sql = "INSERT INTO fluturimet (bileta_id, aeroplani_id, aeroporti_nisjes_id, nisja, aeroporti_arritjes_id, arritja, status) VALUES (?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO fluturimet (aeroplani_id, aeroporti_nisjes_id, nisja, aeroporti_arritjes_id, kthimi, status, dy_drejtimeshe, kohezgjatja) VALUES (?,?,?,?,?,?,?,?);";
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, fluturim.getBileta_id());
-        statement.setInt(2, fluturim.getAeroplani_id());
-        statement.setInt(3, fluturim.getAeroporti_nisjes_id());
-        statement.setTimestamp(4, fluturim.getNisja());
-        statement.setInt(3, fluturim.getAeroporti_arritjes_id());
-        statement.setTimestamp(6, fluturim.getArritja());
-        statement.setString(7, fluturim.getStatus());
+        statement.setInt(1, fluturim.getAeroplani_id());
+        statement.setInt(2, fluturim.getAeroporti_nisjes_id());
+        statement.setTimestamp(3, fluturim.getNisja());
+        statement.setInt(4, fluturim.getAeroporti_arritjes_id());
+        statement.setTimestamp(5, fluturim.getKthimi());
+        statement.setString(6, fluturim.getStatus());
+        statement.setBoolean(7, fluturim.isDy_drejtimeshe());
+        statement.setInt(8, fluturim.getKohezgjatja());
         statement.executeUpdate();
     }
 
@@ -30,7 +29,6 @@ public class FluturimetRepository {
     public static ObservableList<Fluturimet> getAll() throws SQLException {
         ObservableList<Fluturimet> fluturimet = FXCollections.observableArrayList();
         String sql = "SELECT * FROM fluturimet f \n" +
-                "INNER JOIN bileta b ON b.id = f.bileta_id " +
                 "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
                 "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
                 "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id \n";
@@ -41,20 +39,17 @@ public class FluturimetRepository {
         while (resultSet.next()) {
 
             int id = resultSet.getInt("id");
-            int bileta_id = resultSet.getInt("bileta_id");
             int aeroplani_id = resultSet.getInt("aeroplani_id");
             int aeroporti_nisjes_id = resultSet.getInt("aeroporti_nisjes_id");
             Timestamp nisja = resultSet.getTimestamp("nisja");
             int aeroporti_arritjes_id = resultSet.getInt("aeroporti_arritjes_id");
-            Timestamp arritja = resultSet.getTimestamp("arritja");
+            Timestamp kthimi = resultSet.getTimestamp("kthimi");
             String status = resultSet.getString("status");
-            Fluturimet fluturim = new Fluturimet(id, bileta_id, aeroplani_id, aeroporti_nisjes_id, nisja, aeroporti_arritjes_id, arritja, status);
+            boolean dyDrejtimeshe = resultSet.getBoolean("dy_drejtimeshe");
+            int kohezgjatja = resultSet.getInt("kohezgjatja");
+            Fluturimet fluturim = new Fluturimet(id, aeroplani_id, aeroporti_nisjes_id, nisja, aeroporti_arritjes_id, kthimi, status, dyDrejtimeshe, kohezgjatja);
 
 
-            bileta_id = resultSet.getInt("bileta_id");
-            int çmimi = resultSet.getInt("çmimi");
-            boolean dy_drejtimeshe = resultSet.getBoolean("dy_drejtimeshe");
-            fluturim.setBileta(new Bileta(bileta_id,çmimi,dy_drejtimeshe ));
 
             aeroplani_id = resultSet.getInt("id");
             String kompania = resultSet.getString("kompania");
@@ -98,7 +93,6 @@ public class FluturimetRepository {
     public static ObservableList<Fluturimet> getActives() throws SQLException {
         ObservableList<Fluturimet> fluturimet = FXCollections.observableArrayList();
         String sql = "SELECT * FROM fluturimet f \n" +
-                "INNER JOIN bileta b ON b.id = f.bileta_id " +
                 "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
                 "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
                 "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id" +
@@ -109,20 +103,17 @@ public class FluturimetRepository {
         while (resultSet.next()) {
 
             int id = resultSet.getInt("id");
-            int bileta_id = resultSet.getInt("bileta_id");
             int aeroplani_id = resultSet.getInt("aeroplani_id");
             int aeroporti_nisjes_id = resultSet.getInt("aeroporti_nisjes_id");
             Timestamp nisja = resultSet.getTimestamp("nisja");
             int aeroporti_arritjes_id = resultSet.getInt("aeroporti_arritjes_id");
-            Timestamp arritja = resultSet.getTimestamp("arritja");
+            Timestamp kthimi = resultSet.getTimestamp("kthimi");
             String status = resultSet.getString("status");
-            Fluturimet fluturim = new Fluturimet(id, bileta_id, aeroplani_id, aeroporti_nisjes_id, nisja, aeroporti_arritjes_id, arritja, status);
+            boolean dyDrejtimeshe = resultSet.getBoolean("dy_drejtimeshe");
+            int kohezgjatja = resultSet.getInt("kohezgjatja");
+            Fluturimet fluturim = new Fluturimet(id, aeroplani_id, aeroporti_nisjes_id, nisja, aeroporti_arritjes_id, kthimi, status, dyDrejtimeshe, kohezgjatja);
 
 
-            bileta_id = resultSet.getInt("bileta_id");
-            int çmimi = resultSet.getInt("çmimi");
-            boolean dy_drejtimeshe = resultSet.getBoolean("dy_drejtimeshe");
-            fluturim.setBileta(new Bileta(bileta_id,çmimi,dy_drejtimeshe ));
 
             aeroplani_id = resultSet.getInt("id");
             String kompania = resultSet.getString("kompania");
@@ -154,7 +145,6 @@ public class FluturimetRepository {
     public static ObservableList<Fluturimet> getSearched(String fromSearch) throws Exception {
         ObservableList<Fluturimet> fluturimet = FXCollections.observableArrayList();
         String sql = "SELECT * FROM fluturimet f \n" +
-                "INNER JOIN bileta b ON b.id = f.bileta_id " +
                 "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
                 "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
                 "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id" +
@@ -166,20 +156,16 @@ public class FluturimetRepository {
         while (resultSet.next()) {
 
             int id = resultSet.getInt("id");
-            int bileta_id = resultSet.getInt("bileta_id");
             int aeroplani_id = resultSet.getInt("aeroplani_id");
             int aeroporti_nisjes_id = resultSet.getInt("aeroporti_nisjes_id");
             Timestamp nisja = resultSet.getTimestamp("nisja");
             int aeroporti_arritjes_id = resultSet.getInt("aeroporti_arritjes_id");
-            Timestamp arritja = resultSet.getTimestamp("arritja");
+            Timestamp kthimi = resultSet.getTimestamp("kthimi");
             String status = resultSet.getString("status");
-            Fluturimet fluturim = new Fluturimet(id, bileta_id, aeroplani_id, aeroporti_nisjes_id, nisja, aeroporti_arritjes_id, arritja, status);
+            boolean dyDrejtimeshe = resultSet.getBoolean("dy_drejtimeshe");
+            int kohezgjatja = resultSet.getInt("kohezgjatja");
+            Fluturimet fluturim = new Fluturimet(id, aeroplani_id, aeroporti_nisjes_id, nisja, aeroporti_arritjes_id, kthimi, status, dyDrejtimeshe, kohezgjatja);
 
-
-            bileta_id = resultSet.getInt("bileta_id");
-            int çmimi = resultSet.getInt("çmimi");
-            boolean dy_drejtimeshe = resultSet.getBoolean("dy_drejtimeshe");
-            fluturim.setBileta(new Bileta(bileta_id,çmimi,dy_drejtimeshe ));
 
             aeroplani_id = resultSet.getInt("id");
             String kompania = resultSet.getString("kompania");
