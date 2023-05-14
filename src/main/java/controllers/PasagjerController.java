@@ -38,7 +38,7 @@ public class PasagjerController extends BaseController implements Initializable{
         String pNumriPasaportes = this.pasaporta.getText();
         if (!padresa.equals("") && !pnacionaliteti.equals("") && !pNumriTelefonit.equals("")){
             Pasagjeri pasagjeri = PasagjeriService.regjistroPasagjerin(Rezervimi.getPerdoruesi().getId(), padresa, pnacionaliteti, pNumriTelefonit, pNumriPasaportes);
-
+            RezervimController.pasagjeriId = pasagjeri.getId();
             Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
             Scene scene = new Scene(parenti);
             Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

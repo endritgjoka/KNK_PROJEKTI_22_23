@@ -71,12 +71,6 @@ public class UserSevice {
         return false;
     }
 
-    public static boolean isAdmin(Perdoruesi perdoruesi) throws SQLException {
-        if (perdoruesi.isAdmin()){
-            return true;
-        }
-        return false;
-    }
 
 
 }

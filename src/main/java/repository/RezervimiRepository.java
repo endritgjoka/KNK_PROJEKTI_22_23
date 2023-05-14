@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class RezervimiRepository {
     public static void insert(Rezervimi rezervim) throws SQLException {
-        String sql = "INSERT INTO rezervimet (pasagjeri_id, fluturimi_id, numri_uleses, kategoria, biletad_id) VALUES (?,?,?,?,?);";
+        String sql = "INSERT INTO rezervimet (pasagjeri_id, fluturimi_id, numri_uleses, kategoria, bileta_id) VALUES (?,?,?,?,?);";
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, rezervim.getPasagjeri_id());

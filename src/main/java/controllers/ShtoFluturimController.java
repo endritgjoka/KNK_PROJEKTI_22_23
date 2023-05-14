@@ -126,14 +126,14 @@ public class ShtoFluturimController implements Initializable {
     }
 
     @FXML
-    public void po(ActionEvent actionEvent) {
+    public void dyDrejtimesh(ActionEvent actionEvent) {
         dataLabel.setVisible(true);
         dataKthimit.setVisible(true);
         oraKthimit.setVisible(true);
     }
 
     @FXML
-    public void jo(ActionEvent actionEvent) {
+    public void njeDrejtimesh(ActionEvent actionEvent) {
         dataLabel.setVisible(false);
         dataKthimit.setVisible(false);
         oraKthimit.setVisible(false);

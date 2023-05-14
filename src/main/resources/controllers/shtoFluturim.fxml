@@ -97,11 +97,11 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <RadioButton mnemonicParsing="false" onAction="#po" text="PO">
+                  <RadioButton mnemonicParsing="false" onAction="#dyDrejtimesh" text="PO">
                      <toggleGroup>
                         <ToggleGroup fx:id="drejtimi" />
                      </toggleGroup></RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#jo" text="JO" toggleGroup="$drejtimi" GridPane.columnIndex="1" />
+                  <RadioButton mnemonicParsing="false" onAction="#njeDrejtimesh" text="JO" toggleGroup="$drejtimi" GridPane.columnIndex="1" />
                </children>
             </GridPane>
             <Label text="Statusi i fluturimit" GridPane.rowIndex="9" />

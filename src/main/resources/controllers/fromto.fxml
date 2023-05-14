@@ -5,41 +5,72 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox minHeight="500.0" prefHeight="102.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FromToController">
+<VBox minHeight="453.0" prefHeight="499.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FromToController">
 
     <HBox spacing="10">
-        <Label text="From:" />
+        <Label text="Nga:" />
         <ChoiceBox fx:id="departingCityChoiceBox" />
-        <Label text="To:" />
+        <Label text="Në:" />
         <ChoiceBox fx:id="arrivalCityChoiceBox" />
+      <Label text="Dy drejtimësh:">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </Label>
+      <RadioButton mnemonicParsing="false" onAction="#dyDrejtimesh" text="PO">
+         <toggleGroup>
+            <ToggleGroup fx:id="drejtimi" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton mnemonicParsing="false" onAction="#njeDrejtimesh" text="JO" toggleGroup="$drejtimi" />
+      <VBox.margin>
+         <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
+      </VBox.margin>
     </HBox>
 
     <HBox spacing="10">
-        <Label text="Departure:" />
-        <DatePicker fx:id="departureDatePicker" />
-        <Label text="Return:" />
-        <DatePicker fx:id="returnDatePicker" />
+        <Label text="Nisja:" />
+        <DatePicker fx:id="departureDatePicker" prefHeight="32.0" prefWidth="179.0">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </DatePicker>
+        <Label fx:id="kthimiLabel" prefHeight="16.0" prefWidth="42.0" text="Kthimi:" />
+        <DatePicker fx:id="returnDatePicker" prefHeight="38.0" prefWidth="178.0" />
    
-       <Button onAction="#handleFilterAction" text="Filter">
+       <Button onAction="#handleFilterAction" prefHeight="184.0" prefWidth="54.0" text="Filtro">
          <HBox.margin>
             <Insets left="10.0" />
          </HBox.margin>
       </Button>
-    </HBox>
-   <TableView prefHeight="200.0" prefWidth="200.0">
-     <columns>
-       <TableColumn prefWidth="75.0" text="C1" />
-       <TableColumn prefWidth="75.0" text="C2" />
-     </columns>
-   </TableView>
-   <Button mnemonicParsing="false" text="Button">
       <VBox.margin>
-         <Insets left="500.0" top="230.0" />
+         <Insets left="10.0" right="10.0" />
+      </VBox.margin>
+    </HBox>
+    <TableView fx:id="tabela" layoutX="1.0" layoutY="86.0" prefHeight="267.0" prefWidth="767.0">
+        <columns>
+            <TableColumn fx:id="linja" prefWidth="92.0" text="Linja ajrore" />
+            <TableColumn fx:id="vendi_nisjes" prefWidth="98.4000244140625" text="Vendi i nisjes" />
+            <TableColumn fx:id="nisja" prefWidth="82.39996337890625" text="Nisja" />
+            <TableColumn fx:id="vendi_arritjes" prefWidth="111.2000732421875" text="Vendi i arritjes" />
+            <TableColumn fx:id="kthimi" prefWidth="79.199951171875" text="Kthimi" />
+            <TableColumn fx:id="statusi" prefWidth="66.39993286132812" text="Statusi" />
+            <TableColumn fx:id="rezervimi" prefWidth="71.2000732421875" text="Rezervimi" />
+        </columns>
+      <VBox.margin>
+         <Insets top="30.0" />
+      </VBox.margin>
+    </TableView>
+   <Button mnemonicParsing="false" onAction="#rezervo" prefHeight="185.0" prefWidth="71.0" text="Rezervo">
+      <VBox.margin>
+         <Insets bottom="15.0" left="500.0" top="230.0" />
       </VBox.margin>
    </Button>
 

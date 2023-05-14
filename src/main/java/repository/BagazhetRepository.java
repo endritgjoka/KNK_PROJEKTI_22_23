@@ -12,6 +12,7 @@ import java.sql.SQLException;
 public class BagazhetRepository {
 
     public static void insert(Bagazhet bagazh) throws SQLException {
+        System.out.println("");
         String sql = "INSERT INTO bagazhet(pasagjeri_id,numri_bagazhit, pesha_bagazhit) VALUES (?,?,?)";
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);

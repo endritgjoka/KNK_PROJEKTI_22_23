@@ -47,16 +47,19 @@ public class LoginController extends  BaseController{
         try {
             Perdoruesi perdoruesi = UserSevice.login(usernamei, passwordi);
             Rezervimi.setPerdoruesi(perdoruesi);
-            if (perdoruesi != null) {
-                // System.out.println("User login successfully!");
-                // alert = new Alert(Alert.AlertType.CONFIRMATION,"User login successfully!");
-                // alert.show();
+            if (perdoruesi != null && perdoruesi.isAdmin()) {
+                Parent parenti = FXMLLoader.load(getClass().getResource("fluturimet.fxml"));
+                Scene scene = new Scene(parenti);
+                Stage primaryStage = (Stage) username.getScene().getWindow();
+                primaryStage.setScene(scene);
+                primaryStage.show();
+            } else if(perdoruesi != null && !perdoruesi.isAdmin()){
                 Parent parenti = FXMLLoader.load(getClass().getResource("home.fxml"));
                 Scene scene = new Scene(parenti);
                 Stage primaryStage = (Stage) username.getScene().getWindow();
                 primaryStage.setScene(scene);
                 primaryStage.show();
-            } else {
+            }else{
                 alert = new Alert(Alert.AlertType.ERROR, "Incorrect username/password!");
                 alert.show();
                 password.setText("");

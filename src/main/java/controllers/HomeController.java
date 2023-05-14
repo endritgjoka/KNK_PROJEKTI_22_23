@@ -34,7 +34,7 @@ public class HomeController extends BaseController {
     @FXML
     private void goToFluturimet(ActionEvent event) throws Exception {
 
-        Parent parenti = FXMLLoader.load(getClass().getResource("fluturimet.fxml"));
+        Parent parenti = FXMLLoader.load(getClass().getResource("fromto.fxml"));
         Scene scene = new Scene(parenti);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);

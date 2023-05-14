@@ -21,7 +21,7 @@ public class PasagjeriRepository {
     }
 
     public static Pasagjeri getByPId(int pid) throws SQLException {
-        String sql = "SELECT * FROM pasagjeret WHERE perdoruesi_id=?";
+        String sql = "SELECT * FROM pasagjeret WHERE perdoruesi_id=? ORDER BY id DESC LIMIT 1";
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, pid);
