@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FluturimetController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FluturimetController">
     <children>
         <Pane layoutX="-3.0" layoutY="-1.0" prefHeight="555.0" prefWidth="769.0" style="-fx-background-color: white;">
             <children>
@@ -32,18 +32,19 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Label>
-                <Button layoutX="614.0" layoutY="360.0" mnemonicParsing="false" onAction="#shtoFluturim" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shto Fluturim" />
+                <Button layoutX="614.0" layoutY="375.0" mnemonicParsing="false" onAction="#shtoFluturim" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shto Fluturim" />
                 <CheckBox fx:id="checkBoxFilterIsActive" layoutX="365.0" layoutY="54.0" mnemonicParsing="false" onAction="#active" text="Active" />
-                <Pagination layoutX="207.0" layoutY="301.0" maxPageIndicatorCount="2" prefHeight="100.0" prefWidth="200.0" />
-            <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="543.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                <Pagination layoutX="292.0" layoutY="310.0" maxPageIndicatorCount="2" prefHeight="100.0" prefWidth="200.0" />
+            <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="716.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../photos/airport_logo.png" />
                </image>
             </ImageView>
-            <Button layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithaFluturimet" text="Te gjitha" />
-            <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoFluturimin" text="Kërko" />
-            <Button layoutX="614.0" layoutY="394.0" mnemonicParsing="false" onAction="#menaxhoPerdoruesit" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Menaxho Perdoruesit" />
-            <Button layoutX="614.0" layoutY="429.0" mnemonicParsing="false" onAction="#shikoDiagramet" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shiko Diagramet" />
+            <Button layoutX="469.0" layoutY="50.0" mnemonicParsing="false" stylesheets="@../styling/style.css" onAction="#shfaqTeGjithaFluturimet" text="Te gjitha" />
+            <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" stylesheets="@../styling/style.css" onAction="#kerkoFluturimin" text="Kërko" />
+            <Button layoutX="614.0" layoutY="410.0" mnemonicParsing="false" onAction="#menaxhoPerdoruesit" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Menaxho Perdoruesit" />
+            <Button layoutX="614.0" layoutY="447.0" mnemonicParsing="false" onAction="#shikoDiagramet" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shiko Diagramet" />
+            <Button layoutX="614.0" layoutY="483.0" mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Go back" />
             </children>
         </Pane>
     </children>
