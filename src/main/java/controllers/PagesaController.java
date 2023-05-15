@@ -1,12 +1,16 @@
 package controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import models.Pagesa;
+import repository.PagesaRepository;
 
-public class PagesaController extends BaseController{
+import java.sql.Date;
+import java.sql.SQLException;
+
+public class PagesaController {
 
     @FXML
     private TextField cardNameField;
@@ -24,24 +28,36 @@ public class PagesaController extends BaseController{
     private RadioButton debitCardRadio;
 
     @FXML
-    private TextField expirationDateField;
+    private DatePicker expirationDate;
 
     @FXML
     private ToggleGroup pagesa;
 
     @FXML
-    private RadioButton paypalRadio;
+    private BorderPane root;
+    Alert alert = new Alert(Alert.AlertType.ERROR,"");
+    public static int bId;
 
     @FXML
-    private BorderPane root;
-
-    @Override
-    void translateEnglish() {
-
+    void rezervo(ActionEvent event) throws SQLException {
+        if (pagesa.getSelectedToggle() != null && expirationDate.getValue() != null && !cvvField.getText().equals("")
+        && !cardNameField.getText().equals("") && !cardNumberField.getText().equals("")){
+            String mp = menyraPageses();
+            Pagesa pagesa1 = new Pagesa(0,mp, cardNameField.getText(), cardNumberField.getText(),
+                    Date.valueOf(expirationDate.getValue()), cvvField.getText(),bId);
+            PagesaRepository.insert(pagesa1);
+        }else{
+            alert.setContentText("These fields should be filled!");
+            alert.show();
+        }
     }
 
-    @Override
-    void translateAlbanian() {
 
+    String menyraPageses(){
+        if (pagesa.getSelectedToggle().equals("MasterCard")){
+            return "MasterCard";
+        }
+        return  "Visa";
     }
+
 }
