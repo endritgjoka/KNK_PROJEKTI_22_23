@@ -7,27 +7,43 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FluturimetController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FluturimetController">
     <children>
-        <Pane layoutX="-6.0" prefHeight="400.0" prefWidth="606.0">
+        <Pane layoutX="-3.0" layoutY="-1.0" prefHeight="555.0" prefWidth="769.0" style="-fx-background-color: white;">
             <children>
-                <TableView layoutX="7.0" layoutY="76.0" prefHeight="194.0" prefWidth="600.0">
+                <TableView fx:id="tabela" layoutX="1.0" layoutY="86.0" prefHeight="267.0" prefWidth="767.0">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="Fluturimi" />
-                        <TableColumn prefWidth="75.0" text="Ora e nisjes" />
-                        <TableColumn prefWidth="88.0" text="Ora e arritjes" />
-                        <TableColumn prefWidth="62.4000244140625" text="button" />
+                        <TableColumn fx:id="linja" prefWidth="189.60000002384186" text="Linja ajrore" />
+                        <TableColumn fx:id="vendi_nisjes" prefWidth="78.4000244140625" text="Vendi i nisjes" />
+                        <TableColumn fx:id="nisja" prefWidth="116.00006103515625" text="Nisja" />
+                        <TableColumn fx:id="vendi_arritjes" prefWidth="158.40011596679688" text="Vendi i arritjes" />
+                  <TableColumn fx:id="kthimi" prefWidth="136.79998779296875" text="Kthimi" />
+                  <TableColumn fx:id="statusi" prefWidth="88.7999267578125" text="Statusi" />
                     </columns>
                 </TableView>
-                <TextField fx:id="txtFilterUsername" layoutX="97.0" layoutY="26.0" />
-                <Label layoutX="14.0" layoutY="6.0" text="Filters" />
-                <Label layoutX="97.0" layoutY="6.0" text="Fluturimi" />
-                <Button layoutX="527.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnFilter" text="Filter" />
-                <CheckBox fx:id="checkBoxFilterIsActive" layoutX="335.0" layoutY="30.0" mnemonicParsing="false" text="Active" />
-                <Pagination layoutX="97.0" layoutY="300.0" prefHeight="100.0" prefWidth="200.0" />
+                <TextField fx:id="filterField" layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="264.0" promptText="Kerko fluturimin..." />
+                <Label layoutX="22.0" layoutY="14.0" text="Fluturimet">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+                <Button layoutX="614.0" layoutY="360.0" mnemonicParsing="false" onAction="#shtoFluturim" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shto Fluturim" />
+                <CheckBox fx:id="checkBoxFilterIsActive" layoutX="365.0" layoutY="54.0" mnemonicParsing="false" onAction="#active" text="Active" />
+                <Pagination layoutX="207.0" layoutY="301.0" maxPageIndicatorCount="2" prefHeight="100.0" prefWidth="200.0" />
+            <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="543.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../photos/airport_logo.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithaFluturimet" text="Te gjitha" />
+            <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoFluturimin" text="Kërko" />
+            <Button layoutX="614.0" layoutY="394.0" mnemonicParsing="false" onAction="#menaxhoPerdoruesit" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Menaxho Perdoruesit" />
+            <Button layoutX="614.0" layoutY="429.0" mnemonicParsing="false" onAction="#shikoDiagramet" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shiko Diagramet" />
             </children>
         </Pane>
     </children>

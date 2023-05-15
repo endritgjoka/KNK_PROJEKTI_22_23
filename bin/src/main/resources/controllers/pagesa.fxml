@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PasagjerController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PagesaController">
     <BorderPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
         <top>
             <HBox alignment="CENTER_LEFT" spacing="10.0">
@@ -54,7 +54,7 @@
                 <HBox spacing="10">
                     <RadioButton fx:id="creditCardRadio">
                         <graphic>
-                            <ImageView fitHeight="49.0" fitWidth="71.0">
+                            <ImageView fitHeight="47.0" fitWidth="69.0">
                                 <image>
                                     <Image url="@../photos/mastercard.png" />
                                 </image>
@@ -75,7 +75,7 @@
                     </RadioButton>
                     <RadioButton fx:id="paypalRadio" prefHeight="50.0" prefWidth="10.0" style="-fx-graphic-size: 50px;" toggleGroup="$pagesa">
                         <graphic>
-                            <ImageView fitHeight="54.0" fitWidth="63.0">
+                            <ImageView fitHeight="54.0" fitWidth="99.0">
                                 <image>
                                     <Image url="@../photos/paypal.png" />
                                 </image>

@@ -14,24 +14,23 @@
     <BorderPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
         <top>
             <HBox alignment="CENTER_LEFT" spacing="10.0">
-                <ImageView fitHeight="50.0" fitWidth="100.0">
+                <ImageView fitHeight="57.0" fitWidth="60.0">
                     <image>
                         <Image url="@../photos/airport_logo.png" />
                     </image>
                 </ImageView>
                 <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Kosovo International Airport" />
                 <Region HBox.hgrow="ALWAYS" />
-                <Hyperlink fx:id="login" onAction="#goToLogin" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Login" />
-                <Hyperlink style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Sign Out" />
+                <Hyperlink onAction="#goToLogin" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Sign Out" />
             </HBox>
         </top>
         <left>
-            <VBox prefHeight="550.0" prefWidth="135.0" spacing="10.0">
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Flights" />
+            <VBox prefHeight="509.0" prefWidth="135.0" spacing="10.0">
+                <Hyperlink onAction="#goToFluturimet" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Flights" />
                 <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Passengers" />
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Security" />
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Baggage" />
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Services" />
+                <Hyperlink onAction="#goToRezervimet" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Reservations" />
+                <Hyperlink onAction="#goToProfile" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="UserProfile" />
+                <Hyperlink  style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Services" />
                 <Hyperlink onAction="#help" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Help" />
             </VBox>
         </left>
@@ -39,8 +38,7 @@
             <VBox alignment="CENTER" spacing="10.0">
                 <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Welcome to Kosovo International Airport" />
                 <ImageView fitHeight="200.0" fitWidth="200.0">
-                    <image>
-                        <Image url="@../photos/airoporti.jpg" />
+                    <image><Image url="@../photos/airoporti.jpg" />
                     </image>
                 </ImageView>
             </VBox>
