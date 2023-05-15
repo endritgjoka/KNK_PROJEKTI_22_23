@@ -30,7 +30,7 @@ public class FluturimetController extends BaseController{
     }
 
     @FXML
-    private void shkoMbrapa(ActionEvent event) throws IOException {
+    private void goBack(ActionEvent event) throws IOException {
         Parent parenti = FXMLLoader.load(getClass().getResource("home.fxml"));
         Scene scene = new Scene(parenti);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

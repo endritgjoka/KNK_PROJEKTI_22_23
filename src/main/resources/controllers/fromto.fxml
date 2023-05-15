@@ -12,40 +12,64 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox minHeight="453.0" prefHeight="499.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FromToController">
+<VBox minHeight="453.0" minWidth="-Infinity" prefHeight="499.0" prefWidth="615.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FromToController">
 
     <HBox spacing="10">
-        <Label text="Nga:" />
-        <ChoiceBox fx:id="departingCityChoiceBox" />
-        <Label text="Në:" />
-        <ChoiceBox fx:id="arrivalCityChoiceBox" />
-      <Label text="Dy drejtimësh:">
+        <Label text="Nga:">
          <HBox.margin>
-            <Insets left="50.0" />
+            <Insets left="5.0" top="12.0" />
+         </HBox.margin></Label>
+        <ChoiceBox fx:id="departingCityChoiceBox" prefHeight="26.0" prefWidth="123.0">
+         <HBox.margin>
+            <Insets top="10.0" />
+         </HBox.margin></ChoiceBox>
+        <Label text="Në:">
+         <HBox.margin>
+            <Insets right="-2.0" top="12.0" />
+         </HBox.margin></Label>
+        <ChoiceBox fx:id="arrivalCityChoiceBox" prefHeight="26.0" prefWidth="134.0">
+         <HBox.margin>
+            <Insets top="10.0" />
+         </HBox.margin></ChoiceBox>
+      <Label text="Dy drejtimëshe:">
+         <HBox.margin>
+            <Insets left="10.0" top="10.0" />
          </HBox.margin>
       </Label>
       <RadioButton mnemonicParsing="false" onAction="#dyDrejtimesh" text="PO">
          <toggleGroup>
             <ToggleGroup fx:id="drejtimi" />
          </toggleGroup>
+         <HBox.margin>
+            <Insets left="30.0" top="10.0" />
+         </HBox.margin>
       </RadioButton>
-      <RadioButton mnemonicParsing="false" onAction="#njeDrejtimesh" text="JO" toggleGroup="$drejtimi" />
+      <RadioButton mnemonicParsing="false" onAction="#njeDrejtimesh" text="JO" toggleGroup="$drejtimi">
+         <HBox.margin>
+            <Insets left="20.0" top="10.0" />
+         </HBox.margin></RadioButton>
       <VBox.margin>
          <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
       </VBox.margin>
     </HBox>
 
     <HBox spacing="10">
-        <Label text="Nisja:" />
+        <Label text="Nisja:">
+         <HBox.margin>
+            <Insets left="5.0" top="3.0" />
+         </HBox.margin></Label>
         <DatePicker fx:id="departureDatePicker" prefHeight="32.0" prefWidth="179.0">
          <HBox.margin>
             <Insets />
          </HBox.margin>
       </DatePicker>
-        <Label fx:id="kthimiLabel" prefHeight="16.0" prefWidth="42.0" text="Kthimi:" />
+        <Label fx:id="kthimiLabel" prefHeight="16.0" prefWidth="42.0" text="Kthimi:">
+         <HBox.margin>
+            <Insets right="-2.0" top="3.0" />
+         </HBox.margin></Label>
         <DatePicker fx:id="returnDatePicker" prefHeight="38.0" prefWidth="178.0" />
    
-       <Button onAction="#handleFilterAction" prefHeight="184.0" prefWidth="54.0" text="Filtro">
+       <Button onAction="#handleFilterAction" prefHeight="26.0" prefWidth="103.0" stylesheets="@../styling/style.css" text="Filtro">
          <HBox.margin>
             <Insets left="10.0" />
          </HBox.margin>
@@ -54,7 +78,7 @@
          <Insets left="10.0" right="10.0" />
       </VBox.margin>
     </HBox>
-    <TableView fx:id="tabela" layoutX="1.0" layoutY="86.0" prefHeight="267.0" prefWidth="767.0">
+    <TableView fx:id="tabela" layoutX="1.0" layoutY="86.0" prefHeight="267.0" prefWidth="615.0">
         <columns>
             <TableColumn fx:id="linja" prefWidth="92.0" text="Linja ajrore" />
             <TableColumn fx:id="vendi_nisjes" prefWidth="98.4000244140625" text="Vendi i nisjes" />
@@ -62,15 +86,20 @@
             <TableColumn fx:id="vendi_arritjes" prefWidth="111.2000732421875" text="Vendi i arritjes" />
             <TableColumn fx:id="kthimi" prefWidth="79.199951171875" text="Kthimi" />
             <TableColumn fx:id="statusi" prefWidth="66.39993286132812" text="Statusi" />
-            <TableColumn fx:id="rezervimi" prefWidth="71.2000732421875" text="Rezervimi" />
+            <TableColumn fx:id="rezervimi" prefWidth="83.20000000000005" text="Rezervimi" />
         </columns>
       <VBox.margin>
          <Insets top="30.0" />
       </VBox.margin>
     </TableView>
-   <Button mnemonicParsing="false" onAction="#rezervo" prefHeight="185.0" prefWidth="71.0" text="Rezervo">
+   <Button mnemonicParsing="false" onAction="#rezervo" prefHeight="185.0" prefWidth="71.0" stylesheets="@../styling/style.css" text="Rezervo">
       <VBox.margin>
-         <Insets bottom="15.0" left="500.0" top="230.0" />
+         <Insets bottom="-25.0" left="520.0" top="230.0" />
+      </VBox.margin>
+   </Button>
+   <Button mnemonicParsing="false" onAction="#rezervo" prefHeight="185.0" prefWidth="71.0" stylesheets="@../styling/style.css" text="Cancel">
+      <VBox.margin>
+         <Insets bottom="50.0" left="420.0" />
       </VBox.margin>
    </Button>
 
