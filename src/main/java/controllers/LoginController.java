@@ -57,6 +57,7 @@ public class LoginController extends  BaseController{
                 Parent parenti = FXMLLoader.load(getClass().getResource("home.fxml"));
                 Scene scene = new Scene(parenti);
                 Stage primaryStage = (Stage) username.getScene().getWindow();
+                primaryStage.setTitle("Home");
                 primaryStage.setScene(scene);
                 primaryStage.show();
             }else{
