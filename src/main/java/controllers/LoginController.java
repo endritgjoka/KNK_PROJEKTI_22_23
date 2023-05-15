@@ -16,6 +16,8 @@ import service.UserSevice;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class LoginController extends  BaseController{
 
@@ -26,6 +28,11 @@ public class LoginController extends  BaseController{
 
     @FXML
     private Button btnLoginClick;
+
+    @FXML
+    private Button signIn;
+    @FXML
+    private Button signUp;
 
 
 
@@ -86,11 +93,21 @@ public class LoginController extends  BaseController{
 
     @Override
     void translateEnglish() {
+        Locale currentLocale = new Locale("en");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        signIn.setText(translate.getString("button.signIn"));
+        signUp.setText(translate.getString("button.signUp"));
 
     }
 
     @Override
     void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        signIn.setText(translate.getString("button.signIn"));
+        signUp.setText(translate.getString("button.signUp"));
 
     }
 }
