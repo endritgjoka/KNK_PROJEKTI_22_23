@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class PagesaRepository {
     public static void insert(Pagesa pagesa) throws SQLException {
-        String sql = "INSERT INTO bileta (menyra_pageses ,emri_kartes ,numri_kartes ,data_skadimit ,kodi_cvv ,bileta_id ) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO pagesa (menyra_pageses,emri_kartes ,numri_kartes ,data_skadimit ,kodi_cvv ,bileta_id ) VALUES (?,?,?,?,?,?)";
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, pagesa.getMenyraPageses());
@@ -27,7 +27,7 @@ public class PagesaRepository {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 String menyraPageses = resultSet.getString("menyra_pageses");
-                String emriKartes = resultSet.getString("emri_kaartes");
+                String emriKartes = resultSet.getString("emri_kartes");
                 String numriKartes = resultSet.getString("numri_kartes");
                 Date dataSkadimit = resultSet.getDate("data_skadimit");
                 String kodiCvv = resultSet.getString("kodi_cvv");
@@ -40,7 +40,7 @@ public class PagesaRepository {
     }
 
     public static void update(Pagesa pagesa) throws SQLException {
-        String sql = "UPDATE bileta SET menyra_pageses=?,emri_kartes = ?, numri_kartes=?,data_skadimit=?, kodi_cvv=? WHERE id=?";
+        String sql = "UPDATE pagesa SET menyra_pageses=?,emri_kartes = ?, numri_kartes=?,data_skadimit=?, kodi_cvv=? WHERE id=?";
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, pagesa.getMenyraPageses());

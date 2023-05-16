@@ -25,6 +25,7 @@ public class FluturimetController extends BaseController{
     private CheckBox checkBoxFilterIsActive;
     @FXML
     private TextField filterField;
+    private Alert alert = new Alert(Alert.AlertType.ERROR,"");
 
     public void btnFilter(ActionEvent actionEvent) {
     }
@@ -119,5 +120,16 @@ public class FluturimetController extends BaseController{
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    @FXML
+    public void fshijFluturiminEPerzgjedhur(ActionEvent actionEvent) throws SQLException {
+        Fluturimet fluturimet = (Fluturimet) tabela.getSelectionModel().getSelectedItem();
+        if (fluturimet != null){
+            FluturimetRepository.delete(fluturimet.getId());
+            alert.setAlertType(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Flight has been deleted successfully!");
+            alert.show();
+        }
     }
 }

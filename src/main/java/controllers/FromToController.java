@@ -169,22 +169,25 @@ public class FromToController extends  BaseController implements Initializable {
         Fluturimet selectedObject = (Fluturimet) tabela.getSelectionModel().getSelectedItem();
 
        // Get the ID of the selected row
-        fId = selectedObject.getId();
+        if (selectedObject != null){
+            fId = selectedObject.getId();
+            FXMLLoader fxmlLoader= new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("pasagjer.fxml"));
+            try {
+                Parent root = fxmlLoader.load();
+                PasagjerController pasagjerController = fxmlLoader.getController();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setResizable(false);
+                stage.setScene(scene);
+                stage.show();
 
-        FXMLLoader fxmlLoader= new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("pasagjer.fxml"));
-        try {
-            Parent root = fxmlLoader.load();
-            PasagjerController pasagjerController = fxmlLoader.getController();
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-            stage.setResizable(false);
-            stage.setScene(scene);
-            stage.show();
-
-        } catch (IOException e1) {
-            throw new RuntimeException(e1);
+            } catch (IOException e1) {
+                throw new RuntimeException(e1);
+            }
         }
+
+
 
     }
 }

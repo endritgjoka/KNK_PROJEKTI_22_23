@@ -13,6 +13,7 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import models.Bagazhet;
 import models.Bileta;
+import models.Pasagjeri;
 import models.Rezervimi;
 import repository.BagazhetRepository;
 import repository.BiletaRepository;
@@ -41,18 +42,31 @@ public class RezervimController implements Initializable {
     @FXML
     private TextField çmimi;
     public static int pasagjeriId;
+    private int qmimi;
 
     Alert alert = new Alert(Alert.AlertType.ERROR,"");
     @FXML
     void vazhdo(ActionEvent event) throws SQLException {
-        if(!kategoria.getValue().equals("") && !çmimi.getText().equals("") &&
-                !numriUleses.getText().equals("") && !numriBagazhev.getText().equals("") && !pesha.getText().equals("")){
+        if(kategoria.getValue() != null && !numriUleses.getText().equals("") && !numriBagazhev.getText().equals("") && !pesha.getText().equals("")){
 
             Bagazhet bagazh = new Bagazhet(0, pasagjeriId, Integer.parseInt(numriBagazhev.getText()),
                     Integer.parseInt(pesha.getText()));
             BagazhetRepository.insert(bagazh);
+            int qmimi = 200;
+            if (kategoria.equals("Ekonomike")){
+                qmimi += 50;
+            } else if (kategoria.equals("Biznesore")) {
+                qmimi += 30;
+            }
+            if (Integer.parseInt(numriBagazhev.getText() )> 1){
+                qmimi += 30;
+            }
+
+            çmimi.setText(qmimi+"");
+
             Bileta bileta = new Bileta(0,Integer.parseInt(çmimi.getText()));
             int biletaId = BiletaRepository.insert(bileta );
+            PagesaController.bId = biletaId;
             Rezervimi rezervimi = new Rezervimi(0, pasagjeriId, FromToController.fId,
                     Integer.parseInt(numriUleses.getText()), kategoria.getValue().toString(), biletaId);
             RezervimiRepository.insert(rezervimi);
@@ -82,6 +96,18 @@ public class RezervimController implements Initializable {
         validateField(pesha);
         validateField(numriBagazhev);
         validateField(numriUleses);
+         qmimi = 200;
+        if (kategoria.getValue()!= null && kategoria.equals("Ekonomike")){
+            qmimi += 50;
+        } else if (kategoria.equals("Biznesore")) {
+            qmimi += 30;
+        }
+        if (!numriBagazhev.getText().equals("") && Integer.parseInt(numriBagazhev.getText() )> 1){
+            qmimi += 30;
+        }
+
+        çmimi.setText(qmimi+"");
+
     }
 
     void validateField(TextField field){
