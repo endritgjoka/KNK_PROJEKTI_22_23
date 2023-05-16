@@ -69,7 +69,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Hyperlink>
-                  <Hyperlink onAction="#goToRezervimet" text="Reservations" textFill="#180897">
+                  <Hyperlink text="Security" textFill="#180897">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -77,7 +77,7 @@
                         <Insets left="10.0" top="5.0" />
                      </VBox.margin>
                   </Hyperlink>
-                  <Hyperlink onAction="#goToProfile" text="User profile" textFill="#180897">
+                  <Hyperlink onAction="#goToBaggage" text="Baggage" textFill="#180897">
                      <VBox.margin>
                         <Insets left="10.0" top="5.0" />
                      </VBox.margin>
@@ -92,14 +92,6 @@
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
-                  </Hyperlink>
-                  <Hyperlink onAction="#help" text="Help" textFill="#180897">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="10.0" top="5.0" />
-                     </VBox.margin>
                   </Hyperlink>
                </children>
             </VBox>

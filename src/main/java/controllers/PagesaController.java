@@ -89,8 +89,8 @@ public class PagesaController {
     }
 
     @FXML
-    public void goToRezervimet(ActionEvent event) throws Exception {
-        Parent parenti = FXMLLoader.load(getClass().getResource("pasagjer.fxml"));
+    public void goToBaggage(ActionEvent event) throws Exception {
+        Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
         Scene scene = new Scene(parenti);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);
@@ -108,15 +108,6 @@ public class PagesaController {
     }
 
 
-    @FXML
-    public void goToProfile(ActionEvent event) throws Exception{
-
-        Parent parenti = FXMLLoader.load(getClass().getResource("userProfile.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
     
     @FXML
     public void goToPassagers(ActionEvent event) throws Exception {
