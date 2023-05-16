@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -12,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox minHeight="453.0" minWidth="-Infinity" prefHeight="499.0" prefWidth="615.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FromToController">
+<VBox minHeight="453.0" minWidth="-Infinity" prefHeight="499.0" prefWidth="805.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FromToController">
 
     <HBox spacing="10">
         <Label fx:id="nga" text="Nga:">
@@ -48,6 +50,17 @@
          <HBox.margin>
             <Insets left="20.0" top="10.0" />
          </HBox.margin></RadioButton>
+       <ChoiceBox fx:id="gjuha" prefHeight="28.0" prefWidth="75.0">
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Shqip" />
+                   <String fx:value="Anglisht" />
+               </FXCollections>
+           </items>
+         <HBox.margin>
+            <Insets left="70.0" />
+         </HBox.margin>
+       </ChoiceBox>
       <VBox.margin>
          <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
       </VBox.margin>
@@ -78,14 +91,15 @@
          <Insets left="10.0" right="10.0" />
       </VBox.margin>
     </HBox>
+
     <TableView fx:id="tabela" layoutX="1.0" layoutY="86.0" prefHeight="267.0" prefWidth="615.0">
         <columns>
-            <TableColumn fx:id="linja" prefWidth="113.5999755859375" text="Linja ajrore" />
-            <TableColumn fx:id="vendi_nisjes" prefWidth="110.4000244140625" text="Vendi i nisjes" />
-            <TableColumn fx:id="nisja" prefWidth="97.60003662109375" text="Nisja" />
-            <TableColumn fx:id="vendi_arritjes" prefWidth="123.99993896484375" text="Vendi i arritjes" />
-            <TableColumn fx:id="kthimi" prefWidth="87.99993896484375" text="Kthimi" />
-            <TableColumn fx:id="statusi" prefWidth="83.199951171875" text="Statusi" />
+            <TableColumn fx:id="linja" prefWidth="144.80001527071" text="Linja ajrore" />
+            <TableColumn fx:id="vendi_nisjes" prefWidth="136.8000030517578" text="Vendi i nisjes" />
+            <TableColumn fx:id="nisja" prefWidth="113.5999755859375" text="Nisja" />
+            <TableColumn fx:id="vendi_arritjes" prefWidth="152.0" text="Vendi i arritjes" />
+            <TableColumn fx:id="kthimi" prefWidth="136.79998779296875" text="Kthimi" />
+            <TableColumn fx:id="statusi" prefWidth="126.39996337890625" text="Statusi" />
         </columns>
       <VBox.margin>
          <Insets top="30.0" />
