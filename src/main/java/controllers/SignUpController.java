@@ -14,6 +14,8 @@ import service.UserSevice;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class SignUpController extends BaseController{
     @FXML
@@ -34,6 +36,22 @@ public class SignUpController extends BaseController{
     private RadioButton mashkull, femer;
     @FXML
     private char pgjinia;
+    @FXML
+    private Label emrii;
+    @FXML
+    private Label mbiemrii;
+    @FXML
+    private Label emaili;
+    @FXML
+    private Label gjinia;
+    @FXML
+    private Label ditelindjaa;
+    @FXML
+    private Label fjalekalimii;
+    @FXML
+    private Label RishkruajFjalekalimin;
+    @FXML
+    private Button sign_up;
 
     public char getPgjinia() {
         return pgjinia;
@@ -42,6 +60,7 @@ public class SignUpController extends BaseController{
     public void setPgjinia(char pgjinia) {
         this.pgjinia = pgjinia;
     }
+
 
 
 
@@ -103,11 +122,34 @@ public class SignUpController extends BaseController{
 
     @Override
     void translateEnglish() {
+        Locale currentLocale = new Locale("en");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        emrii.setText(translate.getString("label.emrii"));
+        mbiemrii.setText(translate.getString("label.mbiemrii"));
+        emaili.setText(translate.getString("label.emaili"));
+        gjinia.setText(translate.getString("label.gjinia"));
+        ditelindjaa.setText(translate.getString("label.ditelindjaa"));
+        fjalekalimii.setText(translate.getString("label.fjalekalimii"));
+        RishkruajFjalekalimin.setText(translate.getString("label.RishkruajFjalekalimin"));
+        sign_up.setText(translate.getString("label.sign_up"));
 
     }
 
     @Override
     void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        emrii.setText(translate.getString("label.emrii"));
+        mbiemrii.setText(translate.getString("label.mbiemrii"));
+        emaili.setText(translate.getString("label.emaili"));
+        gjinia.setText(translate.getString("label.gjinia"));
+        ditelindjaa.setText(translate.getString("label.ditelindjaa"));
+        fjalekalimii.setText(translate.getString("label.fjalekalimii"));
+        RishkruajFjalekalimin.setText(translate.getString("label.RishkruajFjalekalimin"));
+        sign_up.setText(translate.getString("label.sign_up"));
+
 
     }
 }
