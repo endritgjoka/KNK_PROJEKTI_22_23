@@ -21,6 +21,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class FromToController extends  BaseController implements Initializable {
@@ -64,6 +65,26 @@ public class FromToController extends  BaseController implements Initializable {
 
     @FXML
     private TableColumn vendi_nisjes;
+    @FXML
+    private Label nga;
+    @FXML
+    private Label ne;
+    @FXML
+    private Label dyDrejtimeshe;
+    @FXML
+    private RadioButton po;
+    @FXML
+    private RadioButton jo;
+    @FXML
+    private Label nisjaa;
+    @FXML
+    private Label kthimi_Label;
+    @FXML
+    private Button filtro;
+    @FXML
+    private Button cancell;
+    @FXML
+    private Button Rezervo;
     private boolean dyDrejtimeshi = true;
 
     public static int fId;
@@ -79,11 +100,38 @@ public class FromToController extends  BaseController implements Initializable {
 
     @Override
     void translateEnglish() {
+        Locale currentLocale = new Locale("en");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        nga.setText(translate.getString("label.nga"));
+        ne.setText(translate.getString("label.ne"));
+        dyDrejtimeshe.setText(translate.getString("label.dyDrejtimeshe"));
+        po.setText(translate.getString("radiobutton.po"));
+        jo.setText(translate.getString("radiobutton.jo"));
+        nisjaa.setText(translate.getString("label.nisjaa"));
+        kthimi_Label.setText(translate.getString("label.kthimi_Label"));
+        filtro.setText(translate.getString("button.filtro"));
+        cancell.setText(translate.getString("button.cancell"));
+        Rezervo.setText(translate.getString("button.Rezervo"));
+
 
     }
 
     @Override
     void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        nga.setText(translate.getString("label.nga"));
+        ne.setText(translate.getString("label.ne"));
+        dyDrejtimeshe.setText(translate.getString("label.dyDrejtimeshe"));
+        po.setText(translate.getString("radiobutton"));
+        jo.setText(translate.getString("radiobutton.jo"));
+        nisjaa.setText(translate.getString("label.nisjaa"));
+        kthimi_Label.setText(translate.getString("label.kthimi_Label"));
+        filtro.setText(translate.getString("button.filtro"));
+        cancell.setText(translate.getString("button.cancell"));
+        Rezervo.setText(translate.getString("button.Rezervo"));
 
     }
 
