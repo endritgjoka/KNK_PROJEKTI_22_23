@@ -28,11 +28,11 @@
                     </columns>
                 </TableView>
                 <TextField fx:id="filterField" layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="264.0" promptText="Kerko fluturimin..." />
-                <Label layoutX="22.0" layoutY="14.0" text="Fluturimet">
+                <Label fx:id="fluturimett" layoutX="22.0" layoutY="14.0" text="Fluturimet">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Label>
-                <Button layoutX="614.0" layoutY="375.0" mnemonicParsing="false" onAction="#shtoFluturim" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shto Fluturim" />
+                <Button fx:id="shtoFluturim" layoutX="614.0" layoutY="375.0" mnemonicParsing="false" onAction="#shtoFluturim" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shto Fluturim" />
                 <CheckBox fx:id="checkBoxFilterIsActive" layoutX="365.0" layoutY="54.0" mnemonicParsing="false" onAction="#active" text="Active" />
                 <Pagination layoutX="292.0" layoutY="310.0" maxPageIndicatorCount="2" prefHeight="100.0" prefWidth="200.0" />
             <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="716.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
@@ -40,12 +40,12 @@
                   <Image url="@../photos/airport_logo.png" />
                </image>
             </ImageView>
-            <Button layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithaFluturimet" stylesheets="@../styling/style.css" text="Te gjitha" />
+            <Button fx:id="teGjitha" layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithaFluturimet" stylesheets="@../styling/style.css" text="Te gjitha" />
             <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoFluturimin" stylesheets="@../styling/style.css" text="Kërko" />
-            <Button layoutX="614.0" layoutY="410.0" mnemonicParsing="false" onAction="#menaxhoPerdoruesit" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Menaxho Perdoruesit" />
-            <Button layoutX="614.0" layoutY="447.0" mnemonicParsing="false" onAction="#shikoDiagramet" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shiko Diagramet" />
-            <Button layoutX="614.0" layoutY="483.0" mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Go back" />
-            <Button layoutX="34.0" layoutY="377.0" mnemonicParsing="false" onAction="#fshijFluturiminEPerzgjedhur" stylesheets="@../styling/style.css" text="Fshij fluturimin" />
+            <Button fx:id="menaxhoPerdoruesit" layoutX="614.0" layoutY="410.0" mnemonicParsing="false" onAction="#menaxhoPerdoruesit" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Menaxho Perdoruesit" />
+            <Button fx:id="shikoDiagramet" layoutX="614.0" layoutY="447.0" mnemonicParsing="false" onAction="#shikoDiagramet" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shiko Diagramet" />
+            <Button fx:id="goBack" layoutX="614.0" layoutY="483.0" mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Go back" />
+            <Button fx:id="fshijFluturimin" layoutX="34.0" layoutY="377.0" mnemonicParsing="false" onAction="#fshijFluturiminEPerzgjedhur" stylesheets="@../styling/style.css" text="Fshij fluturimin" />
             </children>
         </Pane>
     </children>

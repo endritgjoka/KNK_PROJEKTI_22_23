@@ -2,6 +2,8 @@ package controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,6 +27,22 @@ public class FluturimetController extends BaseController{
     private CheckBox checkBoxFilterIsActive;
     @FXML
     private TextField filterField;
+    @FXML
+    private Label fluturimett;
+    @FXML
+    private Button kerko;
+    @FXML
+    private Button teGjitha;
+    @FXML
+    private Button fshijFluturimin;
+    @FXML
+    private Button shtoFluturim;
+    @FXML
+    private Button menaxhoPerdoruesit;
+    @FXML
+    private Button shikoDiagramet;
+    @FXML
+    private Button goBack;
     private Alert alert = new Alert(Alert.AlertType.ERROR,"");
 
     public void btnFilter(ActionEvent actionEvent) {
@@ -96,11 +114,35 @@ public class FluturimetController extends BaseController{
 
     @Override
     void translateEnglish() {
+        Locale currentLocale = new Locale("en");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        fluturimett.setText(translate.getString("label.fluturimett"));
+        kerko.setText(translate.getString("button.kerko"));
+        teGjitha.setText(translate.getString("button.teGjitha"));
+        fshijFluturimin.setText(translate.getString("button.fshijFluturimin"));
+        shtoFluturim.setText(translate.getString("button.shtoFluturim"));
+        menaxhoPerdoruesit.setText(translate.getString("button.menaxhoPerdoruesit"));
+        shikoDiagramet.setText(translate.getString("button.shikoDiagramet"));
+        goBack.setText(translate.getString("button.goBack"));
+
 
     }
 
     @Override
     void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        fluturimett.setText(translate.getString("label.fluturimett"));
+        kerko.setText(translate.getString("button.kerko"));
+        teGjitha.setText(translate.getString("button.teGjitha"));
+        fshijFluturimin.setText(translate.getString("button.fshijFluturimin"));
+        shtoFluturim.setText(translate.getString("button.shtoFluturim"));
+        menaxhoPerdoruesit.setText(translate.getString("button.menaxhoPerdoruesit"));
+        shikoDiagramet.setText(translate.getString("button.shikoDiagramet"));
+        goBack.setText(translate.getString("button.goBack"));
+
 
     }
 

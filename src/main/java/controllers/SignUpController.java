@@ -132,7 +132,7 @@ public class SignUpController extends BaseController{
         ditelindjaa.setText(translate.getString("label.ditelindjaa"));
         fjalekalimii.setText(translate.getString("label.fjalekalimii"));
         RishkruajFjalekalimin.setText(translate.getString("label.RishkruajFjalekalimin"));
-        sign_up.setText(translate.getString("label.sign_up"));
+        sign_up.setText(translate.getString("button.sign_up"));
 
     }
 
@@ -148,7 +148,7 @@ public class SignUpController extends BaseController{
         ditelindjaa.setText(translate.getString("label.ditelindjaa"));
         fjalekalimii.setText(translate.getString("label.fjalekalimii"));
         RishkruajFjalekalimin.setText(translate.getString("label.RishkruajFjalekalimin"));
-        sign_up.setText(translate.getString("label.sign_up"));
+        sign_up.setText(translate.getString("button.sign_up"));
 
 
     }
