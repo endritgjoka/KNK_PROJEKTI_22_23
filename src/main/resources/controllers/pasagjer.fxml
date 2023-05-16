@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="542.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PasagjerController">
+<AnchorPane prefHeight="542.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PasagjerController">
     <BorderPane fx:id="root" prefHeight="527.0" prefWidth="752.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
         <top>
             <HBox alignment="CENTER_LEFT" prefHeight="87.0" prefWidth="800.0" spacing="10.0">
@@ -93,7 +93,7 @@
                 </Label>
                 <TextField fx:id="numriTelefonit" promptText="Shenoni numrin..." GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
-                <Button fx:id="next" onAction="#goToPagesa" prefHeight="26.0" prefWidth="150.0" stylesheets="@../styling/style.css" text="Next" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                <Button fx:id="next" onAction="#goToPagesa" prefHeight="27.0" prefWidth="194.0" stylesheets="@../styling/style.css" text="Next" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                 <Label fx:id="TedhenatPasagjerit" text="Të dhënat e pasagjerit" GridPane.columnIndex="1">
                     <font>
                         <Font name="System Bold" size="18.0" />
