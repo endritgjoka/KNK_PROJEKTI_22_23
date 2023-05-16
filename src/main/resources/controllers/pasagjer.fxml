@@ -47,46 +47,46 @@
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                 </padding>
 
-                <Label text="Emri:" GridPane.rowIndex="1">
+                <Label fx:id="Emri" text="Emri:" GridPane.rowIndex="1">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
                 <TextField fx:id="emri" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label text="Mbiemri:" GridPane.rowIndex="2">
+                <Label fx:id="Mbiemri" text="Mbiemri:" GridPane.rowIndex="2">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
                 <TextField fx:id="mbiemri" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label text="Ditëlindja:" GridPane.rowIndex="3">
+                <Label fx:id="Ditelindja" text="Ditëlindja:" GridPane.rowIndex="3">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
                 <TextField fx:id="pasaporta" promptText="Shenoni numrin e pasaportes..." GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                <Label text="Numri i pasaportës" GridPane.rowIndex="8">
+                <Label fx:id="nrPasaportes" text="Numri i pasaportës" GridPane.rowIndex="8">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
 
-                <Label text="Adresa:" GridPane.rowIndex="4">
+                <Label fx:id="Adresa" text="Adresa:" GridPane.rowIndex="4">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
                 <TextField fx:id="adresa" promptText="Shenoni adresen..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <Label text="Nacionaliteti:" GridPane.rowIndex="5">
+                <Label fx:id="Nacionaliteti" text="Nacionaliteti:" GridPane.rowIndex="5">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
                 <TextField fx:id="nacionaliteti" promptText="Shenoni nacionalitetin..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-                <Label text="Numri i telefonit:" GridPane.rowIndex="6">
+                <Label fx:id="numri_telefonit" text="Numri i telefonit:" GridPane.rowIndex="6">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -94,7 +94,7 @@
                 <TextField fx:id="numriTelefonit" promptText="Shenoni numrin..." GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
                 <Button fx:id="next" onAction="#goToPagesa" prefHeight="26.0" prefWidth="150.0" stylesheets="@../styling/style.css" text="Next" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                <Label text="Të dhënat e pasagjerit" GridPane.columnIndex="1">
+                <Label fx:id="TedhenatPasagjerit" text="Të dhënat e pasagjerit" GridPane.columnIndex="1">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>

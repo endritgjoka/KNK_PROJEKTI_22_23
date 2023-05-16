@@ -6,9 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import models.Bagazhet;
@@ -23,9 +21,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.SQLOutput;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class RezervimController implements Initializable {
+public class RezervimController extends BaseController implements Initializable {
 
     @FXML
     private ChoiceBox kategoria;
@@ -41,6 +40,18 @@ public class RezervimController implements Initializable {
 
     @FXML
     private TextField çmimi;
+    @FXML
+    private Label kategoriaBiletes;
+    @FXML
+    private  Label nrUleses;
+    @FXML
+    private Label bagazhi;
+    @FXML
+    private Label nrBagazhit;
+    @FXML
+    private Label cmimi;
+    @FXML
+    private Button vazhdo;
     public static int pasagjeriId;
     private int qmimi;
 
@@ -118,5 +129,34 @@ public class RezervimController implements Initializable {
                 alert.show();
             }
         });
+    }
+
+    @Override
+    void translateEnglish() {
+        Locale currentLocale = new Locale("en");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        kategoriaBiletes.setText(translate.getString("label.kategoriaBiletes"));
+        nrUleses.setText(translate.getString("label.nrUleses"));
+        bagazhi.setText(translate.getString("label.bagazhi"));
+        nrBagazhit.setText(translate.getString("label.nrBagazhit"));
+        cmimi.setText(translate.getString("label.cmimi"));
+        vazhdo.setText(translate.getString("button.vazhdo"));
+
+
+    }
+
+    @Override
+    void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        kategoriaBiletes.setText(translate.getString("label.kategoriaBiletes"));
+        nrUleses.setText(translate.getString("label.nrUleses"));
+        bagazhi.setText(translate.getString("label.bagazhi"));
+        nrBagazhit.setText(translate.getString("label.nrBagazhit"));
+        cmimi.setText(translate.getString("label.cmimi"));
+        vazhdo.setText(translate.getString("button.vazhdo"));
+
     }
 }
