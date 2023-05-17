@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class UserProfileController extends BaseController implements Initializable {
@@ -52,17 +53,58 @@ public class UserProfileController extends BaseController implements Initializab
 
     @FXML
     private TextField usernameField;
+    @FXML
+    private Label user_name;
+    @FXML
+    private Label passwordd;
+    @FXML
+    private Label name;
+    @FXML
+    private Label surname;
+    @FXML
+    private Label birthday;
+    @FXML
+    private Label profilePicture;
+    @FXML
+    private Button addPicture;
+    @FXML
+    private Button goBackk;
+    @FXML
+    private Button saveChanges;
     private Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "");
 
 
     Perdoruesi perdoruesi = Rezervimi.getPerdoruesi();
     @Override
     void translateEnglish() {
+        Locale currentLocale = new Locale("en");
 
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        user_name.setText(translate.getString("label.user_name"));
+        passwordd.setText(translate.getString("label.passwordd"));
+        name.setText(translate.getString("label.name"));
+        surname.setText(translate.getString("label.surname"));
+        birthday.setText(translate.getString("label.birthday"));
+        profilePicture.setText(translate.getString("label.profilePicture"));
+        addPicture.setText(translate.getString("button.addPicture"));
+        goBackk.setText(translate.getString("button.goBackk"));
+        saveChanges.setText(translate.getString("button.saveChanges"));
     }
 
     @Override
     void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        user_name.setText(translate.getString("label.user_name"));
+        passwordd.setText(translate.getString("label.passwordd"));
+        name.setText(translate.getString("label.name"));
+        surname.setText(translate.getString("label.surname"));
+        birthday.setText(translate.getString("label.birthday"));
+        profilePicture.setText(translate.getString("label.profilePicture"));
+        addPicture.setText(translate.getString("button.addPicture"));
+        goBackk.setText(translate.getString("button.goBackk"));
+        saveChanges.setText(translate.getString("button.saveChanges"));
 
     }
 

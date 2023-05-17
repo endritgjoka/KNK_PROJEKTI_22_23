@@ -84,15 +84,15 @@
                 </HBox>
 
                 <GridPane hgap="10" vgap="10">
-                    <Label text="Emri i kartës:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label fx:id="emriKartes" text="Emri i kartës:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                     <TextField fx:id="cardNameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                    <Label text="Numri i kartës:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label fx:id="nrKartes" text="Numri i kartës:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                     <TextField fx:id="cardNumberField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                    <Label text="Data e skadimit:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label fx:id="dataSkadimit" text="Data e skadimit:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
-                    <Label text="Kodi CVV:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <Label fx:id="kodiCVV" text="Kodi CVV:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                     <TextField fx:id="cvvField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                <DatePicker fx:id="expirationDate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
@@ -108,7 +108,7 @@
                     </rowConstraints>
                 </GridPane>
 
-                <Button onAction="#rezervo" text="Rezervo" />
+                <Button fx:id="Rezervoo" onAction="#rezervo" text="Rezervo" />
 
             </VBox>
 
