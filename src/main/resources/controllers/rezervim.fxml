@@ -65,7 +65,7 @@
                      </FXCollections>
                  </items>
              </ChoiceBox>
-            <TextField fx:id="numriBagazhev1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="çmimi" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
 
          </children>
