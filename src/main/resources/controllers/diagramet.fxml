@@ -22,9 +22,7 @@
             </rowConstraints>
             <children>
                 <BarChart fx:id="barChart" GridPane.columnIndex="0">
-                    <xAxis>
-                        <CategoryAxis fx:id="barChartXAxis" side="BOTTOM" />
-                    </xAxis>
+                    <xAxis><CategoryAxis fx:id="barChartXAxis" side="BOTTOM" /></xAxis>
                     <yAxis>
                         <NumberAxis fx:id="barChartYAxis" side="LEFT" />
                     </yAxis>

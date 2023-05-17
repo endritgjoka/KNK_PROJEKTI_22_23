@@ -12,10 +12,8 @@ public class diagrametController implements Initializable {
 
     @FXML
     private BarChart<String, Number> barChart;
-
     @FXML
     private CategoryAxis barChartXAxis;
-
     @FXML
     private NumberAxis barChartYAxis;
 
