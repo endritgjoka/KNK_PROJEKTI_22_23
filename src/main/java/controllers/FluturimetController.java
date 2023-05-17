@@ -43,6 +43,8 @@ public class FluturimetController extends BaseController{
     private Button shikoDiagramet;
     @FXML
     private Button goBack;
+    @FXML
+    private Pagination pagination;
     private Alert alert = new Alert(Alert.AlertType.ERROR,"");
 
     public void btnFilter(ActionEvent actionEvent) {
@@ -99,17 +101,20 @@ public class FluturimetController extends BaseController{
 
     @FXML
     public void kerkoFluturimin(ActionEvent actionEvent) throws Exception{
-        String fromSearch = filterField.getText();
-        ObservableList<Fluturimet> data = FluturimetRepository.getSearched(fromSearch);
+        if (!filterField.getText().equals("")){
+            String fromSearch = filterField.getText();
+            ObservableList<Fluturimet> data = FluturimetRepository.getSearched(fromSearch);
 
-        linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
-        nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
-        kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));
-        statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
-        vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
-        vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
+            linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
+            nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
+            kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));
+            statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
+            vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
+            vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
 
-        tabela.setItems(data);
+            tabela.setItems(data);
+        }
+
     }
 
     @Override

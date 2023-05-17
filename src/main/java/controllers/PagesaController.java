@@ -2,9 +2,15 @@ package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import models.Pagesa;
+import models.Rezervimi;
 import repository.PagesaRepository;
 
 import java.sql.Date;
@@ -58,6 +64,59 @@ public class PagesaController {
             return "MasterCard";
         }
         return  "Visa";
+    }
+    
+    @FXML
+    private void help(ActionEvent event) throws Exception {
+
+        Parent parenti = FXMLLoader.load(getClass().getResource("help.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+    @FXML
+    private void goToFluturimet(ActionEvent event) throws Exception {
+
+        Parent parenti = FXMLLoader.load(getClass().getResource("fromto.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+    @FXML
+    public void goToBaggage(ActionEvent event) throws Exception {
+        Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    @FXML
+    public void goToLogin(ActionEvent event) throws Exception {
+        Rezervimi.setPerdoruesi(null);
+        Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+
+    
+    @FXML
+    public void goToPassagers(ActionEvent event) throws Exception {
+        Rezervimi.setPerdoruesi(null);
+        Parent parenti = FXMLLoader.load(getClass().getResource("pasagjer.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
 }

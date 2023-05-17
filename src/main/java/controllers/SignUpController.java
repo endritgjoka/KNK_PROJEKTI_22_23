@@ -3,6 +3,7 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,13 +12,14 @@ import javafx.stage.Stage;
 import models.Perdoruesi;
 import service.UserSevice;
 
+import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class SignUpController extends BaseController{
+public class SignUpController extends BaseController {
     @FXML
     private TextField emri;
     @FXML
@@ -43,7 +45,7 @@ public class SignUpController extends BaseController{
     @FXML
     private Label emaili;
     @FXML
-    private Label gjinia;
+    private Label gjiniaa;
     @FXML
     private Label ditelindjaa;
     @FXML
@@ -52,15 +54,13 @@ public class SignUpController extends BaseController{
     private Label RishkruajFjalekalimin;
     @FXML
     private Button sign_up;
+    @FXML
+    private ToggleGroup gjinia;
 
-    public char getPgjinia() {
-        return pgjinia;
-    }
 
     public void setPgjinia(char pgjinia) {
         this.pgjinia = pgjinia;
     }
-
 
 
 
@@ -72,7 +72,7 @@ public class SignUpController extends BaseController{
         String pfjalekalimi = fjalekalimi.getText();
         String prishkruajFjalekalimin = rishkruajFjalekalimin.getText();
         Date pditelindja = Date.valueOf(ditelindja.getValue());
-        char pgjinia = this.getPgjinia();
+        getGjinia();
         boolean isAdmin = false;
 
         if (pfjalekalimi.equals(prishkruajFjalekalimin)){
@@ -109,15 +109,14 @@ public class SignUpController extends BaseController{
 //        return 0;
 //    }
 
-    public void getGjinia(ActionEvent actionEvent) {
-        if(mashkull.isSelected()){
-            femer.disableProperty();
-            setPgjinia(mashkull.getText().charAt(0));
-        }else{
-            mashkull.disableProperty();
-            setPgjinia(femer.getText().charAt(0));
+    public void getGjinia() {
+        if(gjinia.getSelectedToggle() != null) {
+            if (mashkull.isSelected() == true) {
+                setPgjinia(mashkull.getText().charAt(0));
+            } else {
+                setPgjinia(femer.getText().charAt(0));
+            }
         }
-
     }
 
     @Override
@@ -128,7 +127,7 @@ public class SignUpController extends BaseController{
         emrii.setText(translate.getString("label.emrii"));
         mbiemrii.setText(translate.getString("label.mbiemrii"));
         emaili.setText(translate.getString("label.emaili"));
-        gjinia.setText(translate.getString("label.gjinia"));
+        gjiniaa.setText(translate.getString("label.gjinia"));
         ditelindjaa.setText(translate.getString("label.ditelindjaa"));
         fjalekalimii.setText(translate.getString("label.fjalekalimii"));
         RishkruajFjalekalimin.setText(translate.getString("label.RishkruajFjalekalimin"));
@@ -144,12 +143,12 @@ public class SignUpController extends BaseController{
         emrii.setText(translate.getString("label.emrii"));
         mbiemrii.setText(translate.getString("label.mbiemrii"));
         emaili.setText(translate.getString("label.emaili"));
-        gjinia.setText(translate.getString("label.gjinia"));
+        gjiniaa.setText(translate.getString("label.gjinia"));
         ditelindjaa.setText(translate.getString("label.ditelindjaa"));
         fjalekalimii.setText(translate.getString("label.fjalekalimii"));
         RishkruajFjalekalimin.setText(translate.getString("label.RishkruajFjalekalimin"));
         sign_up.setText(translate.getString("button.sign_up"));
 
-
     }
+
 }
