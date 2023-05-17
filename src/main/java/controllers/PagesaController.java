@@ -53,7 +53,7 @@ public class PagesaController extends BaseController {
     @FXML
     void rezervo(ActionEvent event) throws SQLException {
         if (pagesa.getSelectedToggle() != null && expirationDate.getValue() != null && !cvvField.getText().equals("")
-        && !cardNameField.getText().equals("") && !cardNumberField.getText().equals("")){
+                && !cardNameField.getText().equals("") && !cardNumberField.getText().equals("")){
             String mp = menyraPageses();
             Pagesa pagesa1 = new Pagesa(0,mp, cardNameField.getText(), cardNumberField.getText(),
                     Date.valueOf(expirationDate.getValue()), cvvField.getText(),bId);
