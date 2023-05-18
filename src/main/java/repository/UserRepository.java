@@ -1,5 +1,10 @@
 package repository;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import models.Aeroporti;
+import models.Airoplani;
+import models.Fluturimet;
 import service.DBConnection;
 import models.Perdoruesi;
 
@@ -73,5 +78,32 @@ public class UserRepository {
             statement.setInt(1, id);
             statement.executeUpdate();
         }
+    }
+
+
+    public static ObservableList<Perdoruesi> getAll() throws SQLException {
+        ObservableList<Perdoruesi> perdoruesit = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM perdoruesit WHERE admin = 0";
+        Connection connection = DBConnection.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        while (resultSet.next()) {
+
+            int id = resultSet.getInt("id");
+            String  emri = resultSet.getString("emri");
+            String mbiemri = resultSet.getString("mbiemri");
+            String username = resultSet.getString("username");
+            String fjalekalimi_salted = resultSet.getString("fjalekalimi_salted");
+            String salt = resultSet.getString("salt");
+            char gjinia = resultSet.getString("gjinia").charAt(0);
+            boolean admin = resultSet.getBoolean("admin");
+            Date ditelindja = resultSet.getDate("ditelindja");
+
+            Perdoruesi perdoruesi = new Perdoruesi(id, emri, mbiemri, username, fjalekalimi_salted, salt, gjinia, admin, ditelindja);
+
+            perdoruesit.add(perdoruesi);
+        }
+        return perdoruesit;
+
     }
 }

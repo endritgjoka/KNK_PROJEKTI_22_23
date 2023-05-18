@@ -3,6 +3,7 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.*;
+import service.DBConnection;
 
 import java.net.URL;
 import java.sql.*;
@@ -29,7 +30,7 @@ public class diagrametController implements Initializable {
     private void loadData() {
         try {
             // Establish a connection to the database
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/menaxhimi_i_fluturimeve_airoport", "root", "");
+            Connection connection = DBConnection.getConnection();
 
             // Query to retrieve gender-based data for the bar chart
             String genderQuery = "SELECT gjinia, COUNT(*) AS count FROM perdoruesit GROUP BY gjinia";

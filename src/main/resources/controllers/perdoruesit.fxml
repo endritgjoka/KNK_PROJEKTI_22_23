@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PerdoruesitController">
+    <children>
+        <Pane layoutX="-3.0" layoutY="-1.0" prefHeight="470.0" prefWidth="774.0" style="-fx-background-color: white;">
+            <children>
+                <TableView fx:id="tabela" layoutX="76.0" layoutY="102.0" prefHeight="267.0" prefWidth="586.0">
+                    <columns>
+                        <TableColumn fx:id="emri" prefWidth="144.00006103515625" text="Emri" />
+                        <TableColumn fx:id="mbiemri" prefWidth="161.5999755859375" text="Mbiemri" />
+                        <TableColumn fx:id="username" prefWidth="184.79998779296875" text="Username" />
+                        <TableColumn fx:id="gjinia" prefWidth="92.800048828125" text="Gjinia" />
+                    </columns>
+                </TableView>
+                <TextField fx:id="filterField" layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="264.0" promptText="Kerko perdoruesin..." />
+                <Label fx:id="fluturimett" layoutX="22.0" layoutY="14.0" text="Perdoruesit">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font></Label>
+                <Pagination fx:id="pagination" layoutX="292.0" layoutY="310.0" maxPageIndicatorCount="2" prefHeight="100.0" prefWidth="210.0" />
+                <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="716.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../photos/airport_logo.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="teGjitha" layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithePerdoruesit" stylesheets="@../styling/style.css" text="Te gjitha" />
+                <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoStudentin" stylesheets="@../styling/style.css" text="Kërko" />
+                <Button fx:id="goBack" layoutX="14.0" layoutY="375.0" mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Go back" />
+                <Button fx:id="fshijperdoruesin" layoutX="640.0" layoutY="375.0" mnemonicParsing="false" onAction="#fshijPerdoruesinEPerzgjedhur" stylesheets="@../styling/style.css" text="Fshij perdoruesin" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
