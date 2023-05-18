@@ -53,12 +53,15 @@ public class PasagjerController extends BaseController implements Initializable{
         String pNumriTelefonit = this.numriTelefonit.getText();
         String pNumriPasaportes = this.pasaporta.getText();
         if (!padresa.equals("") && !pnacionaliteti.equals("") && !pNumriTelefonit.equals("")){
-            Pasagjeri pasagjeri = PasagjeriService.regjistroPasagjerin(Rezervimi.getPerdoruesi().getId(), padresa, pnacionaliteti, pNumriTelefonit, pNumriPasaportes);
-            RezervimController.pasagjeriId = pasagjeri.getId();
+            Pasagjeri pasagjeri = new Pasagjeri(0,Rezervimi.getPerdoruesi().getId(), padresa, pnacionaliteti, pNumriTelefonit, pNumriPasaportes);
+            //RezervimController.pasagjeriId = pasagjeri.getId();
+            PagesaController.setData(pasagjeri);
             Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
             Scene scene = new Scene(parenti);
             Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
+            primaryStage.setTitle("Te dhenat e rezervimit");
             primaryStage.show();
         }else{
             Alert alert = new Alert(Alert.AlertType.WARNING, "These fields should be filled!");

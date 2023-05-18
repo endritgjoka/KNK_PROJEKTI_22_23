@@ -62,11 +62,11 @@ public class FluturimetController extends BaseController{
 
 
     @FXML
-    public void shfaqTeGjithaFluturimet(ActionEvent actionEvent) throws SQLException {
+    public void shfaqTeGjithaFluturimet(ActionEvent actionEvent) throws Exception {
         if(checkBoxFilterIsActive.isSelected()){
             checkBoxFilterIsActive.setSelected(false);
         }
-        ObservableList<Fluturimet> data = FluturimetRepository.getAll();
+        ObservableList<Fluturimet> data = FluturimetRepository.getAll(0,"");
 
         linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
         nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
@@ -79,10 +79,10 @@ public class FluturimetController extends BaseController{
     }
 
     @FXML
-    public void active(ActionEvent actionEvent) throws SQLException {
+    public void active(ActionEvent actionEvent) throws Exception {
 
         if(checkBoxFilterIsActive.isSelected()){
-            ObservableList<Fluturimet> data = FluturimetRepository.getActives();
+            ObservableList<Fluturimet> data = FluturimetRepository.getAll(2,"");
 
             linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
             nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
@@ -103,7 +103,7 @@ public class FluturimetController extends BaseController{
     public void kerkoFluturimin(ActionEvent actionEvent) throws Exception{
         if (!filterField.getText().equals("")){
             String fromSearch = filterField.getText();
-            ObservableList<Fluturimet> data = FluturimetRepository.getSearched(fromSearch);
+            ObservableList<Fluturimet> data = FluturimetRepository.getAll(4,fromSearch);
 
             linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
             nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));

@@ -81,9 +81,15 @@ public class UserRepository {
     }
 
 
-    public static ObservableList<Perdoruesi> getAll() throws SQLException {
+    public static ObservableList<Perdoruesi> getAll(String fromSearch) throws SQLException {
         ObservableList<Perdoruesi> perdoruesit = FXCollections.observableArrayList();
-        String sql = "SELECT * FROM perdoruesit WHERE admin = 0";
+        String sql = "";
+        if(fromSearch.equals("")){
+            sql = "SELECT * FROM perdoruesit WHERE admin = 0";
+        }else{
+            sql = "SELECT * FROM perdoruesit WHERE admin = 0 AND emri LIKE '%"+fromSearch+"%' OR mbiemri LIKE '%"+
+                    fromSearch+"%' OR username LIKE '%"+fromSearch+"%'";
+        }
         Connection connection = DBConnection.getConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);

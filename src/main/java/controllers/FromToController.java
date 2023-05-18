@@ -35,9 +35,6 @@ public class FromToController extends  BaseController implements Initializable {
     @FXML
     private DatePicker departureDatePicker;
     @FXML
-    private Label kthimiLabel;
-
-    @FXML
     private TableColumn kthimi;
 
     @FXML
@@ -185,13 +182,15 @@ public class FromToController extends  BaseController implements Initializable {
         Locale.setDefault(new Locale("sq"));
         translateAlbanian();
         try {
-            ObservableList<Fluturimet> list = FluturimetRepository.getAll();
+            ObservableList<Fluturimet> list = FluturimetRepository.getAll(1,"");
             Collections.sort(list, Comparator.comparing(Fluturimet::getQyteti1));
             for (Fluturimet fluturim: list ) {
                 departingCityChoiceBox.getItems().add(fluturim.getQyteti1());
                 arrivalCityChoiceBox.getItems().add(fluturim.getQyteti2());
             }
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
@@ -218,24 +217,18 @@ public class FromToController extends  BaseController implements Initializable {
     public void njeDrejtimesh(ActionEvent actionEvent) {
         this.dyDrejtimeshi = false;
         returnDatePicker.setVisible(false);
-        kthimiLabel.setVisible(false);
+        kthimi_Label.setVisible(false);
     }
 
     @FXML
     public void dyDrejtimesh(ActionEvent actionEvent) {
         this.dyDrejtimeshi = true;
         returnDatePicker.setVisible(true);
-        kthimiLabel.setVisible(true);
+        kthimi_Label.setVisible(true);
     }
 
     @FXML
     public void rezervo(ActionEvent actionEvent) {
-//        tabela.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-//            if (newSelection != null) {
-//                int id = newSelection.getId(); // Assuming your model class has an ID property
-//                System.out.println("Selected row ID: " + id);
-//            }
-//        });
 
         // Get the selected row
         Fluturimet selectedObject = (Fluturimet) tabela.getSelectionModel().getSelectedItem();
@@ -251,6 +244,7 @@ public class FromToController extends  BaseController implements Initializable {
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
                 stage.setResizable(false);
+                stage.setTitle("Pasagjeri");
                 stage.setScene(scene);
                 stage.show();
 

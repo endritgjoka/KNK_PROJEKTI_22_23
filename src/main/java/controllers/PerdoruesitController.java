@@ -68,13 +68,23 @@ public class PerdoruesitController {
     }
 
     @FXML
-    void kerkoStudentin(ActionEvent event) {
+    void kerkoStudentin(ActionEvent event) throws Exception {
+        if (!filterField.getText().equals("")){
+            ObservableList<Perdoruesi> perdoruesit = UserRepository.getAll(filterField.getText());
+
+            emri.setCellValueFactory(new PropertyValueFactory<>("emri"));
+            mbiemri.setCellValueFactory(new PropertyValueFactory<>("mbiemri"));
+            username.setCellValueFactory(new PropertyValueFactory<>("username"));
+            gjinia.setCellValueFactory(new PropertyValueFactory<>("gjinia"));
+
+            tabela.setItems(perdoruesit);
+        }
 
     }
 
     @FXML
     void shfaqTeGjithePerdoruesit(ActionEvent event) throws SQLException {
-        ObservableList<Perdoruesi> perdoruesit = UserRepository.getAll();
+        ObservableList<Perdoruesi> perdoruesit = UserRepository.getAll("");
 
         emri.setCellValueFactory(new PropertyValueFactory<>("emri"));
         mbiemri.setCellValueFactory(new PropertyValueFactory<>("mbiemri"));

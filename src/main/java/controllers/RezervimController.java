@@ -15,6 +15,7 @@ import models.Pasagjeri;
 import models.Rezervimi;
 import repository.BagazhetRepository;
 import repository.BiletaRepository;
+import repository.PasagjeriRepository;
 import repository.RezervimiRepository;
 
 import java.io.IOException;
@@ -62,7 +63,8 @@ public class RezervimController extends BaseController implements Initializable 
 
             Bagazhet bagazh = new Bagazhet(0, pasagjeriId, Integer.parseInt(numriBagazhev.getText()),
                     Integer.parseInt(pesha.getText()));
-            BagazhetRepository.insert(bagazh);
+            PagesaController.setData(bagazh);
+            //BagazhetRepository.insert(bagazh);
             int qmimi = 200;
             if (kategoria.equals("Ekonomike")){
                 qmimi += 50;
@@ -76,11 +78,13 @@ public class RezervimController extends BaseController implements Initializable 
             çmimi.setText(qmimi+"");
 
             Bileta bileta = new Bileta(0,Integer.parseInt(çmimi.getText()));
-            int biletaId = BiletaRepository.insert(bileta );
-            PagesaController.bId = biletaId;
+            PagesaController.setData(bileta);
+           // int biletaId = BiletaRepository.insert(bileta);
+           // PagesaController.bId = biletaId;
             Rezervimi rezervimi = new Rezervimi(0, pasagjeriId, FromToController.fId,
-                    Integer.parseInt(numriUleses.getText()), kategoria.getValue().toString(), biletaId);
-            RezervimiRepository.insert(rezervimi);
+                    Integer.parseInt(numriUleses.getText()), kategoria.getValue().toString(), 0);
+           // RezervimiRepository.insert(rezervimi);
+            PagesaController.setData(rezervimi);
             FXMLLoader fxmlLoader= new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("pagesa.fxml"));
             try {
@@ -90,6 +94,7 @@ public class RezervimController extends BaseController implements Initializable 
                 Scene scene = new Scene(root);
                 stage.setResizable(false);
                 stage.setScene(scene);
+                stage.setTitle("Pagesa");
                 stage.show();
                 Stage stage1 =(Stage) kategoria.getScene().getWindow();
                 stage1.close();
@@ -107,19 +112,23 @@ public class RezervimController extends BaseController implements Initializable 
         validateField(pesha);
         validateField(numriBagazhev);
         validateField(numriUleses);
-         qmimi = 200;
-        if (kategoria.getValue()!= null && kategoria.equals("Ekonomike")){
-            qmimi += 50;
-        } else if (kategoria.equals("Biznesore")) {
-            qmimi += 30;
-        }
-        if (!numriBagazhev.getText().equals("") && Integer.parseInt(numriBagazhev.getText() )> 1){
-            qmimi += 30;
-        }
 
-        çmimi.setText(qmimi+"");
+        kategoria.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            double ticketPrice = kalkuloÇmimin();
+            çmimi.setText(String.valueOf(ticketPrice));
+        });
 
+        pesha.textProperty().addListener((observable, oldValue, newValue) -> {
+            double ticketPrice = kalkuloÇmimin();
+            çmimi.setText(String.valueOf(ticketPrice));
+        });
+
+        numriBagazhev.textProperty().addListener((observable, oldValue, newValue) -> {
+            double ticketPrice = kalkuloÇmimin();
+            çmimi.setText(String.valueOf(ticketPrice));
+        });
     }
+
 
     void validateField(TextField field){
         field.setOnKeyPressed(e->{
@@ -159,4 +168,27 @@ public class RezervimController extends BaseController implements Initializable 
         vazhdo.setText(translate.getString("button.vazhdo"));
 
     }
+
+    public double kalkuloÇmimin() {
+        double qmimiBaze = 0,baggagePrice = 0, suitcasePrice = 0;
+
+            String category = kategoria.getValue().toString();
+            double baggageWeight = Double.parseDouble(bagazhi.getText());
+            int suitcaseCount = Integer.parseInt(nrBagazhit.getText());
+
+            if (category.equals("Ekonomike")) {
+                qmimiBaze = 100.0;
+            } else if (category.equals("Biznesore")) {
+                qmimiBaze = 200.0;
+            } else {
+                qmimiBaze = 150.0;
+            }
+
+             baggagePrice = baggageWeight * 10.0;
+             suitcasePrice = suitcaseCount * 20.0;
+
+
+        return qmimiBaze + baggagePrice + suitcasePrice;
+    }
+
 }
