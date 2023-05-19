@@ -46,6 +46,9 @@ public class PasagjerController extends BaseController implements Initializable{
      @FXML
      private Button next;
 
+     @FXML
+     private Button anulo;
+
     @FXML
     public void goToPagesa(ActionEvent event) throws Exception {
         String padresa = this.adresa.getText();
@@ -80,50 +83,6 @@ public class PasagjerController extends BaseController implements Initializable{
 
     }
 
-    @FXML
-    private void goToFluturimet(ActionEvent event) throws Exception {
-
-        Parent parenti = FXMLLoader.load(getClass().getResource("fromto.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-    }
-
-    @FXML
-    public void goToBaggage(ActionEvent event) throws Exception {
-        Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    @FXML
-    public void goToLogin(ActionEvent event) throws Exception {
-        Rezervimi.setPerdoruesi(null);
-        Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-
-    
-    @FXML
-    public void goToPassagers(ActionEvent event) throws Exception {
-        Rezervimi.setPerdoruesi(null);
-        Parent parenti = FXMLLoader.load(getClass().getResource("pasagjer.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-
-
     @Override
     void translateEnglish() {
         Locale currentLocale = new Locale("en");
@@ -157,9 +116,9 @@ public class PasagjerController extends BaseController implements Initializable{
 
     }
 
-
     @FXML
-    public void vazhdo(ActionEvent actionEvent) {
-
+    public void anulo(ActionEvent actionEvent){
+        Stage stage=(Stage) next.getScene().getWindow();
+        stage.close();
     }
 }

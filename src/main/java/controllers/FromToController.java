@@ -24,7 +24,7 @@ import java.util.Comparator;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class FromToController extends  BaseController implements Initializable {
+public class FromToController extends HomeController implements Initializable {
 
     @FXML
     private ChoiceBox arrivalCityChoiceBox;

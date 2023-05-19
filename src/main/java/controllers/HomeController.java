@@ -28,7 +28,6 @@ public class HomeController extends BaseController {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 
     @FXML
@@ -57,6 +56,7 @@ public class HomeController extends BaseController {
         Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(parenti);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
         primaryStage.setScene(scene);
         primaryStage.show();
     }

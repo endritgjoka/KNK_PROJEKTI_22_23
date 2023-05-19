@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ResourceBundle;
 
-public class ShtoFluturimController implements Initializable {
+public class ShtoFluturimController extends HomeController implements Initializable  {
 
     @FXML
     private TextField statusi;

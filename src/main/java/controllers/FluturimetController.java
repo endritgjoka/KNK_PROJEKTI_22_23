@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 import models.Fluturimet;
 import repository.FluturimetRepository;
 
-public class FluturimetController extends BaseController{
+public class FluturimetController extends HomeController{
     @FXML
     private TableColumn  nisja, kthimi, vendi_nisjes, vendi_arritjes, statusi,linja;
     @FXML

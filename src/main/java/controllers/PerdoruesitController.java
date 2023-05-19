@@ -15,7 +15,7 @@ import repository.UserRepository;
 
 import java.sql.SQLException;
 
-public class PerdoruesitController {
+public class PerdoruesitController extends HomeController{
 
     @FXML
     private TextField filterField;

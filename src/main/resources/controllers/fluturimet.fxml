@@ -1,52 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Pagination?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FluturimetController">
-    <children>
-        <Pane layoutX="-3.0" layoutY="-1.0" prefHeight="555.0" prefWidth="769.0" style="-fx-background-color: white;">
-            <children>
-                <TableView fx:id="tabela" layoutX="1.0" layoutY="86.0" prefHeight="267.0" prefWidth="767.0">
-                    <columns>
-                        <TableColumn fx:id="linja" prefWidth="189.60000002384186" text="Linja ajrore" />
-                        <TableColumn fx:id="vendi_nisjes" prefWidth="78.4000244140625" text="Vendi i nisjes" />
-                        <TableColumn fx:id="nisja" prefWidth="116.00006103515625" text="Nisja" />
-                        <TableColumn fx:id="vendi_arritjes" prefWidth="158.40011596679688" text="Vendi i arritjes" />
-                  <TableColumn fx:id="kthimi" prefWidth="136.79998779296875" text="Kthimi" />
-                  <TableColumn fx:id="statusi" prefWidth="88.7999267578125" text="Statusi" />
-                    </columns>
-                </TableView>
-                <TextField fx:id="filterField" layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="264.0" promptText="Kerko fluturimin..." />
-                <Label fx:id="fluturimett" layoutX="22.0" layoutY="14.0" text="Fluturimet">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font></Label>
-                <Button fx:id="shtoFluturim" layoutX="614.0" layoutY="375.0" mnemonicParsing="false" onAction="#shtoFluturim" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shto Fluturim" />
-                <CheckBox fx:id="checkBoxFilterIsActive" layoutX="365.0" layoutY="54.0" mnemonicParsing="false" onAction="#active" text="Active" />
-                <Pagination fx:id="pagination" layoutX="292.0" layoutY="310.0" maxPageIndicatorCount="2" prefHeight="100.0" prefWidth="210.0" />
-            <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="716.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../photos/airport_logo.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="teGjitha" layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithaFluturimet" stylesheets="@../styling/style.css" text="Te gjitha" />
-            <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoFluturimin" stylesheets="@../styling/style.css" text="Kërko" />
-            <Button fx:id="menaxhoPerdoruesit" layoutX="614.0" layoutY="410.0" mnemonicParsing="false" onAction="#menaxhoPerdoruesit" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Menaxho Perdoruesit" />
-            <Button fx:id="shikoDiagramet" layoutX="614.0" layoutY="447.0" mnemonicParsing="false" onAction="#shikoDiagramet" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shiko Diagramet" />
-            <Button fx:id="goBack" layoutX="614.0" layoutY="483.0" mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Go back" />
-            <Button fx:id="fshijFluturimin" layoutX="34.0" layoutY="377.0" mnemonicParsing="false" onAction="#fshijFluturiminEPerzgjedhur" stylesheets="@../styling/style.css" text="Fshij fluturimin" />
-            </children>
-        </Pane>
-    </children>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.CheckBox?>
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FluturimetController">
+<children>
+    <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;">
+        <top>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <children>
+                    <ImageView fitHeight="65.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../photos/airport_logo.png" />
+                        </image>
+                        <HBox.margin>
+                            <Insets left="10.0" top="10.0" />
+                        </HBox.margin>
+                    </ImageView>
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kosovo International Airport">
+                        <font>
+                            <Font name="System Bold" size="20.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets left="10.0" top="25.0" />
+                        </HBox.margin>
+                    </Text>
+                    <Hyperlink onAction="#goToLogin" text="Sign out" textFill="##4e4e4e">
+                        <font>
+                            <Font name="System Bold" size="20.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets left="250.0" top="20.0" />
+                        </HBox.margin>
+                    </Hyperlink>
+                </children>
+            </HBox>
+        </top>
+        <left>
+            <VBox prefHeight="281.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+                <children>
+                    <Hyperlink onAction="#goToFluturimet" text="Flights" textFill="##4e4e4e">
+                        <font>
+                            <Font name="System Bold" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets left="10.0" />
+                        </VBox.margin>
+                    </Hyperlink>
+                    <Hyperlink text="Passengers" textFill="##4e4e4e">
+                        <VBox.margin>
+                            <Insets left="10.0" top="5.0" />
+                        </VBox.margin>
+                        <font>
+                            <Font name="System Bold" size="20.0" />
+                        </font>
+                    </Hyperlink>
+                    <Hyperlink onAction="#goToRezervimet" text="Reservations" textFill="##4e4e4e">
+                        <font>
+                            <Font name="System Bold" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets left="10.0" top="5.0" />
+                        </VBox.margin>
+                    </Hyperlink>
+                    <Hyperlink onAction="#goToProfile" text="User profile" textFill="##4e4e4e">
+                        <VBox.margin>
+                            <Insets left="10.0" top="5.0" />
+                        </VBox.margin>
+                        <font>
+                            <Font name="System Bold" size="20.0" />
+                        </font>
+                    </Hyperlink>
+                    <Hyperlink text="Services" textFill="##4e4e4e">
+                        <VBox.margin>
+                            <Insets left="10.0" top="5.0" />
+                        </VBox.margin>
+                        <font>
+                            <Font name="System Bold" size="20.0" />
+                        </font>
+                    </Hyperlink>
+                    <Hyperlink onAction="#help" text="Help" textFill="##4e4e4e">
+                        <font>
+                            <Font name="System Bold" size="20.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets left="10.0" top="5.0" />
+                        </VBox.margin>
+                    </Hyperlink>
+                </children>
+            </VBox>
+        </left>
+        <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+        </bottom>
+        <center>
+            <AnchorPane>
+                <children>
+                    <Pane layoutX="-3.0" layoutY="-1.0" prefHeight="555.0" prefWidth="769.0" style="-fx-background-color: white;">
+                        <children>
+                            <TableView fx:id="tabela" layoutX="1.0" layoutY="96.0" prefHeight="267.0" prefWidth="767.0">
+                                <columns>
+                                    <TableColumn fx:id="linja" prefWidth="189.60000002384186" text="Linja ajrore" />
+                                    <TableColumn fx:id="vendi_nisjes" prefWidth="78.4000244140625" text="Vendi i nisjes" />
+                                    <TableColumn fx:id="nisja" prefWidth="116.00006103515625" text="Nisja" />
+                                    <TableColumn fx:id="vendi_arritjes" prefWidth="158.40011596679688" text="Vendi i arritjes" />
+                                    <TableColumn fx:id="kthimi" prefWidth="136.79998779296875" text="Kthimi" />
+                                    <TableColumn fx:id="statusi" prefWidth="88.7999267578125" text="Statusi" />
+                                </columns>
+                            </TableView>
+                            <TextField fx:id="filterField" layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="264.0" promptText="Kerko fluturimin..." />
+                            <Label fx:id="fluturimett" layoutX="22.0" layoutY="14.0" text="Fluturimet">
+                                <font>
+                                    <Font name="System Bold" size="20.0" />
+                                </font></Label>
+                            <Button fx:id="shtoFluturim" layoutX="614.0" layoutY="396.0" mnemonicParsing="false" onAction="#shtoFluturim" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shto Fluturim" />
+                            <CheckBox fx:id="checkBoxFilterIsActive" layoutX="365.0" layoutY="54.0" mnemonicParsing="false" onAction="#active" text="Active" />
+                            <Pagination fx:id="pagination" layoutX="4.0" layoutY="77.0" maxPageIndicatorCount="2" prefHeight="314.0" prefWidth="767.0" />
+                            <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="716.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../photos/airport_logo.png" />
+                                </image>
+                            </ImageView>
+                            <Button fx:id="teGjitha" layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithaFluturimet" stylesheets="@../styling/style.css" text="Te gjitha" />
+                            <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoFluturimin" stylesheets="@../styling/style.css" text="KÃ«rko" />
+                            <Button fx:id="menaxhoPerdoruesit" layoutX="614.0" layoutY="437.0" mnemonicParsing="false" onAction="#menaxhoPerdoruesit" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Menaxho Perdoruesit" />
+                            <Button fx:id="shikoDiagramet" layoutX="614.0" layoutY="476.0" mnemonicParsing="false" onAction="#shikoDiagramet" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Shiko Diagramet" />
+                            <Button fx:id="goBack" layoutX="614.0" layoutY="514.0" mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Go back" />
+                            <Button fx:id="fshijFluturimin" layoutX="34.0" layoutY="410.0" mnemonicParsing="false" onAction="#fshijFluturiminEPerzgjedhur" stylesheets="@../styling/style.css" text="Fshij fluturimin" />
+                        </children>
+                    </Pane>
+                </children>
+            </AnchorPane>
+
+
+        </center>
+    </BorderPane>
+</children>
 </AnchorPane>

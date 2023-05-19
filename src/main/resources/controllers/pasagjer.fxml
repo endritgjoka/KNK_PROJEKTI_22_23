@@ -23,19 +23,19 @@
                     <image>
                         <Image url="@../photos/airport_logo.png" />
                     </image>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
                 </ImageView>
                 <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Kosovo International Airport" />
-            <BorderPane.margin>
-               <Insets bottom="-15.0" />
-            </BorderPane.margin>
+                <BorderPane.margin>
+                    <Insets bottom="-15.0" />
+                </BorderPane.margin>
 
             </HBox>
         </top>
         <center>
-            <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" vgap="10">
+            <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="399.0" vgap="10">
                 <padding>
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                 </padding>
@@ -86,19 +86,21 @@
                 </Label>
                 <TextField fx:id="numriTelefonit" promptText="Shenoni numrin..." GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
-                <Button fx:id="next" onAction="#goToPagesa" prefHeight="27.0" prefWidth="194.0" stylesheets="@../styling/style.css" text="Next" GridPane.columnIndex="1" GridPane.rowIndex="9">
-               <GridPane.margin>
-                  <Insets top="10.0" />
-               </GridPane.margin></Button>
+                <Button fx:id="next" onAction="#goToPagesa" prefHeight="54.0" prefWidth="194.0" stylesheets="@../styling/style.css" text="Next" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                    <GridPane.margin>
+                        <Insets left="40.0" />
+                    </GridPane.margin>
+                </Button>
                 <Label fx:id="TedhenatPasagjerit" text="Të dhënat e pasagjerit" GridPane.columnIndex="1">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
+                    <GridPane.margin>
+                        <Insets />
+                    </GridPane.margin>
                 </Label>
                 <DatePicker fx:id="ditelindja" disable="true" prefHeight="26.0" prefWidth="193.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Button fx:id="cancel" onAction="#anulo" prefHeight="28.0" prefWidth="130.0" stylesheets="@../styling/style.css" text="Cancel" GridPane.rowIndex="10" />
                 <columnConstraints>
                     <ColumnConstraints />
                     <ColumnConstraints />
@@ -114,6 +116,8 @@
                     <RowConstraints />
                     <RowConstraints />
                     <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" />
                     <RowConstraints />
                 </rowConstraints>
                 <BorderPane.margin>

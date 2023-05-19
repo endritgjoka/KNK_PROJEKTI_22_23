@@ -20,7 +20,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class UserProfileController extends BaseController implements Initializable {
+public class UserProfileController extends HomeController implements Initializable {
 
     @FXML
     private DatePicker birthdayPicker;

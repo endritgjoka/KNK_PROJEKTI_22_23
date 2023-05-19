@@ -9,7 +9,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class diagrametController implements Initializable {
+public class diagrametController extends HomeController implements Initializable {
 
     @FXML
     private BarChart<String, Number> barChart;
