@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.PieChart?>
-
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.diagrametController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.diagrametController">
     <children>
         <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;">
             <top>
@@ -41,12 +40,12 @@
                                 <Insets left="10.0" top="25.0" />
                             </HBox.margin>
                         </Text>
-                        <Hyperlink onAction="#goToLogin" text="Sign out" textFill="##4e4e4e">
+                        <Hyperlink onAction="#goToLogin" text="Sign out" textFill="#4e4e4e">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="250.0" top="20.0" />
+                                <Insets left="340.0" top="20.0" />
                             </HBox.margin>
                         </Hyperlink>
                     </children>
@@ -55,7 +54,7 @@
             <left>
                 <VBox prefHeight="281.0" prefWidth="174.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Hyperlink onAction="#goToFluturimet" text="Flights" textFill="##4e4e4e">
+                        <Hyperlink onAction="#goToFluturimet" text="Fluturimet" textFill="#4e4e4e">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
@@ -63,7 +62,7 @@
                                 <Insets left="10.0" />
                             </VBox.margin>
                         </Hyperlink>
-                        <Hyperlink text="Passengers" textFill="##4e4e4e">
+                        <Hyperlink text="Perdoruesit" textFill="#4e4e4e">
                             <VBox.margin>
                                 <Insets left="10.0" top="5.0" />
                             </VBox.margin>
@@ -71,31 +70,7 @@
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Hyperlink>
-                        <Hyperlink onAction="#goToRezervimet" text="Reservations" textFill="##4e4e4e">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                            <VBox.margin>
-                                <Insets left="10.0" top="5.0" />
-                            </VBox.margin>
-                        </Hyperlink>
-                        <Hyperlink onAction="#goToProfile" text="User profile" textFill="##4e4e4e">
-                            <VBox.margin>
-                                <Insets left="10.0" top="5.0" />
-                            </VBox.margin>
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Hyperlink>
-                        <Hyperlink text="Services" textFill="##4e4e4e">
-                            <VBox.margin>
-                                <Insets left="10.0" top="5.0" />
-                            </VBox.margin>
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Hyperlink>
-                        <Hyperlink onAction="#help" text="Help" textFill="##4e4e4e">
+                        <Hyperlink onAction="#goToRezervimet" text="Statistikat" textFill="#4e4e4e">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
@@ -107,7 +82,7 @@
                 </VBox>
             </left>
             <bottom>
-                <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                <HBox prefHeight="6.0" prefWidth="783.0" BorderPane.alignment="CENTER" />
             </bottom>
             <center>
                 <AnchorPane>

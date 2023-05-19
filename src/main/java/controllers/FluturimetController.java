@@ -1,24 +1,28 @@
 package controllers;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import models.Fluturimet;
 import repository.FluturimetRepository;
 
-public class FluturimetController extends HomeController{
+public class FluturimetController extends BaseController implements Initializable {
     @FXML
     private TableColumn  nisja, kthimi, vendi_nisjes, vendi_arritjes, statusi,linja;
     @FXML
@@ -45,6 +49,8 @@ public class FluturimetController extends HomeController{
     private Button goBack;
     @FXML
     private Pagination pagination;
+    private int rowsPerPage = 5;
+    ObservableList<Fluturimet> fluturimet = null;
     private Alert alert = new Alert(Alert.AlertType.ERROR,"");
 
     public void btnFilter(ActionEvent actionEvent) {
@@ -63,58 +69,57 @@ public class FluturimetController extends HomeController{
 
     @FXML
     public void shfaqTeGjithaFluturimet(ActionEvent actionEvent) throws Exception {
-        if(checkBoxFilterIsActive.isSelected()){
+        if (checkBoxFilterIsActive.isSelected()) {
             checkBoxFilterIsActive.setSelected(false);
         }
-        ObservableList<Fluturimet> data = FluturimetRepository.getAll(0,"");
+        int totalItems = 10; // Get the total number of items from the repository
+        int totalPages = (int) Math.ceil((double) totalItems / rowsPerPage); // Calculate the total number of pages
 
-        linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
-        nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
-        kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));
-        statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
-        vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
-        vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
+        pagination.setPageCount(totalPages); // Set the total number of pages in the pagination control
 
-        tabela.setItems(data);
+        pagination.setPageFactory(pageIndex -> {
+            try {
+                fluturimet = FluturimetRepository.getAll(pageIndex, rowsPerPage, ""); // Get data for the current page
+                tabela.setItems(fluturimet);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return tabela;
+        });
     }
 
     @FXML
     public void active(ActionEvent actionEvent) throws Exception {
-
-        if(checkBoxFilterIsActive.isSelected()){
-            ObservableList<Fluturimet> data = FluturimetRepository.getAll(2,"");
-
-            linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
-            nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
-            kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));
-            statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
-            vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
-            vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
-
-            tabela.getItems().clear();
-            tabela.setItems(data);
-        }else{
-            tabela.getItems().clear();
+        if (checkBoxFilterIsActive.isSelected()) {
+            //ObservableList<Fluturimet> data = FluturimetRepository.getAll(2, "");
+            pagination.setPageFactory(pageIndex -> {
+                try {
+                    fluturimet = FluturimetRepository.getAllActiveFlights(pageIndex, rowsPerPage); // Get data for the current page
+                    tabela.setItems(fluturimet);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return tabela;
+            });
+            // tabela.getItems().clear();
+            //  tabela.setItems(data);
         }
-
     }
 
     @FXML
-    public void kerkoFluturimin(ActionEvent actionEvent) throws Exception{
-        if (!filterField.getText().equals("")){
+    public void kerkoFluturimin(ActionEvent actionEvent) throws Exception {
+        if (!filterField.getText().equals("")) {
             String fromSearch = filterField.getText();
-            ObservableList<Fluturimet> data = FluturimetRepository.getAll(4,fromSearch);
-
-            linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
-            nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
-            kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));
-            statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
-            vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
-            vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
-
-            tabela.setItems(data);
+            pagination.setPageFactory(pageIndex -> {
+                try {
+                    fluturimet = FluturimetRepository.getAll(pageIndex, rowsPerPage, fromSearch); // Get data for the current page
+                    tabela.setItems(fluturimet);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return tabela;
+            });
         }
-
     }
 
     @Override
@@ -152,7 +157,13 @@ public class FluturimetController extends HomeController{
     }
 
     @FXML
-    public void menaxhoPerdoruesit(ActionEvent actionEvent) {
+    public void menaxhoPerdoruesit(ActionEvent actionEvent) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("perdoruesit.fxml"));
+        Scene scene = new Scene(parent);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Perdoruesit");
+        stage.show();
     }
 
     @FXML
@@ -178,5 +189,32 @@ public class FluturimetController extends HomeController{
             alert.setContentText("Flight has been deleted successfully!");
             alert.show();
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
+        nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
+        kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));
+        statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
+        vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
+        vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
+    }
+
+    @FXML
+    public void goToLogin(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void goToFluturimet(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void goToRezervimet(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void goToProfile(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void help(ActionEvent actionEvent) {
     }
 }

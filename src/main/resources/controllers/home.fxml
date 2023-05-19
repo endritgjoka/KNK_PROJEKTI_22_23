@@ -95,14 +95,14 @@
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </bottom>
          <center>
-            <Pane prefHeight="300.0" prefWidth="436.0" BorderPane.alignment="CENTER">
+            <Pane prefHeight="413.0" prefWidth="526.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text layoutX="33.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Kosovo International Airport">
+                  <Text layoutX="31.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Kosovo International Airport">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="253.0" fitWidth="400.0" layoutX="58.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="255.0" fitWidth="399.0" layoutX="70.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../photos/airportmap.png" />
                      </image>

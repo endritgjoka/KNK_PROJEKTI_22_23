@@ -27,40 +27,124 @@ public class FluturimetRepository {
     }
 
 
-    public static ObservableList<Fluturimet> getAll(int queryNumber, String fromSearch) throws Exception {
+//    public static ObservableList<Fluturimet> getAll(int queryNumber, String fromSearch) throws Exception {
+//        String sql = "";
+//        if (queryNumber == 0){
+//            sql = "SELECT * FROM fluturimet f \n" +
+//                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
+//                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
+//                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id \n";
+//        }else if(queryNumber == 1){
+//            sql = "SELECT DISTINCT * " +
+//                    "FROM fluturimet f " +
+//                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id " +
+//                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id " +
+//                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id " +
+//                    "GROUP BY nisjet.qyteti";
+//        }else if(queryNumber == 2){
+//            sql = "SELECT * FROM fluturimet f \n" +
+//                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
+//                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
+//                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id" +
+//                    " WHERE f.status = 'aktive'";
+//        }else if(!fromSearch.equals("")){
+//            sql = "SELECT * FROM fluturimet f \n" +
+//                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
+//                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
+//                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id" +
+//                    " WHERE a.kompania LIKE '%" + fromSearch+"%' OR nisjet.qyteti LIKE '%" +
+//                    fromSearch+ "%' OR arritjet.qyteti LIKE '%"+fromSearch+"%'";
+//        }
+//
+//        ObservableList<Fluturimet> fluturimet = createObjs(sql);
+//
+//        return fluturimet;
+//
+//    }
+
+    public static ObservableList<Fluturimet> getAll(int pageIndex, int pageSize, String fromSearch) throws Exception {
+        int offset = pageIndex * pageSize; // Calculate the offset for the current page
         String sql = "";
-        if (queryNumber == 0){
-            sql = "SELECT * FROM fluturimet f \n" +
-                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
-                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
-                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id \n";
-        }else if(queryNumber == 1){
-            sql = "SELECT DISTINCT * " +
+
+        if (fromSearch.isEmpty()) {
+            sql = "SELECT * FROM fluturimet f " +
+                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id " +
+                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id " +
+                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id " +
+                    "LIMIT ? OFFSET ?";
+        } else {
+            sql = "SELECT * FROM fluturimet f " +
+                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id " +
+                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id " +
+                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id " +
+                    "WHERE a.kompania LIKE ? OR nisjet.qyteti LIKE ? OR arritjet.qyteti LIKE ? " +
+                    "LIMIT ? OFFSET ?";
+        }
+
+        ObservableList<Fluturimet> fluturimet = null;
+
+        try ( Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            if (fromSearch.isEmpty()) {
+                statement.setInt(1, pageSize);
+                statement.setInt(2, offset);
+            } else {
+                String searchParam = "%" + fromSearch + "%";
+                statement.setString(1, searchParam);
+                statement.setString(2, searchParam);
+                statement.setString(3, searchParam);
+                statement.setInt(4, pageSize);
+                statement.setInt(5, offset);
+            }
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                fluturimet = createObjs(resultSet);
+            }
+        }
+
+        return fluturimet;
+    }
+
+    public static ObservableList<Fluturimet> getAllDistinctByCity(int n) throws Exception {
+        String sql = "";
+        if (n == 0){
+             sql = "SELECT DISTINCT * " +
                     "FROM fluturimet f " +
                     "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id " +
                     "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id " +
                     "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id " +
                     "GROUP BY nisjet.qyteti";
-        }else if(queryNumber == 2){
-            sql = "SELECT * FROM fluturimet f \n" +
-                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
-                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
-                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id" +
-                    " WHERE f.status = 'aktive'";
-        }else if(!fromSearch.equals("")){
-            sql = "SELECT * FROM fluturimet f \n" +
-                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
-                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
-                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id" +
-                    " WHERE a.kompania LIKE '%" + fromSearch+"%' OR nisjet.qyteti LIKE '%" +
-                    fromSearch+ "%' OR arritjet.qyteti LIKE '%"+fromSearch+"%'";
+        }else{
+            sql = "SELECT DISTINCT * " +
+                    "FROM fluturimet f " +
+                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id " +
+                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id " +
+                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id " +
+                    "GROUP BY arritjet.qyteti";
         }
 
-        ObservableList<Fluturimet> fluturimet = createObjs(sql);
 
-        return fluturimet;
-
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+        return createObjs(resultSet);
     }
+
+    public static ObservableList<Fluturimet> getAllActiveFlights(int pageSize, int offset) throws Exception {
+        String sql = "SELECT * FROM fluturimet f " +
+                "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id " +
+                "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id " +
+                "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id " +
+                "WHERE f.status = 'aktive' LIMIT ? OFFSET ?";
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, pageSize);
+        statement.setInt(2, offset);
+        ResultSet resultSet = statement.executeQuery();
+        return createObjs(resultSet);
+    }
+
 
     public static void delete(int id) throws SQLException {
         String sql = "DELETE FROM fluturimet WHERE id=?";
@@ -89,18 +173,18 @@ public class FluturimetRepository {
                     " WHERE nisjet.qyteti LIKE '%" + qytet+"%' AND arritjet.qyteti LIKE '%" + qyteti2+ "%' AND DATE(f.nisja) = '"+
                     data1+"'";
         }
-        ObservableList<Fluturimet> fluturimet = createObjs(sql);
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+        ObservableList<Fluturimet> fluturimet = createObjs( resultSet);
 
 
         return fluturimet;
     }
 
-    private static ObservableList<Fluturimet> createObjs(String sql) throws Exception {
+    private static ObservableList<Fluturimet> createObjs(ResultSet resultSet) throws Exception {
         ObservableList<Fluturimet> fluturimet = FXCollections.observableArrayList();
-        Connection connection = DBConnection.getConnection();
-        PreparedStatement statement = connection.prepareStatement(sql);
 
-        ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
 
             int id = resultSet.getInt("id");
@@ -137,9 +221,10 @@ public class FluturimetRepository {
             fluturim.setQyteti2(fluturim.getAeroporti2().getQyteti());
 
             fluturimet.add(fluturim);
-
         }
         return fluturimet;
 
     }
+
+
 }

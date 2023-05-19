@@ -13,10 +13,7 @@ import models.Bagazhet;
 import models.Bileta;
 import models.Pasagjeri;
 import models.Rezervimi;
-import repository.BagazhetRepository;
-import repository.BiletaRepository;
-import repository.PasagjeriRepository;
-import repository.RezervimiRepository;
+import repository.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -77,32 +74,40 @@ public class RezervimController extends BaseController implements Initializable 
 
             çmimi.setText(qmimi+"");
 
-            Bileta bileta = new Bileta(0,Integer.parseInt(çmimi.getText()));
-            PagesaController.setData(bileta);
-           // int biletaId = BiletaRepository.insert(bileta);
-           // PagesaController.bId = biletaId;
-            Rezervimi rezervimi = new Rezervimi(0, pasagjeriId, FromToController.fId,
-                    Integer.parseInt(numriUleses.getText()), kategoria.getValue().toString(), 0);
-           // RezervimiRepository.insert(rezervimi);
-            PagesaController.setData(rezervimi);
-            FXMLLoader fxmlLoader= new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("pagesa.fxml"));
-            try {
-                Parent root = fxmlLoader.load();
-                PagesaController pagesaController = fxmlLoader.getController();
-                Stage stage = new Stage();
-                Scene scene = new Scene(root);
-                stage.setResizable(false);
-                stage.setScene(scene);
-                stage.setTitle("Pagesa");
-                stage.show();
-                Stage stage1 =(Stage) kategoria.getScene().getWindow();
-                stage1.close();
+            if(RezervimiRepository.isValidSeat(Integer.parseInt(numriUleses.getText()),FromToController.fId)
+            && AiroplaniRepository.intoCapacity(Integer.parseInt(numriUleses.getText()),FromToController.fId)){
+                Bileta bileta = new Bileta(0,Integer.parseInt(çmimi.getText()));
+                PagesaController.setData(bileta);
+                // int biletaId = BiletaRepository.insert(bileta);
+                // PagesaController.bId = biletaId;
+                Rezervimi rezervimi = new Rezervimi(0, pasagjeriId, FromToController.fId,
+                        Integer.parseInt(numriUleses.getText()), kategoria.getValue().toString(), 0);
+                // RezervimiRepository.insert(rezervimi);
+                PagesaController.setData(rezervimi);
+                FXMLLoader fxmlLoader= new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("pagesa.fxml"));
+                try {
+                    Parent root = fxmlLoader.load();
+                    PagesaController pagesaController = fxmlLoader.getController();
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    stage.setResizable(false);
+                    stage.setScene(scene);
+                    stage.setTitle("Pagesa");
+                    stage.show();
+                    Stage stage1 =(Stage) kategoria.getScene().getWindow();
+                    stage1.close();
 
-            } catch (IOException e1) {
-                throw new RuntimeException(e1);
+                } catch (IOException e1) {
+                    throw new RuntimeException(e1);
+                }
+            }else{
+                alert.setContentText("This seat is reserved/out of capacity!");
+                alert.show();
             }
+
         }else{
+            alert.setContentText("These fields should be filled!");
             alert.show();
         }
     }

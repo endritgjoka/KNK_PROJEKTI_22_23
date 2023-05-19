@@ -182,14 +182,18 @@ public class FromToController extends HomeController implements Initializable {
         Locale.setDefault(new Locale("sq"));
         translateAlbanian();
         try {
-            ObservableList<Fluturimet> list = FluturimetRepository.getAll(1,"");
-            Collections.sort(list, Comparator.comparing(Fluturimet::getQyteti1));
-            for (Fluturimet fluturim: list ) {
+            ObservableList<Fluturimet> list1 = FluturimetRepository.getAllDistinctByCity(0);
+            ObservableList<Fluturimet> list2 = FluturimetRepository.getAllDistinctByCity(1);
+            Collections.sort(list1, Comparator.comparing(Fluturimet::getQyteti1));
+            Collections.sort(list2, Comparator.comparing(Fluturimet::getQyteti2));
+
+            for (Fluturimet fluturim: list1 ) {
                 departingCityChoiceBox.getItems().add(fluturim.getQyteti1());
+            }
+
+            for (Fluturimet fluturim: list2 ) {
                 arrivalCityChoiceBox.getItems().add(fluturim.getQyteti2());
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

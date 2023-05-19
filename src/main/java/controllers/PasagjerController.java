@@ -98,6 +98,7 @@ public class PasagjerController extends BaseController implements Initializable{
         nrPasaportes.setText(translate.getString("label.nrPasaportes"));
         next.setText(translate.getString("button.next"));
 
+
     }
 
     @Override

@@ -1,7 +1,7 @@
 .button, .choicebox
 {
 -fx-background-color : #FFF;
--fx-border-color: #355ECE;
+ #355ECE;
 -fx-text-fill:  #0C3988;
 }
 .button:hover
@@ -18,7 +18,7 @@
 .button2
 {
 -fx-background-color :  #0C39FF;
--fx-border-color: #FFF;
+ #FFF;
 -fx-text-fill:  #FFF;
 }
 .button2:hover
@@ -71,7 +71,7 @@
 .table-view .scroll-bar:horizontal .track,
 .table-view .scroll-bar:vertical .track{
 	-fx-background-color: transparent;
-	-fx-border-color:derive(  #2D75E8,80%);
+	derive(  #2D75E8,80%);
 	-fx-background-radius: 2em;
 	-fx-border-radius:2em;
 }
@@ -97,6 +97,6 @@
 }
 
 .chart-pie {
-    -fx-border-color: derive(-fx-pie-color, 1%);
+     derive(-fx-pie-color, 1%);
     -fx-border-width: 0px;
 }
