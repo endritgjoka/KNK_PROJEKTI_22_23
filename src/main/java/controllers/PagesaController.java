@@ -82,7 +82,7 @@ public class PagesaController {
         }
         return  "Visa";
     }
-    
+
     @FXML
     private void help(ActionEvent event) throws Exception {
 
@@ -125,7 +125,7 @@ public class PagesaController {
     }
 
 
-    
+
     @FXML
     public void goToPassagers(ActionEvent event) throws Exception {
         Rezervimi.setPerdoruesi(null);

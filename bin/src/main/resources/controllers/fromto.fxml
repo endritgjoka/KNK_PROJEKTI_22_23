@@ -44,7 +44,7 @@
       </DatePicker>
         <Label fx:id="kthimiLabel" prefHeight="16.0" prefWidth="42.0" text="Kthimi:" />
         <DatePicker fx:id="returnDatePicker" prefHeight="38.0" prefWidth="178.0" />
-   
+
        <Button onAction="#handleFilterAction" prefHeight="184.0" prefWidth="54.0" text="Filtro">
          <HBox.margin>
             <Insets left="10.0" />

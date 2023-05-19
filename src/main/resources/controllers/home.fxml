@@ -48,7 +48,7 @@
          <left>
             <VBox prefHeight="281.0" prefWidth="174.0" BorderPane.alignment="CENTER">
                <children>
-                  <Hyperlink onAction="#goToFluturimet" style="-fx-border-color: -fx-border-color: transparent;;" text="Flights" textFill="#4e4e4e">
+                  <Hyperlink onAction="#goToFluturimet" style=" -fx-border-color: transparent;" text="Flights" textFill="#4e4e4e">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
