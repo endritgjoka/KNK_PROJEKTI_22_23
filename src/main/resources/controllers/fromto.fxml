@@ -21,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FromToController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FromToController">
 <children>
     <BorderPane layoutX="2.0" prefHeight="530.0" prefWidth="899.0" style="-fx-background-color: white;">
         <top>
@@ -87,14 +87,14 @@
         <bottom>
             <HBox prefHeight="48.0" prefWidth="899.0" BorderPane.alignment="CENTER">
                <children>
-                   <Button fx:id="cancell" minHeight="0.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" stylesheets="@../styling/style.css" text="Cancel">
+                   <Button fx:id="cancell" minHeight="0.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" stylesheets="@../styling/style.css" text="Cancel">
                      <HBox.margin>
-                        <Insets left="650.0" />
+                        <Insets left="620.0" />
                      </HBox.margin>
                    </Button>
-                   <Button fx:id="Rezervo" mnemonicParsing="false" onAction="#rezervo" prefHeight="32.0" prefWidth="71.0" stylesheets="@../styling/style.css" text="Rezervo">
+                   <Button fx:id="Rezervo" mnemonicParsing="false" onAction="#rezervo" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styling/style.css" text="Rezervo">
                      <HBox.margin>
-                        <Insets left="100.0" />
+                        <Insets left="100.0" right="15.0" />
                      </HBox.margin>
                    </Button>
                </children></HBox>
@@ -121,7 +121,7 @@
                         </HBox.margin></ChoiceBox>
                     <Label fx:id="dyDrejtimeshe" prefHeight="18.0" prefWidth="121.0" text="Dy drejtimëshe:">
                         <HBox.margin>
-                            <Insets left="30.0" top="10.0" />
+                            <Insets left="30.0" top="15.0" />
                         </HBox.margin>
                     </Label>
                     <RadioButton fx:id="po" mnemonicParsing="false" onAction="#dyDrejtimesh" prefHeight="28.0" prefWidth="94.0" text="PO">
@@ -178,17 +178,17 @@
                     </VBox.margin>
                 </HBox>
 
-                <TableView fx:id="tabela" layoutX="1.0" layoutY="86.0" prefHeight="267.0" prefWidth="615.0">
+                <TableView fx:id="tabela" layoutX="1.0" layoutY="86.0" maxWidth="-Infinity" prefHeight="267.0" prefWidth="750.0">
                     <columns>
-                        <TableColumn fx:id="linja" prefWidth="144.80001527071" text="Linja ajrore" />
-                        <TableColumn fx:id="vendi_nisjes" prefWidth="136.8000030517578" text="Vendi i nisjes" />
-                        <TableColumn fx:id="nisja" prefWidth="113.5999755859375" text="Nisja" />
-                        <TableColumn fx:id="vendi_arritjes" prefWidth="152.0" text="Vendi i arritjes" />
-                        <TableColumn fx:id="kthimi" prefWidth="114.39990234375" text="Kthimi" />
-                        <TableColumn fx:id="statusi" prefWidth="148.800048828125" text="Statusi" />
+                        <TableColumn fx:id="linja" prefWidth="134.40008544921875" text="Linja ajrore" />
+                        <TableColumn fx:id="vendi_nisjes" prefWidth="123.99993896484375" text="Vendi i nisjes" />
+                        <TableColumn fx:id="nisja" prefWidth="107.20001220703125" text="Nisja" />
+                        <TableColumn fx:id="vendi_arritjes" prefWidth="144.79998779296875" text="Vendi i arritjes" />
+                        <TableColumn fx:id="kthimi" minWidth="0.0" prefWidth="104.800048828125" text="Kthimi" />
+                        <TableColumn fx:id="statusi" prefWidth="132.0" text="Statusi" />
                     </columns>
                     <VBox.margin>
-                        <Insets top="15.0" />
+                        <Insets right="15.0" top="15.0" />
                     </VBox.margin>
                 </TableView>
                <HBox prefHeight="100.0" prefWidth="200.0" />
