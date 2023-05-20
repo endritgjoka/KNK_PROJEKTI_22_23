@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane prefHeight="355.0" prefWidth="497.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RezervimController">
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="476.0" spacing="10.0">
