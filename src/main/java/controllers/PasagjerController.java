@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class PasagjerController extends BaseController implements Initializable{
+public class PasagjerController extends HomeController implements Initializable{
 
 
     @FXML
@@ -46,6 +46,9 @@ public class PasagjerController extends BaseController implements Initializable{
      @FXML
      private Button next;
 
+     @FXML
+     private Button anulo;
+
     @FXML
     public void goToPagesa(ActionEvent event) throws Exception {
         String padresa = this.adresa.getText();
@@ -53,13 +56,11 @@ public class PasagjerController extends BaseController implements Initializable{
         String pNumriTelefonit = this.numriTelefonit.getText();
         String pNumriPasaportes = this.pasaporta.getText();
         if (!padresa.equals("") && !pnacionaliteti.equals("") && !pNumriTelefonit.equals("")){
-            Pasagjeri pasagjeri = PasagjeriService.regjistroPasagjerin(Rezervimi.getPerdoruesi().getId(), padresa, pnacionaliteti, pNumriTelefonit, pNumriPasaportes);
-            RezervimController.pasagjeriId = pasagjeri.getId();
-            Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
-            Scene scene = new Scene(parenti);
-            Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            Pasagjeri pasagjeri = new Pasagjeri(0,Rezervimi.getPerdoruesi().getId(), padresa, pnacionaliteti, pNumriTelefonit, pNumriPasaportes);
+            //RezervimController.pasagjeriId = pasagjeri.getId();
+            PagesaController.setData(pasagjeri);
+            goTo("Te dhenat e rezervimit", "rezervim.fxml", event);
+
         }else{
             Alert alert = new Alert(Alert.AlertType.WARNING, "These fields should be filled!");
             alert.show();
@@ -77,50 +78,6 @@ public class PasagjerController extends BaseController implements Initializable{
 
     }
 
-    @FXML
-    private void goToFluturimet(ActionEvent event) throws Exception {
-
-        Parent parenti = FXMLLoader.load(getClass().getResource("fromto.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-    }
-
-    @FXML
-    public void goToBaggage(ActionEvent event) throws Exception {
-        Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    @FXML
-    public void goToLogin(ActionEvent event) throws Exception {
-        Rezervimi.setPerdoruesi(null);
-        Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-
-    
-    @FXML
-    public void goToPassagers(ActionEvent event) throws Exception {
-        Rezervimi.setPerdoruesi(null);
-        Parent parenti = FXMLLoader.load(getClass().getResource("pasagjer.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-
-
     @Override
     void translateEnglish() {
         Locale currentLocale = new Locale("en");
@@ -135,6 +92,7 @@ public class PasagjerController extends BaseController implements Initializable{
         numri_telefonit.setText(translate.getString("label.numri_telefonit"));
         nrPasaportes.setText(translate.getString("label.nrPasaportes"));
         next.setText(translate.getString("button.next"));
+
 
     }
 
@@ -154,9 +112,9 @@ public class PasagjerController extends BaseController implements Initializable{
 
     }
 
-
     @FXML
-    public void vazhdo(ActionEvent actionEvent) {
-
+    public void anulo(ActionEvent actionEvent){
+        Stage stage=(Stage) next.getScene().getWindow();
+        stage.close();
     }
 }

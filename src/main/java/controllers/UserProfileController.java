@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class UserProfileController extends BaseController implements Initializable {
+public class UserProfileController extends HomeController implements Initializable {
 
     @FXML
     private DatePicker birthdayPicker;
@@ -196,26 +196,7 @@ public class UserProfileController extends BaseController implements Initializab
 
     @FXML
     private void goBack(ActionEvent event) throws IOException {
-        Parent parenti = FXMLLoader.load(getClass().getResource("home.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        goTo("Home", "home.fxml", event);
     }
-    
-    @FXML
-    private void cancel(ActionEvent event) throws IOException {
-        Parent parenti = FXMLLoader.load(getClass().getResource("userProfile.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-    
-    @FXML
-    void saveButton1(ActionEvent event){
-
-    }
-
 
 }

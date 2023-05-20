@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class LoginController extends  BaseController{
+public class LoginController extends  HomeController{
 
     @FXML
     private TextField username;
@@ -38,11 +38,8 @@ public class LoginController extends  BaseController{
 
     @FXML
     private void goToSignUp(ActionEvent event) throws IOException {
-        Parent parenti = FXMLLoader.load(getClass().getResource("signup.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        goTo("Sign Up", "signup.fxml", event);
+
     }
 
     @FXML
@@ -55,18 +52,9 @@ public class LoginController extends  BaseController{
             Perdoruesi perdoruesi = UserSevice.login(usernamei, passwordi);
             Rezervimi.setPerdoruesi(perdoruesi);
             if (perdoruesi != null && perdoruesi.isAdmin()) {
-                Parent parenti = FXMLLoader.load(getClass().getResource("fluturimet.fxml"));
-                Scene scene = new Scene(parenti);
-                Stage primaryStage = (Stage) username.getScene().getWindow();
-                primaryStage.setScene(scene);
-                primaryStage.show();
+                goTo("Fluturimet", "fluturimet.fxml", event);
             } else if(perdoruesi != null && !perdoruesi.isAdmin()){
-                Parent parenti = FXMLLoader.load(getClass().getResource("home.fxml"));
-                Scene scene = new Scene(parenti);
-                Stage primaryStage = (Stage) username.getScene().getWindow();
-                primaryStage.setTitle("Home");
-                primaryStage.setScene(scene);
-                primaryStage.show();
+                goTo("Home", "home.fxml", event);
             }else{
                 alert = new Alert(Alert.AlertType.ERROR, "Incorrect username/password!");
                 alert.show();
@@ -83,7 +71,7 @@ public class LoginController extends  BaseController{
     public void login(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             try {
-                loginClick(new ActionEvent());
+                loginClick(new ActionEvent(keyEvent.getSource(), null)); // Pass keyEvent.getSource() instead of keyEvent
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

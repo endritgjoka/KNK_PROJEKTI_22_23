@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class ChangePasswordController extends BaseController{
+public class ChangePasswordController extends HomeController{
 
     @FXML
     private PasswordField newPasswordField;
@@ -84,7 +84,6 @@ public class ChangePasswordController extends BaseController{
         saveNewPassword.setText(translate.getString("button.saveNewPassword"));
         cancel.setText(translate.getString("button.cancel"));
 
-
     }
 
 
@@ -100,10 +99,7 @@ public class ChangePasswordController extends BaseController{
         saveNewPassword.setText(translate.getString("button.saveNewPassword"));
         cancel.setText(translate.getString("button.cancel"));
 
-
     }
-
-
 
 }
 

@@ -49,4 +49,19 @@ public class RezervimiRepository {
         }
     }
 
+    public static boolean isValidSeat(int seat, int fId) throws SQLException {
+        Connection connection = DBConnection.getConnection();
+        String sql = "SELECT * FROM rezervimet r INNER JOIN fluturimet f " +
+                " ON f.id = r.fluturimi_id WHERE r.numri_uleses = ? AND r.fluturimi_id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, seat);
+        statement.setInt(2, fId);
+
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()){
+            return false;
+        }
+        return true;
+    }
+
 }

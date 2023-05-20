@@ -32,15 +32,10 @@
                 </Label>
             </children>
         </Pane>
-        <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="394.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="510.0" fitWidth="370.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../photos/airport_logo.png" />
+                <Image url="@../photos/airport_login.jpg" />
             </image>
         </ImageView>
-      <ImageView fitHeight="510.0" fitWidth="370.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../photos/airport_login.jpg" />
-         </image>
-      </ImageView>
     </children>
 </AnchorPane>

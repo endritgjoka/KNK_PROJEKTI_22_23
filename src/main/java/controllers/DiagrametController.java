@@ -1,14 +1,17 @@
 package controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.*;
+import service.DBConnection;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class diagrametController implements Initializable {
+public class DiagrametController extends HomeController implements Initializable {
 
     @FXML
     private BarChart<String, Number> barChart;
@@ -29,7 +32,7 @@ public class diagrametController implements Initializable {
     private void loadData() {
         try {
             // Establish a connection to the database
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/menaxhimi_i_fluturimeve_airoport", "root", "");
+            Connection connection = DBConnection.getConnection();
 
             // Query to retrieve gender-based data for the bar chart
             String genderQuery = "SELECT gjinia, COUNT(*) AS count FROM perdoruesit GROUP BY gjinia";
@@ -67,5 +70,32 @@ public class diagrametController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void goToUsers(ActionEvent actionEvent) throws IOException {
+        goTo("Perdoruesit", "perdoruesit.fxml", actionEvent);
+
+    }
+
+    @FXML
+    public void goToStats(ActionEvent actionEvent) throws IOException {
+        goTo("Statistikat", "diagramet.fxml", actionEvent);
+
+    }
+
+    @FXML
+    public void goToFluturimet(ActionEvent actionEvent) throws IOException {
+        goTo("Fluturimet", "fluturimet.fxml", actionEvent);
+
+    }
+
+    @Override
+    void translateEnglish(){
+
+    }
+    @Override
+    void translateAlbanian(){
+
     }
 }

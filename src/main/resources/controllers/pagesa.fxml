@@ -20,27 +20,80 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PagesaController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PagesaController">
     <BorderPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
         <top>
-            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                <ImageView fitHeight="50.0" fitWidth="100.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="800.0" spacing="10.0">
+                <ImageView fitHeight="60.0" fitWidth="52.0">
                     <image>
                         <Image url="@../photos/airport_logo.png" />
                     </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
                 </ImageView>
-                <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Kosovo International Airport" />
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Kosovo International Airport">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
                 <Region HBox.hgrow="ALWAYS" />
-                <Hyperlink style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Sign Out" />
+                <Hyperlink onAction="#goToLogin" text="Sign out" textFill="#180897">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="240.0" />
+                     </HBox.margin>
+                  </Hyperlink>
             </HBox>
         </top>
         <left>
-            <VBox prefHeight="550.0" prefWidth="135.0" spacing="10.0">
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Flights" />
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Passengers" />
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Security" />
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Baggage" />
-                <Hyperlink style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Services" />
+            <VBox prefHeight="281.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Hyperlink onAction="#goToFluturimet" text="Flights" textFill="#180897">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+                  <Hyperlink onAction="#goToPassagers" text="Passengers" textFill="#180897">
+                     <VBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink text="Security" textFill="#180897">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+                  <Hyperlink onAction="#goToBaggage" text="Baggage" textFill="#180897">
+                     <VBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink text="Services" textFill="#180897">
+                     <VBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
             </VBox>
         </left>
         <center>
@@ -49,11 +102,14 @@
 
                 <Label text="Zgjidhni mënyrën e pagesës:">
                     <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="-140.0" top="-100.0" />
+               </VBox.margin>
                 </Label>
 
-                <HBox spacing="10">
+                <HBox prefHeight="52.0" prefWidth="378.0" spacing="10">
                     <RadioButton fx:id="creditCardRadio" text="MasterCard">
                         <graphic>
                             <ImageView fitHeight="47.0" fitWidth="69.0">
@@ -81,18 +137,33 @@
                      <Insets left="20.0" />
                   </HBox.margin>
                     </RadioButton>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="50.0" />
+               </VBox.margin>
                 </HBox>
 
-                <GridPane hgap="10" vgap="10">
-                    <Label text="Emri i kartës:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <GridPane hgap="10" prefHeight="134.0" prefWidth="356.0" vgap="10">
+                    <Label text="Emri i kartës:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <font>
+                     <Font size="14.0" />
+                  </font></Label>
                     <TextField fx:id="cardNameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                    <Label text="Numri i kartës:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label text="Numri i kartës:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                  <font>
+                     <Font size="14.0" />
+                  </font></Label>
                     <TextField fx:id="cardNumberField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                    <Label text="Data e skadimit:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label text="Data e skadimit:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                  <font>
+                     <Font size="14.0" />
+                  </font></Label>
 
-                    <Label text="Kodi CVV:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <Label text="Kodi CVV:" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                  <font>
+                     <Font size="14.0" />
+                  </font></Label>
                     <TextField fx:id="cvvField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                <DatePicker fx:id="expirationDate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
@@ -106,9 +177,15 @@
                         <RowConstraints />
                         <RowConstraints />
                     </rowConstraints>
+               <VBox.margin>
+                  <Insets left="80.0" />
+               </VBox.margin>
                 </GridPane>
 
-                <Button onAction="#rezervo" text="Rezervo" />
+                <Button onAction="#rezervo" prefHeight="26.0" prefWidth="110.0" stylesheets="@../styling/style.css" text="Rezervo">
+               <VBox.margin>
+                  <Insets left="40.0" top="10.0" />
+               </VBox.margin></Button>
 
             </VBox>
 

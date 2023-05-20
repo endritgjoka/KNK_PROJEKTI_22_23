@@ -65,4 +65,21 @@ public class AiroplaniRepository {
             statement.executeUpdate();
         }
     }
+
+    public static boolean intoCapacity(int seat, int fId) throws SQLException {
+        String sql = "SELECT a.kapaciteti FROM aeroplanet a INNER JOIN fluturimet f ON a.id = f.aeroplani_id WHERE f.id = ?";
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        statement.setInt(1, fId);
+
+        ResultSet resultSet = statement.executeQuery();
+        int kapaciteti = 0;
+        if (resultSet.next()){
+             kapaciteti = resultSet.getInt("a.kapaciteti");
+        }
+        if (seat > 0 && seat <= kapaciteti){
+            return true;
+        }
+        return false;
+    }
 }

@@ -10,32 +10,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="618.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="618.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserProfileController">
     <children>
         <VBox layoutX="334.0" layoutY="29.0" prefHeight="224.0" prefWidth="228.0" spacing="10.0">
-            <Label fx:id="profilePicture" text="Profile Picture" />
+            <Label text="Profile Picture" />
          <ImageView fitHeight="138.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true" />
-         <Button fx:id="addPicture" onAction="#saveButton1" stylesheets="@../styling/style.css" text="Add Picture" />
+         <Button onAction="#saveButton1" stylesheets="@../styling/style.css" text="Add Picture" />
         </VBox>
         <VBox layoutX="66.0" layoutY="43.0" prefHeight="380.0" prefWidth="168.0" spacing="10.0">
-            <Label fx:id="user_name" text="Username" />
+            <Label text="Username" />
             <TextField fx:id="usernameField" disable="true" />
-            <Label fx:id="passwordd" text="Password" />
+            <Label text="Password" />
             <PasswordField fx:id="passwordField" disable="true" />
-            <Label fx:id="name" text="Name" />
+            <Label text="Name" />
             <TextField fx:id="nameField" disable="true" />
-            <Label fx:id="surname" text="Surname" />
+            <Label text="Surname" />
             <TextField fx:id="surnameField" disable="true" />
-            <Label fx:id="birthday" text="Birthday" />
+            <Label text="Birthday" />
             <DatePicker fx:id="birthdayPicker" disable="true" />
         </VBox>
-         <Button fx:id="saveChanges" layoutX="472.0" layoutY="384.0" onAction="#saveButton" prefHeight="26.0" prefWidth="106.0" stylesheets="@../styling/style.css" text="Save Changes" />
+         <Button layoutX="472.0" layoutY="384.0" onAction="#saveButton" prefHeight="26.0" prefWidth="106.0" stylesheets="@../styling/style.css" text="Save Changes" />
       <ImageView fx:id="editUsername" fitHeight="18.0" fitWidth="17.0" layoutX="240.0" layoutY="75.0">
          <image>
             <Image url="@../photos/edit.png" />
          </image>
       </ImageView>
-      <Button fx:id="goBackk" layoutX="334.0" layoutY="384.0" onAction="#goBack" prefHeight="26.0" prefWidth="114.0" stylesheets="@../styling/style.css" text="Go back" />
+      <Button layoutX="334.0" layoutY="384.0" onAction="#goBack" prefHeight="26.0" prefWidth="114.0" stylesheets="@../styling/style.css" text="Go back" />
       <ImageView fx:id="changePass" fitHeight="18.0" fitWidth="17.0" layoutX="240.0" layoutY="141.0">
          <image>
             <Image url="@../photos/edit.png" />
