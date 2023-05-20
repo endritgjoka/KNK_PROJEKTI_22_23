@@ -6,6 +6,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,11 +19,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DiagrametController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="905.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DiagrametController">
     <children>
-        <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;">
+        <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="517.0" prefWidth="805.0" style="-fx-background-color: white;">
             <top>
-                <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <HBox prefHeight="100.0" prefWidth="774.0" BorderPane.alignment="CENTER">
                     <children>
                         <ImageView fitHeight="65.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -40,21 +41,13 @@
                                 <Insets left="10.0" top="25.0" />
                             </HBox.margin>
                         </Text>
-                        <Hyperlink onAction="#goToLogin" text="Sign out" textFill="#4e4e4e">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                            <HBox.margin>
-                                <Insets left="340.0" top="20.0" />
-                            </HBox.margin>
-                        </Hyperlink>
                     </children>
                 </HBox>
             </top>
             <left>
-                <VBox prefHeight="281.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+                <VBox prefHeight="281.0" prefWidth="174.0" style="-fx-border-color: black; -fx-border-radius: 5;" BorderPane.alignment="CENTER">
                     <children>
-                        <Hyperlink onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
+                        <Hyperlink focusTraversable="false" onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
@@ -62,7 +55,7 @@
                                 <Insets left="10.0" />
                             </VBox.margin>
                         </Hyperlink>
-                        <Hyperlink onAction="#goToUsers" text="Users" textFill="#4e4e4e">
+                        <Hyperlink focusTraversable="false" onAction="#goToUsers" text="Users" textFill="#4e4e4e">
                             <VBox.margin>
                                 <Insets left="10.0" top="5.0" />
                             </VBox.margin>
@@ -70,7 +63,7 @@
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Hyperlink>
-                  <Hyperlink onAction="#goToStats" text="Statistics" textFill="#4e4e4e">
+                  <Hyperlink focusTraversable="false" onAction="#goToStats" text="Statistics" textFill="#4e4e4e">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -82,10 +75,10 @@
                 </VBox>
             </left>
             <bottom>
-                <HBox prefHeight="6.0" prefWidth="783.0" BorderPane.alignment="CENTER" />
+                <HBox prefHeight="0.0" prefWidth="784.0" BorderPane.alignment="CENTER" />
             </bottom>
             <center>
-                <AnchorPane>
+                <AnchorPane prefHeight="439.0" prefWidth="630.0">
                     <children>
                         <GridPane layoutX="-2.0" layoutY="6.0" prefHeight="394.0" prefWidth="610.0">
                             <columnConstraints>
@@ -93,10 +86,11 @@
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             </columnConstraints>
                             <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <BarChart fx:id="barChart" GridPane.columnIndex="0">
+                                <BarChart fx:id="barChart" GridPane.rowIndex="1">
                                     <xAxis>
                                         <CategoryAxis fx:id="barChartXAxis" side="BOTTOM" />
                                     </xAxis>
@@ -104,12 +98,27 @@
                                         <NumberAxis fx:id="barChartYAxis" side="LEFT" />
                                     </yAxis>
                                 </BarChart>
-                                <PieChart fx:id="pieChart" GridPane.columnIndex="1" />
+                                <PieChart fx:id="pieChart" prefHeight="365.0" prefWidth="302.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                             </children>
                         </GridPane>
+                  <Label layoutX="95.0" layoutY="-3.0" prefHeight="18.0" prefWidth="72.0" text="Label1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="404.0" layoutY="-8.0" prefHeight="18.0" prefWidth="72.0" text="Label2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                     </children>
                 </AnchorPane>
             </center>
         </BorderPane>
+            <Hyperlink focusTraversable="false" layoutX="791.0" layoutY="14.0" onAction="#goToLogin" style="-fx-border-color: black; -fx-border-radius: 5; -fx-border-style: solid;" text="Sign out" textFill="#4e4e4e">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Hyperlink>
     </children>
 </AnchorPane>

@@ -21,11 +21,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FromToController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="989.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FromToController">
 <children>
-    <BorderPane layoutX="2.0" prefHeight="530.0" prefWidth="899.0" style="-fx-background-color: white;">
+    <BorderPane layoutX="-4.0" prefHeight="529.0" prefWidth="995.0" style="-fx-background-color: white;">
         <top>
-            <HBox prefHeight="82.0" prefWidth="899.0" BorderPane.alignment="CENTER">
+            <HBox prefHeight="82.0" prefWidth="963.0" BorderPane.alignment="CENTER">
                 <children>
                     <ImageView fitHeight="65.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -43,21 +43,21 @@
                             <Insets left="10.0" top="25.0" />
                         </HBox.margin>
                     </Text>
-                    <Hyperlink onAction="#goToLogin" text="Sign out" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#goToLogin" prefHeight="39.0" prefWidth="92.0" style="-fx-border-color: black; -fx-border-radius: 5;" text="Sign out" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
                         <HBox.margin>
-                            <Insets left="440.0" top="20.0" />
+                            <Insets left="530.0" top="20.0" />
                         </HBox.margin>
                     </Hyperlink>
                 </children>
             </HBox>
         </top>
         <left>
-            <VBox prefHeight="400.0" prefWidth="148.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="454.0" prefWidth="179.0" style="-fx-border-color: black; -fx-border-radius: 5;" BorderPane.alignment="CENTER">
                 <children>
-                    <Hyperlink onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
@@ -65,7 +65,7 @@
                             <Insets left="10.0" />
                         </VBox.margin>
                     </Hyperlink>
-                    <Hyperlink onAction="#goToProfile" text="User profile" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#goToProfile" text="User profile" textFill="#4e4e4e">
                         <VBox.margin>
                             <Insets left="10.0" top="5.0" />
                         </VBox.margin>
@@ -73,7 +73,7 @@
                             <Font name="System Bold" size="20.0" />
                         </font>
                     </Hyperlink>
-                    <Hyperlink onAction="#help" text="Help" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#help" text="Help" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
@@ -84,23 +84,8 @@
                 </children>
             </VBox>
         </left>
-        <bottom>
-            <HBox prefHeight="48.0" prefWidth="899.0" BorderPane.alignment="CENTER">
-               <children>
-                   <Button fx:id="cancell" minHeight="0.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" stylesheets="@../styling/style.css" text="Cancel">
-                     <HBox.margin>
-                        <Insets left="650.0" />
-                     </HBox.margin>
-                   </Button>
-                   <Button fx:id="Rezervo" mnemonicParsing="false" onAction="#rezervo" prefHeight="32.0" prefWidth="71.0" stylesheets="@../styling/style.css" text="Rezervo">
-                     <HBox.margin>
-                        <Insets left="100.0" />
-                     </HBox.margin>
-                   </Button>
-               </children></HBox>
-        </bottom>
         <center>
-            <VBox prefHeight="391.0" prefWidth="726.0">
+            <VBox prefHeight="479.0" prefWidth="774.0">
 
                 <HBox prefHeight="73.0" prefWidth="706.0" spacing="10">
                     <Label fx:id="nga" prefHeight="18.0" prefWidth="58.0" text="Nga:">
@@ -178,7 +163,7 @@
                     </VBox.margin>
                 </HBox>
 
-                <TableView fx:id="tabela" layoutX="1.0" layoutY="86.0" prefHeight="267.0" prefWidth="615.0">
+                <TableView fx:id="tabela" layoutX="1.0" layoutY="86.0" prefHeight="326.0" prefWidth="795.0">
                     <columns>
                         <TableColumn fx:id="linja" prefWidth="144.80001527071" text="Linja ajrore" />
                         <TableColumn fx:id="vendi_nisjes" prefWidth="136.8000030517578" text="Vendi i nisjes" />
@@ -191,7 +176,23 @@
                         <Insets top="15.0" />
                     </VBox.margin>
                 </TableView>
-               <HBox prefHeight="100.0" prefWidth="200.0" />
+               <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <HBox prefHeight="65.0" prefWidth="978.0">
+                        <children>
+                            <Button fx:id="cancell" minHeight="0.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" stylesheets="@../styling/style.css" text="Cancel">
+                              <HBox.margin>
+                                 <Insets left="550.0" top="5.0" />
+                              </HBox.margin>
+                            </Button>
+                            <Button fx:id="Rezervo" mnemonicParsing="false" onAction="#rezervo" prefHeight="32.0" prefWidth="71.0" stylesheets="@../styling/style.css" text="Rezervo">
+                              <HBox.margin>
+                                 <Insets left="100.0" top="5.0" />
+                              </HBox.margin>
+                            </Button>
+                        </children>
+                     </HBox>
+                  </children></HBox>
 
             </VBox>
 

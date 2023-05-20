@@ -100,3 +100,79 @@
     -fx-border-color: derive(-fx-pie-color, 1%);
     -fx-border-width: 0px;
 }
+
+
+
+/* styles.css */
+/* styles.css */
+
+.root {
+    -fx-background-color: white;
+}
+
+#logoImage {
+    -fx-fit-height: 65.0;
+    -fx-fit-width: 56.0;
+    -fx-pick-on-bounds: true;
+    -fx-preserve-ratio: true;
+    -fx-margin: 10.0;
+}
+
+#titleLabel {
+    -fx-stroke-type: outside;
+    -fx-stroke-width: 0.0;
+    -fx-font-family: "System Bold";
+    -fx-font-size: 20.0;
+    -fx-margin: 25.0 0 0 10.0;
+}
+
+#signOutLink {
+    -fx-font-family: "System Bold";
+    -fx-font-size: 20.0;
+    -fx-text-fill: #180897;
+    -fx-margin: 20.0 0 0 250.0;
+}
+
+#flightsLink {
+    -fx-font-family: "System Bold";
+    -fx-font-size: 20.0;
+    -fx-text-fill: #180897;
+    -fx-margin: 5.0 0 0 10.0;
+}
+
+/* Additional CSS styles for other elements */
+
+#passengersLink {
+    -fx-font-family: "System Bold";
+    -fx-font-size: 20.0;
+    -fx-text-fill: #180897;
+    -fx-margin: 5.0 0 0 10.0;
+}
+
+#reservationsLink {
+    -fx-font-family: "System Bold";
+    -fx-font-size: 20.0;
+    -fx-text-fill: #180897;
+    -fx-margin: 5.0 0 0 10.0;
+}
+
+#userProfileLink {
+    -fx-font-family: "System Bold";
+    -fx-font-size: 20.0;
+    -fx-text-fill: #180897;
+    -fx-margin: 5.0 0 0 10.0;
+}
+
+#servicesLink {
+    -fx-font-family: "System Bold";
+    -fx-font-size: 20.0;
+    -fx-text-fill: #180897;
+    -fx-margin: 5.0 0 0 10.0;
+}
+
+#helpLink {
+    -fx-font-family: "System Bold";
+    -fx-font-size: 20.0;
+    -fx-text-fill: #180897;
+    -fx-margin: 5.0 0 0 10.0;
+}

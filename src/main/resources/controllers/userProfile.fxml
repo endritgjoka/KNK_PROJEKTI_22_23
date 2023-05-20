@@ -18,7 +18,7 @@
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserProfileController">
 <children>
-    <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="480.0" prefWidth="754.0" style="-fx-background-color: white;">
+    <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="468.0" prefWidth="754.0" style="-fx-background-color: white;">
         <top>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                 <children>
@@ -38,7 +38,7 @@
                             <Insets left="10.0" top="25.0" />
                         </HBox.margin>
                     </Text>
-                    <Hyperlink onAction="#goToLogin" text="Sign out" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#goToLogin" style="-fx-border-color: black; -fx-border-radius: 5; -fx-border-style: solid;" text="Sign out" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
@@ -50,9 +50,9 @@
             </HBox>
         </top>
         <left>
-            <VBox prefHeight="281.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="421.0" prefWidth="171.0" style="-fx-border-color: black; -fx-border-radius: 5;" BorderPane.alignment="CENTER">
                 <children>
-                    <Hyperlink onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
@@ -60,7 +60,7 @@
                             <Insets left="10.0" />
                         </VBox.margin>
                     </Hyperlink>
-                    <Hyperlink onAction="#goToProfile" text="User profile" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#goToProfile" text="User profile" textFill="#4e4e4e">
                         <VBox.margin>
                             <Insets left="10.0" top="5.0" />
                         </VBox.margin>
@@ -68,7 +68,7 @@
                             <Font name="System Bold" size="20.0" />
                         </font>
                     </Hyperlink>
-                    <Hyperlink onAction="#help" text="Help" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#help" text="Help" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
