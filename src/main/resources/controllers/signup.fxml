@@ -16,22 +16,22 @@
    <children>
       <Pane cache="true" layoutX="336.0" prefHeight="494.0" prefWidth="320.0">
          <children>
-            <Label fx:id="emaili" layoutX="151.0" layoutY="154.0" text="Email" />
+            <Label fx:id="emaili" layoutX="151.0" layoutY="154.0" text="Username" />
             <TextField fx:id="username" layoutX="151.0" layoutY="178.0" prefHeight="25.0" prefWidth="201.0" />
-            <Label fx:id="gjinia" layoutX="151.0" layoutY="215.0" text="Gjinia" />
-            <Label fx:id="ditelindja" layoutX="152.0" layoutY="271.0" text="Ditëlindja" />
+            <Label fx:id="gjiniaa" layoutX="151.0" layoutY="215.0" text="Gjinia" />
+            <Label fx:id="ditelindjaa" layoutX="152.0" layoutY="271.0" text="Ditëlindja" />
             <Label fx:id="fjalekalimii" layoutX="149.0" layoutY="329.0" text="Fjalëkalimi" />
-            <Label fx:id="rishkruajFjalekalimin" layoutX="148.0" layoutY="388.0" text="Rishkruaj fjalëkalimin" />
-            <Label fx:id="emri" layoutX="154.0" layoutY="44.0" prefHeight="18.0" prefWidth="38.0" text="Emri" />
-            <Label fx:id="mbiemri" layoutX="151.0" layoutY="96.0" text="Mbiemri" />
+            <Label fx:id="RishkruajFjalekalimin" layoutX="148.0" layoutY="388.0" text="Rishkruaj fjalëkalimin" />
+            <Label fx:id="emrii" layoutX="154.0" layoutY="44.0" prefHeight="18.0" prefWidth="38.0" text="Emri" />
+            <Label fx:id="mbiemrii" layoutX="151.0" layoutY="96.0" text="Mbiemri" />
             <TextField fx:id="mbiemri" layoutX="151.0" layoutY="120.0" prefHeight="25.0" prefWidth="201.0" />
             <TextField fx:id="emri" layoutX="151.0" layoutY="62.0" prefHeight="27.0" prefWidth="201.0" />
             <Button fx:id="sign_up" layoutX="148.0" layoutY="453.0" mnemonicParsing="false" onAction="#btnSignUp" prefHeight="33.0" prefWidth="201.0" stylesheets="@../styling/style.css" text="Sign Up" />
-            <RadioButton fx:id="mashkull" layoutX="147.0" layoutY="242.0" mnemonicParsing="false" onAction="#getPgjinia" text="Mashkull">
+            <RadioButton fx:id="mashkull" layoutX="147.0" layoutY="242.0" mnemonicParsing="false" text="Mashkull">
                <toggleGroup>
                   <ToggleGroup fx:id="gjinia" />
                </toggleGroup></RadioButton>
-            <RadioButton fx:id="femer" layoutX="252.0" layoutY="242.0" mnemonicParsing="false" onAction="#getPgjinia" text="Femër" toggleGroup="$gjinia" />
+            <RadioButton fx:id="femer" layoutX="252.0" layoutY="242.0" mnemonicParsing="false" text="Femër" toggleGroup="$gjinia" />
             <DatePicker fx:id="ditelindja" blendMode="COLOR_DODGE" cache="true" editable="false" layoutX="147.0" layoutY="295.0" prefHeight="25.0" prefWidth="201.0" />
             <PasswordField fx:id="fjalekalimi" layoutX="148.0" layoutY="353.0" prefHeight="26.0" prefWidth="201.0" />
             <PasswordField fx:id="rishkruajFjalekalimin" layoutX="148.0" layoutY="412.0" prefHeight="26.0" prefWidth="201.0" />

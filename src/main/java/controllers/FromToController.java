@@ -85,6 +85,9 @@ public class FromToController extends  BaseController implements Initializable {
     private Button cancell;
     @FXML
     private Button Rezervo;
+    @FXML
+    private ChoiceBox gjuha;
+
     private boolean dyDrejtimeshi = true;
 
     public static int fId;
@@ -102,7 +105,8 @@ public class FromToController extends  BaseController implements Initializable {
     void translateEnglish() {
         Locale currentLocale = new Locale("en");
 
-        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content_en", currentLocale);
         nga.setText(translate.getString("label.nga"));
         ne.setText(translate.getString("label.ne"));
         dyDrejtimeshe.setText(translate.getString("label.dyDrejtimeshe"));
@@ -119,13 +123,13 @@ public class FromToController extends  BaseController implements Initializable {
 
     @Override
     void translateAlbanian() {
-        Locale currentLocale = new Locale("sq");
+        Locale currentLocale = Locale.getDefault();
 
-        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content_sq", currentLocale);
         nga.setText(translate.getString("label.nga"));
         ne.setText(translate.getString("label.ne"));
         dyDrejtimeshe.setText(translate.getString("label.dyDrejtimeshe"));
-        po.setText(translate.getString("radiobutton"));
+        po.setText(translate.getString("radiobutton.po"));
         jo.setText(translate.getString("radiobutton.jo"));
         nisjaa.setText(translate.getString("label.nisjaa"));
         kthimi_Label.setText(translate.getString("label.kthimi_Label"));
@@ -139,16 +143,21 @@ public class FromToController extends  BaseController implements Initializable {
     void handleFilterAction(ActionEvent event) throws Exception {
         tabela.getItems().clear();
 
-        String d = departureDatePicker.getValue().toString();
-        String dc = departingCityChoiceBox.getValue().toString();
-        String rc = arrivalCityChoiceBox.getValue().toString();
+        String d = "";
+        String dc = "";
+        String rc = "";
         ObservableList<Fluturimet> list = null;
         if (dyDrejtimeshi){
             if (departureDatePicker.getValue()!= null && returnDatePicker.getValue() != null
                     && departingCityChoiceBox.getValue() != null && arrivalCityChoiceBox.getValue() != null && drejtimi.getSelectedToggle().isSelected()){
 
+                d = departureDatePicker.getValue().toString();
+                dc = departingCityChoiceBox.getValue().toString();
+                rc = arrivalCityChoiceBox.getValue().toString();
+
                 String r = returnDatePicker.getValue().toString();
                 list = FluturimetRepository.getSearched(dyDrejtimeshi,dc, rc, d, r);
+                setInTable(list);
 
             }
         }
@@ -156,27 +165,25 @@ public class FromToController extends  BaseController implements Initializable {
 
             if (departureDatePicker.getValue() != null && departingCityChoiceBox.getValue() != null
                     && arrivalCityChoiceBox.getValue() != null) {
+                d = departureDatePicker.getValue().toString();
+                dc = departingCityChoiceBox.getValue().toString();
+                rc = arrivalCityChoiceBox.getValue().toString();
                 list = FluturimetRepository.getSearched(dyDrejtimeshi, dc, rc, d, "");
-
+                setInTable(list);
 
             }
         }
 
-            linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
-            nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
-            kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));
-            statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
-            vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
-            vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
-            rezervimi.setSortNode(new Button("Rezervo"));
 
-            tabela.setItems(list);
 
 
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
+
+        Locale.setDefault(new Locale("sq"));
+        translateAlbanian();
         try {
             ObservableList<Fluturimet> list = FluturimetRepository.getAll();
             Collections.sort(list, Comparator.comparing(Fluturimet::getQyteti1));
@@ -187,6 +194,23 @@ public class FromToController extends  BaseController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        if (gjuha.getValue() != null){
+           if (gjuha.getSelectionModel().equals("Shqip")){
+               translateAlbanian();
+           }else{
+               translateEnglish();
+           }
+        }
+        gjuha.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                if (newValue.equals("Shqip")) {
+                    translateAlbanian();
+                } else {
+                    translateEnglish();
+                }
+            }
+        });
 
     }
 
@@ -236,6 +260,18 @@ public class FromToController extends  BaseController implements Initializable {
         }
 
 
-
     }
+
+    private void setInTable(ObservableList<Fluturimet> list){
+        linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
+        nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
+        kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));
+        statusi.setCellValueFactory(new PropertyValueFactory<>("status"));
+        vendi_nisjes.setCellValueFactory(new PropertyValueFactory<>("qyteti1"));
+        vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
+
+        tabela.setItems(list);
+    }
+
+
 }

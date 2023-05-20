@@ -78,7 +78,27 @@ public class PasagjerController extends BaseController implements Initializable{
     }
 
     @FXML
-    public void goToLogin(ActionEvent event) throws Exception{
+    private void goToFluturimet(ActionEvent event) throws Exception {
+
+        Parent parenti = FXMLLoader.load(getClass().getResource("fromto.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+    @FXML
+    public void goToBaggage(ActionEvent event) throws Exception {
+        Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    @FXML
+    public void goToLogin(ActionEvent event) throws Exception {
         Rezervimi.setPerdoruesi(null);
         Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(parenti);
@@ -86,6 +106,19 @@ public class PasagjerController extends BaseController implements Initializable{
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+
+    
+    @FXML
+    public void goToPassagers(ActionEvent event) throws Exception {
+        Rezervimi.setPerdoruesi(null);
+        Parent parenti = FXMLLoader.load(getClass().getResource("pasagjer.fxml"));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
 
 
     @Override
