@@ -1,15 +1,17 @@
 package controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.*;
 import service.DBConnection;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class diagrametController extends HomeController implements Initializable {
+public class DiagrametController extends HomeController implements Initializable {
 
     @FXML
     private BarChart<String, Number> barChart;
@@ -68,5 +70,32 @@ public class diagrametController extends HomeController implements Initializable
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void goToUsers(ActionEvent actionEvent) throws IOException {
+        goTo("Perdoruesit", "perdoruesit.fxml", actionEvent);
+
+    }
+
+    @FXML
+    public void goToStats(ActionEvent actionEvent) throws IOException {
+        goTo("Statistikat", "diagramet.fxml", actionEvent);
+
+    }
+
+    @FXML
+    public void goToFluturimet(ActionEvent actionEvent) throws IOException {
+        goTo("Fluturimet", "fluturimet.fxml", actionEvent);
+
+    }
+
+    @Override
+    void translateEnglish(){
+
+    }
+    @Override
+    void translateAlbanian(){
+
     }
 }

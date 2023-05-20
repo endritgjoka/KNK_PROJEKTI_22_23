@@ -19,7 +19,7 @@ import java.time.Period;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class SignUpController extends BaseController {
+public class SignUpController extends HomeController {
     @FXML
     private TextField emri;
     @FXML
@@ -79,11 +79,8 @@ public class SignUpController extends BaseController {
             if (UserSevice.validUsername(pusername, 0)){
                 Perdoruesi user = UserSevice.signUp(pemri, pmbiemri, pusername,pfjalekalimi,
                         pgjinia,isAdmin,pditelindja);
-                Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
-                Scene scene = new Scene(parenti);
-                Stage primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                primaryStage.setScene(scene);
-                primaryStage.show();
+                goTo("Log In", "login.fxml", actionEvent);
+
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR,"Invalid username(taken)!");
                 alert.show();
@@ -94,20 +91,7 @@ public class SignUpController extends BaseController {
             alert.show();
         }
 
-
-
     }
-
-//    private int kalkuloMoshen(){
-//        LocalDate selectedDate = ditelindja.getValue();
-//        LocalDate currentDate = LocalDate.now();
-//
-//        if (selectedDate != null) {
-//            int mosha = Period.between(selectedDate, currentDate).getYears();
-//            return mosha;
-//        }
-//        return 0;
-//    }
 
     public void getGjinia() {
         if(gjinia.getSelectedToggle() != null) {

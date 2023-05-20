@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 import models.Fluturimet;
 import repository.FluturimetRepository;
 
-public class FluturimetController extends BaseController implements Initializable {
+public class FluturimetController extends HomeController implements Initializable {
     @FXML
     private TableColumn  nisja, kthimi, vendi_nisjes, vendi_arritjes, statusi,linja;
     @FXML
@@ -49,7 +49,7 @@ public class FluturimetController extends BaseController implements Initializabl
     private Button goBack;
     @FXML
     private Pagination pagination;
-    private int rowsPerPage = 5;
+    private int rowsPerPage = 6;
     ObservableList<Fluturimet> fluturimet = null;
     private Alert alert = new Alert(Alert.AlertType.ERROR,"");
 
@@ -90,19 +90,20 @@ public class FluturimetController extends BaseController implements Initializabl
 
     @FXML
     public void active(ActionEvent actionEvent) throws Exception {
+        int totalItems = 10; // Get the total number of items from the repository
+        int totalPages = (int) Math.ceil((double) totalItems / rowsPerPage); // Calculate the total number of pages
+
+        pagination.setPageCount(totalPages); // Set the total number of pages in the pagination control
         if (checkBoxFilterIsActive.isSelected()) {
-            //ObservableList<Fluturimet> data = FluturimetRepository.getAll(2, "");
             pagination.setPageFactory(pageIndex -> {
                 try {
-                    fluturimet = FluturimetRepository.getAllActiveFlights(pageIndex, rowsPerPage); // Get data for the current page
+                    fluturimet = FluturimetRepository.getAllActiveFlights(pageIndex , rowsPerPage); // Get data for the current page
                     tabela.setItems(fluturimet);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 return tabela;
             });
-            // tabela.getItems().clear();
-            //  tabela.setItems(data);
         }
     }
 
@@ -156,27 +157,11 @@ public class FluturimetController extends BaseController implements Initializabl
 
     }
 
-    @FXML
-    public void menaxhoPerdoruesit(ActionEvent actionEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("perdoruesit.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Perdoruesit");
-        stage.show();
-    }
-
-    @FXML
-    public void shikoDiagramet(ActionEvent actionEvent) {
-    }
 
     @FXML
     public void shtoFluturim(ActionEvent actionEvent) throws Exception {
-        Parent parent = FXMLLoader.load(App.class.getResource("shtoFluturim.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        goTo("Shto fluturim", "shtoFluturim.fxml", actionEvent);
+
 
     }
 
@@ -201,20 +186,21 @@ public class FluturimetController extends BaseController implements Initializabl
         vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
     }
 
+
     @FXML
-    public void goToLogin(ActionEvent actionEvent) {
+    public void goToUsers(ActionEvent actionEvent) throws IOException {
+        goTo("Perdoruesit", "perdoruesit.fxml", actionEvent);
     }
 
     @FXML
-    public void goToFluturimet(ActionEvent actionEvent) {
+    public void goToStats(ActionEvent actionEvent) throws IOException {
+        goTo("Statistikat", "diagramet.fxml", actionEvent);
+
     }
+
     @FXML
-    public void goToRezervimet(ActionEvent actionEvent) {
-    }
-    @FXML
-    public void goToProfile(ActionEvent actionEvent) {
-    }
-    @FXML
-    public void help(ActionEvent actionEvent) {
+    public void goToFluturimet(ActionEvent actionEvent) throws IOException {
+        goTo("Fluturimet", "fluturimet.fxml", actionEvent);
+
     }
 }

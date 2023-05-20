@@ -11,78 +11,50 @@ import javafx.stage.Stage;
 import models.Rezervimi;
 
 import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Paths;
 
-public class HomeController extends BaseController {
 
+public class HomeController {
 
     @FXML
     private Hyperlink login;
+     void translateEnglish(){
+
+     };
+     void translateAlbanian(){
+
+     };
+
+    void goTo(String title, String window, ActionEvent event) throws IOException {
+        Parent parenti = FXMLLoader.load(getClass().getResource(window));
+        Scene scene = new Scene(parenti);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setTitle(title);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 
     @FXML
     private void help(ActionEvent event) throws Exception {
-
-        Parent parenti = FXMLLoader.load(getClass().getResource("help.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
+       goTo("Help", "help.fxml", event);
     }
 
     @FXML
-    private void goToFluturimet(ActionEvent event)  {
-
-        Parent parenti = null;
-        try {
-            parenti = FXMLLoader.load(getClass().getResource("fromto.fxml"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
+    private void goToFluturimet(ActionEvent event) throws IOException {
+        goTo("Fluturimet", "fromto.fxml", event);
     }
 
-    @FXML
-    public void goToRezervimet(ActionEvent event) throws Exception {
-        Parent parenti = FXMLLoader.load(getClass().getResource("pasagjer.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+
 
     @FXML
     public void goToLogin(ActionEvent event) throws Exception {
         Rezervimi.setPerdoruesi(null);
-        Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    @Override
-    void translateEnglish() {
+        goTo("Log In", "login.fxml", event);
 
     }
 
-    @Override
-    void translateAlbanian() {
-
-    }
 
     @FXML
     public void goToProfile(ActionEvent event) throws Exception{
-
-        Parent parenti = FXMLLoader.load(getClass().getResource("userProfile.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        goTo("User Profile", "userProfile.fxml", event);
     }
 }

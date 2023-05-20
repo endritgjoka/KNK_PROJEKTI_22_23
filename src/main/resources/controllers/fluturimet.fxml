@@ -55,7 +55,7 @@
         <left>
             <VBox prefHeight="281.0" prefWidth="174.0" BorderPane.alignment="CENTER">
                 <children>
-                    <Hyperlink onAction="#goToFluturimet" text="Fluturimet" textFill="#4e4e4e">
+                    <Hyperlink onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
@@ -63,7 +63,7 @@
                             <Insets left="10.0" />
                         </VBox.margin>
                     </Hyperlink>
-                    <Hyperlink text="Perdoruesit" textFill="#4e4e4e">
+                    <Hyperlink onAction="#goToUsers" text="Users" textFill="#4e4e4e">
                         <VBox.margin>
                             <Insets left="10.0" top="5.0" />
                         </VBox.margin>
@@ -71,7 +71,7 @@
                             <Font name="System Bold" size="20.0" />
                         </font>
                     </Hyperlink>
-                    <Hyperlink onAction="#goToRezervimet" text="Statistikat" textFill="#4e4e4e">
+                    <Hyperlink onAction="#goToStats" text="Statistics" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>

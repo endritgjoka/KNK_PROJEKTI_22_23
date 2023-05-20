@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class PasagjerController extends BaseController implements Initializable{
+public class PasagjerController extends HomeController implements Initializable{
 
 
     @FXML
@@ -59,13 +59,8 @@ public class PasagjerController extends BaseController implements Initializable{
             Pasagjeri pasagjeri = new Pasagjeri(0,Rezervimi.getPerdoruesi().getId(), padresa, pnacionaliteti, pNumriTelefonit, pNumriPasaportes);
             //RezervimController.pasagjeriId = pasagjeri.getId();
             PagesaController.setData(pasagjeri);
-            Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
-            Scene scene = new Scene(parenti);
-            Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            primaryStage.setScene(scene);
-            primaryStage.setResizable(false);
-            primaryStage.setTitle("Te dhenat e rezervimit");
-            primaryStage.show();
+            goTo("Te dhenat e rezervimit", "rezervim.fxml", event);
+
         }else{
             Alert alert = new Alert(Alert.AlertType.WARNING, "These fields should be filled!");
             alert.show();

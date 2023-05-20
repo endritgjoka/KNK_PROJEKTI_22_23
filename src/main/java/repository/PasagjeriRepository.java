@@ -41,17 +41,6 @@ public class PasagjeriRepository {
         }
     }
 
-//    public static void update(Perdoruesi user) throws SQLException {
-//        String sql = "UPDATE pasagjeret SET adresa=?, fjalekalimi_salted=? WHERE id=?";
-//        try (Connection connection = DBConnection.getConnection();
-//             PreparedStatement statement = connection.prepareStatement(sql)) {
-//            statement.setString(1, user.getUsername());
-//            statement.setString(2, user.getFjalekalimi_salted());
-//            statement.setInt(4, user.getId());
-//            statement.executeUpdate();
-//        }
-//    }
-
     public static void delete(int id) throws SQLException {
         String sql = "DELETE FROM pasagjeret WHERE id=?";
         try (Connection connection = DBConnection.getConnection();

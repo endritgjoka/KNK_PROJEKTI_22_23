@@ -16,6 +16,7 @@ import models.Fluturimet;
 import models.Rezervimi;
 import service.FluturimService;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -62,15 +63,12 @@ public class ShtoFluturimController extends HomeController implements Initializa
     @FXML
     private TextField tipi;
     Alert alert = new Alert(Alert.AlertType.ERROR,"");
-//dataKthimit.getValue() != null &&
-//        && !oraKthimit.getText().isEmpty()
     @FXML
     public void shto(ActionEvent actionEvent) throws Exception {
         if (!statusi.getText().isEmpty() && !aeroportiArritjes.getText().isEmpty() && !aeroportiNisjes.getText().isEmpty()
                 &&  dataNisjes.getValue() != null && !kapaciteti.getText().isEmpty() && !kompania.getText().isEmpty()
                  && !oraNisjes.getText().isEmpty() && !qytetiArritjes.getText().isEmpty()
                 && !qytetiNisjes.getText().isEmpty() && !kohezgjatja.getText().isEmpty() && !tipi.getText().isEmpty()) {
-
 
             int k = Integer.parseInt(kapaciteti.getText());
 
@@ -97,11 +95,26 @@ public class ShtoFluturimController extends HomeController implements Initializa
             }
 
             int duration = Integer.parseInt(kohezgjatja.getText());
-            boolean drejtimi = isDyDrejtimeshe();
+            boolean drejtim = isDyDrejtimeshe();
             Fluturimet fluturim = new Fluturimet(0, FluturimService.aeroplaniId, FluturimService.aeroportiNisjesiId, Timestamp.valueOf(timestampN),
-                    FluturimService.aeroportiArritjesiId,timestamp , statusi.getText(), drejtimi,duration);
+                    FluturimService.aeroportiArritjesiId,timestamp , statusi.getText(), drejtim,duration);
 
             FluturimService.shtoFluturim(fluturim);
+            alert.setAlertType(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Flight was successfully added!");
+            alert.show();
+            statusi.setText("");
+            aeroportiArritjes.setText("");
+            aeroportiNisjes.setText("");
+            dataNisjes.setValue(null);
+            dataKthimit.setValue(null);
+            kohezgjatja.setText("");
+            kompania.setText("");
+            tipi.setText("");
+            qytetiArritjes.setText("");
+            qytetiNisjes.setText("");
+            oraKthimit.setText("");
+            oraNisjes.setText("");
         } else {
             alert.setContentText("These fields should be filled!");
             alert.show();
@@ -112,11 +125,8 @@ public class ShtoFluturimController extends HomeController implements Initializa
 
     @FXML
     public void kthehu(ActionEvent event) throws Exception{
-        Parent parenti = FXMLLoader.load(getClass().getResource("fluturimet.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        goTo("Fluturimet", "fluturimet.fxml", event);
+
     }
 
     @Override
@@ -154,5 +164,32 @@ public class ShtoFluturimController extends HomeController implements Initializa
             return true;
         }
         return  false;
+    }
+
+    @FXML
+    public void goToUsers(ActionEvent actionEvent) throws IOException {
+        goTo("Perdoruesit", "perdoruesit.fxml", actionEvent);
+    }
+
+    @FXML
+    public void goToStats(ActionEvent actionEvent) throws IOException {
+        goTo("Statistikat", "diagramet.fxml", actionEvent);
+
+    }
+
+    @FXML
+    public void goToFluturimet(ActionEvent actionEvent) throws IOException {
+        goTo("Fluturimet", "fluturimet.fxml", actionEvent);
+
+    }
+
+    @Override
+    void translateEnglish(){
+
+    }
+
+    @Override
+    void translateAlbanian(){
+
     }
 }

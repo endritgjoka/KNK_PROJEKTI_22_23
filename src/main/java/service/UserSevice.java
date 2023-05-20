@@ -9,8 +9,6 @@ import java.sql.SQLException;
 
 public class UserSevice {
 
-
-
     public static Perdoruesi login(String username, String password) throws SQLException {
         Perdoruesi loginUser = UserRepository.getByUsername(username);
 
@@ -61,7 +59,6 @@ public class UserSevice {
         UserRepository.update(perdoruesi);
         return perdoruesi;
     }
-
 
     public static boolean validUsername(String username, int id) throws SQLException {
         Perdoruesi perdoruesi = UserRepository.getByUsername(username);

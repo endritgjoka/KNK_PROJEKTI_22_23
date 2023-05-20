@@ -22,7 +22,7 @@ import java.sql.SQLOutput;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class RezervimController extends BaseController implements Initializable {
+public class RezervimController extends HomeController implements Initializable {
 
     @FXML
     private ChoiceBox kategoria;
@@ -118,20 +118,6 @@ public class RezervimController extends BaseController implements Initializable 
         validateField(numriBagazhev);
         validateField(numriUleses);
 
-        kategoria.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            double ticketPrice = kalkuloÇmimin();
-            çmimi.setText(String.valueOf(ticketPrice));
-        });
-
-        pesha.textProperty().addListener((observable, oldValue, newValue) -> {
-            double ticketPrice = kalkuloÇmimin();
-            çmimi.setText(String.valueOf(ticketPrice));
-        });
-
-        numriBagazhev.textProperty().addListener((observable, oldValue, newValue) -> {
-            double ticketPrice = kalkuloÇmimin();
-            çmimi.setText(String.valueOf(ticketPrice));
-        });
     }
 
 
@@ -196,4 +182,16 @@ public class RezervimController extends BaseController implements Initializable 
         return qmimiBaze + baggagePrice + suitcasePrice;
     }
 
+    @FXML
+    public void anulo(ActionEvent actionEvent) {
+        Stage stage = (Stage) kategoria.getScene().getWindow();
+        stage.close();
+    }
+
+
+    @FXML
+    public void shihQmimin(ActionEvent actionEvent) {
+        Double q = kalkuloÇmimin();
+        cmimi.setText(q +"");
+    }
 }

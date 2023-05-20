@@ -26,42 +26,6 @@ public class FluturimetRepository {
         statement.executeUpdate();
     }
 
-
-//    public static ObservableList<Fluturimet> getAll(int queryNumber, String fromSearch) throws Exception {
-//        String sql = "";
-//        if (queryNumber == 0){
-//            sql = "SELECT * FROM fluturimet f \n" +
-//                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
-//                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
-//                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id \n";
-//        }else if(queryNumber == 1){
-//            sql = "SELECT DISTINCT * " +
-//                    "FROM fluturimet f " +
-//                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id " +
-//                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id " +
-//                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id " +
-//                    "GROUP BY nisjet.qyteti";
-//        }else if(queryNumber == 2){
-//            sql = "SELECT * FROM fluturimet f \n" +
-//                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
-//                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
-//                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id" +
-//                    " WHERE f.status = 'aktive'";
-//        }else if(!fromSearch.equals("")){
-//            sql = "SELECT * FROM fluturimet f \n" +
-//                    "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id \n" +
-//                    "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id \n" +
-//                    "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id" +
-//                    " WHERE a.kompania LIKE '%" + fromSearch+"%' OR nisjet.qyteti LIKE '%" +
-//                    fromSearch+ "%' OR arritjet.qyteti LIKE '%"+fromSearch+"%'";
-//        }
-//
-//        ObservableList<Fluturimet> fluturimet = createObjs(sql);
-//
-//        return fluturimet;
-//
-//    }
-
     public static ObservableList<Fluturimet> getAll(int pageIndex, int pageSize, String fromSearch) throws Exception {
         int offset = pageIndex * pageSize; // Calculate the offset for the current page
         String sql = "";
@@ -131,12 +95,14 @@ public class FluturimetRepository {
         return createObjs(resultSet);
     }
 
-    public static ObservableList<Fluturimet> getAllActiveFlights(int pageSize, int offset) throws Exception {
+    public static ObservableList<Fluturimet> getAllActiveFlights(int pageIndex, int pageSize) throws Exception {
+        int offset = pageIndex * pageSize;
         String sql = "SELECT * FROM fluturimet f " +
                 "INNER JOIN aeroplanet a ON f.aeroplani_id = a.id " +
                 "INNER JOIN aeroporti nisjet ON nisjet.id = f.aeroporti_nisjes_id " +
                 "INNER JOIN aeroporti arritjet ON arritjet.id = f.aeroporti_arritjes_id " +
-                "WHERE f.status = 'aktive' LIMIT ? OFFSET ?";
+                "WHERE f.status = 'aktive' " +
+                " LIMIT ? OFFSET ?";
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, pageSize);
@@ -186,7 +152,6 @@ public class FluturimetRepository {
         ObservableList<Fluturimet> fluturimet = FXCollections.observableArrayList();
 
         while (resultSet.next()) {
-
             int id = resultSet.getInt("id");
             int aeroplani_id = resultSet.getInt("aeroplani_id");
             int aeroporti_nisjes_id = resultSet.getInt("aeroporti_nisjes_id");

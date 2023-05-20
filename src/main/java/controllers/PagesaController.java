@@ -19,7 +19,7 @@ import service.PasagjeriService;
 import java.sql.Date;
 import java.sql.SQLException;
 
-public class PagesaController {
+public class PagesaController extends HomeController{
 
     @FXML
     private TextField cardNameField;
@@ -83,58 +83,6 @@ public class PagesaController {
         return  "Visa";
     }
 
-    @FXML
-    private void help(ActionEvent event) throws Exception {
-
-        Parent parenti = FXMLLoader.load(getClass().getResource("help.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-    }
-
-    @FXML
-    private void goToFluturimet(ActionEvent event) throws Exception {
-
-        Parent parenti = FXMLLoader.load(getClass().getResource("fromto.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-    }
-
-    @FXML
-    public void goToBaggage(ActionEvent event) throws Exception {
-        Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    @FXML
-    public void goToLogin(ActionEvent event) throws Exception {
-        Rezervimi.setPerdoruesi(null);
-        Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-
-
-    @FXML
-    public void goToPassagers(ActionEvent event) throws Exception {
-        Rezervimi.setPerdoruesi(null);
-        Parent parenti = FXMLLoader.load(getClass().getResource("pasagjer.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
 
     public static void setData(Object object){
         if (object instanceof  Pasagjeri){
@@ -161,4 +109,14 @@ public class PagesaController {
         Stage stage = (Stage) cardNumberField.getScene().getWindow();
         stage.close();
     }
+
+    @Override
+    void translateEnglish(){
+
+    };
+
+    @Override
+    void translateAlbanian(){
+
+    };
 }

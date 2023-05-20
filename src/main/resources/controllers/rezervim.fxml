@@ -94,7 +94,8 @@
                         </FXCollections>
                     </items>
                 </ChoiceBox>
-                <TextField fx:id="çmimi" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <TextField fx:id="çmimi" disable="true" onAction="#shihQmimin" promptText="Shih çmimin" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#anulo" prefHeight="26.0" prefWidth="120.0" stylesheets="@../styling/style.css" text="Anulo" GridPane.rowIndex="5" />
             </children>
         </GridPane>
     </children>

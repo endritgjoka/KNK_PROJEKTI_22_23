@@ -15,9 +15,10 @@ public abstract class BaseController {
     abstract void translateAlbanian();
 
     void goTo(String title, String window, ActionEvent event) throws IOException {
-        Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent parenti = FXMLLoader.load(getClass().getResource(window));
         Scene scene = new Scene(parenti);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setTitle(title);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

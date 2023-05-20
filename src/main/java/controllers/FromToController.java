@@ -91,17 +91,13 @@ public class FromToController extends HomeController implements Initializable {
     @FXML
     public void goToLogin(ActionEvent event) throws Exception{
         Rezervimi.setPerdoruesi(null);
-        Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        goTo("Log In", "login.fxml", event);
+
     }
 
     @Override
     void translateEnglish() {
         Locale currentLocale = new Locale("en");
-
 
         ResourceBundle translate = ResourceBundle.getBundle("translation.content_en", currentLocale);
         nga.setText(translate.getString("label.nga"));
@@ -155,11 +151,9 @@ public class FromToController extends HomeController implements Initializable {
                 String r = returnDatePicker.getValue().toString();
                 list = FluturimetRepository.getSearched(dyDrejtimeshi,dc, rc, d, r);
                 setInTable(list);
-
             }
         }
         else {
-
             if (departureDatePicker.getValue() != null && departingCityChoiceBox.getValue() != null
                     && arrivalCityChoiceBox.getValue() != null) {
                 d = departureDatePicker.getValue().toString();
@@ -170,8 +164,6 @@ public class FromToController extends HomeController implements Initializable {
 
             }
         }
-
-
 
 
     }
@@ -256,7 +248,6 @@ public class FromToController extends HomeController implements Initializable {
                 throw new RuntimeException(e1);
             }
         }
-
 
     }
 

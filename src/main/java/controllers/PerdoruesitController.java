@@ -3,6 +3,7 @@ package controllers;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
@@ -13,9 +14,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import models.Perdoruesi;
 import repository.UserRepository;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class PerdoruesitController extends HomeController{
+public class PerdoruesitController extends HomeController implements Initializable {
 
     @FXML
     private TextField filterField;
@@ -62,20 +66,11 @@ public class PerdoruesitController extends HomeController{
         }
     }
 
-    @FXML
-    void goBack(ActionEvent event) {
-
-    }
 
     @FXML
     void kerkoStudentin(ActionEvent event) throws Exception {
         if (!filterField.getText().equals("")){
             ObservableList<Perdoruesi> perdoruesit = UserRepository.getAll(filterField.getText());
-
-            emri.setCellValueFactory(new PropertyValueFactory<>("emri"));
-            mbiemri.setCellValueFactory(new PropertyValueFactory<>("mbiemri"));
-            username.setCellValueFactory(new PropertyValueFactory<>("username"));
-            gjinia.setCellValueFactory(new PropertyValueFactory<>("gjinia"));
 
             tabela.setItems(perdoruesit);
         }
@@ -86,13 +81,43 @@ public class PerdoruesitController extends HomeController{
     void shfaqTeGjithePerdoruesit(ActionEvent event) throws SQLException {
         ObservableList<Perdoruesi> perdoruesit = UserRepository.getAll("");
 
-        emri.setCellValueFactory(new PropertyValueFactory<>("emri"));
-        mbiemri.setCellValueFactory(new PropertyValueFactory<>("mbiemri"));
-        username.setCellValueFactory(new PropertyValueFactory<>("username"));
-        gjinia.setCellValueFactory(new PropertyValueFactory<>("gjinia"));
-
         tabela.setItems(perdoruesit);
 
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        emri.setCellValueFactory(new PropertyValueFactory<>("emri"));
+        mbiemri.setCellValueFactory(new PropertyValueFactory<>("mbiemri"));
+        username.setCellValueFactory(new PropertyValueFactory<>("username"));
+        gjinia.setCellValueFactory(new PropertyValueFactory<>("gjinia"));
+    }
+
+    @FXML
+    public void goToUsers(ActionEvent actionEvent) throws IOException {
+        goTo("Perdoruesit", "perdoruesit.fxml", actionEvent);
+
+    }
+
+    @FXML
+    public void goToStats(ActionEvent actionEvent) throws IOException {
+        goTo("Statistikat", "diagramet.fxml", actionEvent);
+
+    }
+
+    @FXML
+    public void goToFluturimet(ActionEvent actionEvent) throws IOException {
+        goTo("Fluturimet", "fluturimet.fxml", actionEvent);
+
+    }
+
+    @Override
+    void translateEnglish(){
+
+    }
+
+    @Override
+    void translateAlbanian(){
+
+    }
 }

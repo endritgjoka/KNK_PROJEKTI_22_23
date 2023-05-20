@@ -18,9 +18,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PerdoruesitController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PerdoruesitController">
 <children>
-    <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="570.0" prefWidth="551.0" style="-fx-background-color: white;">
+    <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="529.0" prefWidth="902.0" style="-fx-background-color: white;">
         <top>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                 <children>
@@ -54,7 +54,7 @@
         <left>
             <VBox prefHeight="281.0" prefWidth="174.0" BorderPane.alignment="CENTER">
                 <children>
-                    <Hyperlink onAction="#goToFluturimet" text="Fluturimet" textFill="#4e4e4e">
+                    <Hyperlink onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
@@ -62,7 +62,7 @@
                             <Insets left="10.0" />
                         </VBox.margin>
                     </Hyperlink>
-                    <Hyperlink text="Perdoruesit" textFill="#4e4e4e">
+                    <Hyperlink onAction="#goToUsers" text="Users" textFill="#4e4e4e">
                         <VBox.margin>
                             <Insets left="10.0" top="5.0" />
                         </VBox.margin>
@@ -70,7 +70,7 @@
                             <Font name="System Bold" size="20.0" />
                         </font>
                     </Hyperlink>
-                    <Hyperlink onAction="#goToRezervimet" text="Statistikat" textFill="#4e4e4e">
+                    <Hyperlink onAction="#goToStats" text="Statistics" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
@@ -91,7 +91,7 @@
 
             <AnchorPane>
                 <children>
-                    <Pane layoutX="-3.0" layoutY="-1.0" prefHeight="413.0" prefWidth="730.0" style="-fx-background-color: white;">
+                    <Pane layoutX="-17.0" prefHeight="413.0" prefWidth="730.0" style="-fx-background-color: white;">
                         <children>
                             <TableView fx:id="tabela" layoutX="76.0" layoutY="102.0" prefHeight="267.0" prefWidth="586.0">
                                 <columns>
@@ -114,7 +114,6 @@
                             </ImageView>
                             <Button fx:id="teGjitha" layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithePerdoruesit" stylesheets="@../styling/style.css" text="Te gjitha" />
                             <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoStudentin" stylesheets="@../styling/style.css" text="Kërko" />
-                            <Button fx:id="goBack" layoutX="14.0" layoutY="375.0" mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" prefWidth="142.0" stylesheets="@../styling/style.css" text="Go back" />
                             <Button fx:id="fshijperdoruesin" layoutX="597.0" layoutY="375.0" mnemonicParsing="false" onAction="#fshijPerdoruesinEPerzgjedhur" stylesheets="@../styling/style.css" text="Fshij perdoruesin" />
                         </children>
                     </Pane>
