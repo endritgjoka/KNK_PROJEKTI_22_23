@@ -71,6 +71,11 @@ public class UserProfileController extends HomeController implements Initializab
     private Button goBackk;
     @FXML
     private Button saveChanges;
+    @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
+
     private Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "");
 
 
@@ -111,6 +116,12 @@ public class UserProfileController extends HomeController implements Initializab
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ChangePasswordController.setPerdoruesi(perdoruesi);
+        albanianFlag.setOnMouseClicked(e->{
+            translateAlbanian();
+        });
+        americanFlag.setOnMouseClicked(e->{
+            translateEnglish();
+        });
         this.nameField.setText(perdoruesi.getEmri());
         this.surnameField.setText(perdoruesi.getMbiemri());
         this.usernameField.setText(perdoruesi.getUsername());

@@ -9,9 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import models.Pagesa;
-import models.Rezervimi;
+import models.*;
+import repository.BagazhetRepository;
+import repository.BiletaRepository;
 import repository.PagesaRepository;
+import repository.RezervimiRepository;
+import service.PasagjeriService;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -55,6 +58,10 @@ public class PagesaController extends HomeController {
     private Button Rezervoo;
     @FXML
     private Button anuloo;
+    private static Pasagjeri pasagjeri;
+    private static Rezervimi rezervimi;
+    private static Bileta bileta;
+    private static Bagazhet bagazhi;
 
     Alert alert = new Alert(Alert.AlertType.ERROR,"");
     public static int bId;
@@ -63,16 +70,27 @@ public class PagesaController extends HomeController {
     @FXML
     void rezervo(ActionEvent event) throws SQLException {
         if (pagesa.getSelectedToggle() != null && expirationDate.getValue() != null && !cvvField.getText().equals("")
-        && !cardNameField.getText().equals("") && !cardNumberField.getText().equals("")){
+                && !cardNameField.getText().equals("") && !cardNumberField.getText().equals("")){
             String mp = menyraPageses();
-            Pagesa pagesa1 = new Pagesa(0,mp, cardNameField.getText(), cardNumberField.getText(),
-                    Date.valueOf(expirationDate.getValue()), cvvField.getText(),bId);
-            PagesaRepository.insert(pagesa1);
+            pasagjeri = PasagjeriService.regjistroPasagjerin(pasagjeri);
+            int biletaId = BiletaRepository.insert(bileta);
+            rezervimi.setBileta_id(biletaId);
+            rezervimi.setPasagjeri_id(pasagjeri.getId());
+            rezervimi.setPasagjeri_id(pasagjeri.getId());
+            RezervimiRepository.insert(rezervimi);
+            Pagesa pagesaObj = new Pagesa(0,mp, cardNameField.getText(), cardNumberField.getText(),
+                    Date.valueOf(expirationDate.getValue()), cvvField.getText(),biletaId);
+            PagesaRepository.insert(pagesaObj);
+            alert.setAlertType(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Reservation was made successfully!");
+            alert.show();
+            close();
         }else{
             alert.setContentText("These fields should be filled!");
             alert.show();
         }
     }
+
 
 
     String menyraPageses(){
@@ -81,59 +99,7 @@ public class PagesaController extends HomeController {
         }
         return  "Visa";
     }
-    
-    @FXML
-    private void help(ActionEvent event) throws Exception {
 
-        Parent parenti = FXMLLoader.load(getClass().getResource("help.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-    }
-
-    @FXML
-    private void goToFluturimet(ActionEvent event) throws Exception {
-
-        Parent parenti = FXMLLoader.load(getClass().getResource("fromto.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-    }
-
-    @FXML
-    public void goToBaggage(ActionEvent event) throws Exception {
-        Parent parenti = FXMLLoader.load(getClass().getResource("rezervim.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    @FXML
-    public void goToLogin(ActionEvent event) throws Exception {
-        Rezervimi.setPerdoruesi(null);
-        Parent parenti = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-
-    
-    @FXML
-    public void goToPassagers(ActionEvent event) throws Exception {
-        Rezervimi.setPerdoruesi(null);
-        Parent parenti = FXMLLoader.load(getClass().getResource("pasagjer.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
     @Override
     void translateEnglish(){
         Locale currentLocale = new Locale("en");
@@ -158,5 +124,27 @@ public class PagesaController extends HomeController {
         Rezervoo.setText(translate.getString("button.Rezervoo"));
         anuloo.setText(translate.getString("button.anuloo"));
     }
+
+    public static void setData(Object object){
+        if (object instanceof  Pasagjeri){
+            pasagjeri = (Pasagjeri) object;
+        }else if(object instanceof  Rezervimi){
+            rezervimi = (Rezervimi) object;
+        }else if(object instanceof Bileta){
+            bileta = (Bileta) object;
+        }else if(object instanceof Bagazhet){
+            bagazhi = (Bagazhet) object;
+        }
+    }
+
+    @FXML
+    void anuloRezervimin(ActionEvent actionEvent){
+        close();
+    }
+    void close(){
+        Stage stage = (Stage) cardNumberField.getScene().getWindow();
+        stage.close();
+    }
+
 }
 

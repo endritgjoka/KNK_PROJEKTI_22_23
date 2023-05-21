@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import models.Fluturimet;
 import models.Rezervimi;
@@ -83,7 +84,9 @@ public class FromToController extends HomeController implements Initializable {
     @FXML
     private Button Rezervo;
     @FXML
-    private ChoiceBox gjuha;
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
 
     private boolean dyDrejtimeshi = true;
 
@@ -173,6 +176,12 @@ public class FromToController extends HomeController implements Initializable {
 
         Locale.setDefault(new Locale("sq"));
         translateAlbanian();
+        albanianFlag.setOnMouseClicked(e->{
+            translateAlbanian();
+        });
+        americanFlag.setOnMouseClicked(e->{
+            translateEnglish();
+        });
         try {
             ObservableList<Fluturimet> list1 = FluturimetRepository.getAllDistinctByCity(0);
             ObservableList<Fluturimet> list2 = FluturimetRepository.getAllDistinctByCity(1);
@@ -189,23 +198,6 @@ public class FromToController extends HomeController implements Initializable {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-        if (gjuha.getValue() != null){
-           if (gjuha.getSelectionModel().equals("Shqip")){
-               translateAlbanian();
-           }else{
-               translateEnglish();
-           }
-        }
-        gjuha.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                if (newValue.equals("Shqip")) {
-                    translateAlbanian();
-                } else {
-                    translateEnglish();
-                }
-            }
-        });
 
     }
 

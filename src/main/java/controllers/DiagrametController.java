@@ -32,13 +32,11 @@ public class DiagrametController extends HomeController implements Initializable
 
     private void loadData() {
         try {
-            // Establish a connection to the database
             Connection connection = DBConnection.getConnection();
 
             // Query to retrieve gender-based data for the bar chart
             String genderQuery = "SELECT gjinia, COUNT(*) AS count FROM perdoruesit GROUP BY gjinia";
 
-            // Execute the gender query
             Statement genderStatement = connection.createStatement();
             ResultSet genderResultSet = genderStatement.executeQuery(genderQuery);
 
@@ -52,21 +50,30 @@ public class DiagrametController extends HomeController implements Initializable
             }
 
             // Query to retrieve gender-based data for the pie chart
-            String ageQuery = "SELECT gjinia, COUNT(*) AS count FROM perdoruesit GROUP BY gjinia";
+            String pieChartQuery = "SELECT status, COUNT(*) AS count FROM fluturimet GROUP BY status";
 
-            // Execute the age query
-            Statement ageStatement = connection.createStatement();
-            ResultSet ageResultSet = ageStatement.executeQuery(ageQuery);
-
-            // Populate the pie chart with age data
+            Statement ageStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet ageResultSet = ageStatement.executeQuery(pieChartQuery);
+            int totalCount = 0; // Total count for calculating percentages
             while (ageResultSet.next()) {
-                String age = ageResultSet.getString("gjinia");
                 int count = ageResultSet.getInt("count");
-                PieChart.Data data = new PieChart.Data(age, count);
-                pieChart.getData().add(data);
+                totalCount += count;
             }
 
-            // Close the database connection
+           // Reset cursor position
+            ageResultSet.beforeFirst();
+
+
+            // Populate the pie chart with gender data
+            while (ageResultSet.next()) {
+                String age = ageResultSet.getString("status");
+                int count = ageResultSet.getInt("count");
+                double percentage = (double) count / totalCount * 100; // Calculate percentage
+
+                PieChart.Data data = new PieChart.Data(age + " (" + String.format("%.2f", percentage) + "%)", count);
+                pieChart.getData().add(data);
+
+            }
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
