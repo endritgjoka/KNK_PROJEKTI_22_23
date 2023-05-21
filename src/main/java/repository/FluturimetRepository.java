@@ -191,5 +191,40 @@ public class FluturimetRepository {
 
     }
 
+    public static int getNrAllFlights() throws Exception {
+        String sql = "SELECT COUNT(*) AS total FROM fluturimet";
+
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+
+        int totalRows = 0;
+        if (resultSet.next()) {
+            totalRows = resultSet.getInt("total");
+        }
+
+        resultSet.close();
+        statement.close();
+
+        return totalRows;
+    }
+
+    public static int getNrAllActives() throws Exception {
+        String sql = "SELECT COUNT(*) AS total FROM fluturimet f WHERE f.status = 'aktive'";
+
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+
+        int totalRows = 0;
+        if (resultSet.next()) {
+            totalRows = resultSet.getInt("total");
+        }
+
+        resultSet.close();
+        statement.close();
+
+        return totalRows;
+    }
 
 }

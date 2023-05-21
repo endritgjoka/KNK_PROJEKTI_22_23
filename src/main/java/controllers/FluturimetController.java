@@ -68,7 +68,8 @@ public class FluturimetController extends HomeController implements Initializabl
         if (checkBoxFilterIsActive.isSelected()) {
             checkBoxFilterIsActive.setSelected(false);
         }
-        int totalItems = 10; // Get the total number of items from the repository
+        int totalItems = FluturimetRepository.getNrAllFlights(); // Get the total number of items from the repository
+        System.out.println(totalItems);
         int totalPages = (int) Math.ceil((double) totalItems / rowsPerPage); // Calculate the total number of pages
 
         pagination.setPageCount(totalPages); // Set the total number of pages in the pagination control
@@ -86,7 +87,7 @@ public class FluturimetController extends HomeController implements Initializabl
 
     @FXML
     public void active(ActionEvent actionEvent) throws Exception {
-        int totalItems = 10; // Get the total number of items from the repository
+        int totalItems = FluturimetRepository.getNrAllActives(); // Get the total number of items from the repository
         int totalPages = (int) Math.ceil((double) totalItems / rowsPerPage); // Calculate the total number of pages
 
         pagination.setPageCount(totalPages); // Set the total number of pages in the pagination control
@@ -107,6 +108,10 @@ public class FluturimetController extends HomeController implements Initializabl
     public void kerkoFluturimin(ActionEvent actionEvent) throws Exception {
         if (!filterField.getText().equals("")) {
             String fromSearch = filterField.getText();
+            int totalItems = FluturimetRepository.getNrAllFlights(); // Get the total number of items from the repository
+            int totalPages = (int) Math.ceil((double) totalItems / rowsPerPage); // Calculate the total number of pages
+
+            pagination.setPageCount(totalPages); // Set the total number of pages in the pagination control
             pagination.setPageFactory(pageIndex -> {
                 try {
                     fluturimet = FluturimetRepository.getAll(pageIndex, rowsPerPage, fromSearch); // Get data for the current page
