@@ -119,24 +119,24 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         </rowConstraints>
                         <children>
-                            <Label prefHeight="21.0" prefWidth="102.0" text="Aeroporti i nisjes" />
-                            <Label text="Qyteti i nisjes" GridPane.rowIndex="1" />
-                            <Label text="Qyteti i arritjes" GridPane.rowIndex="3" />
-                            <Label text="Aeroporti i arritjes" GridPane.rowIndex="2" />
-                            <Button mnemonicParsing="false" onAction="#shto" prefHeight="26.0" prefWidth="85.0" stylesheets="@../styling/style.css" text="Shto" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                            <Label fx:id="AeroportiNisjes" prefHeight="21.0" prefWidth="102.0" text="Aeroporti i nisjes" />
+                            <Label fx:id="QytetiNisjes" text="Qyteti i nisjes" GridPane.rowIndex="1" />
+                            <Label fx:id="QytetiArritjes" text="Qyteti i arritjes" GridPane.rowIndex="3" />
+                            <Label fx:id="AeroportiArritjes" text="Aeroporti i arritjes" GridPane.rowIndex="2" />
+                            <Button fx:id="shto" mnemonicParsing="false" onAction="#shto" prefHeight="26.0" prefWidth="85.0" stylesheets="@../styling/style.css" text="Shto" GridPane.columnIndex="1" GridPane.rowIndex="12">
                                 <GridPane.margin>
                                     <Insets left="170.0" top="10.0" />
                                 </GridPane.margin>
                             </Button>
-                            <Button mnemonicParsing="false" onAction="#kthehu" stylesheets="@../styling/style.css" text="Kthehu mbrapa" GridPane.rowIndex="12">
+                            <Button fx:id="kthehuMbrapa" mnemonicParsing="false" onAction="#kthehu" stylesheets="@../styling/style.css" text="Kthehu mbrapa" GridPane.rowIndex="12">
                                 <GridPane.margin>
                                     <Insets top="10.0" />
                                 </GridPane.margin>
                             </Button>
-                            <Label text="Kompania e fluturimeve" GridPane.rowIndex="4" />
-                            <Label text="Kapaciteti i Aeroplanit" GridPane.rowIndex="5" />
-                            <Label text="Tipi i aeroplanit" GridPane.rowIndex="6" />
-                            <Label text="Data dhe ora e nisjes" GridPane.rowIndex="10" />
+                            <Label fx:id="KompaniaFluturimeve" text="Kompania e fluturimeve" GridPane.rowIndex="4" />
+                            <Label fx:id="KapacitetiAeroplanit" text="Kapaciteti i Aeroplanit" GridPane.rowIndex="5" />
+                            <Label fx:id="TipiAeroplanit" text="Tipi i aeroplanit" GridPane.rowIndex="6" />
+                            <Label fx:id="dataDheOraNisjes" text="Data dhe ora e nisjes" GridPane.rowIndex="10" />
                             <Label fx:id="dataLabel" text="Data dhe ora e kthimit" visible="false" GridPane.rowIndex="11" />
                             <TextField fx:id="qytetiNisjes" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                             <TextField fx:id="aeroportiArritjes" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -177,7 +177,7 @@
                                 </children>
                             </GridPane>
                             <TextField fx:id="aeroportiNisjes" GridPane.columnIndex="1" />
-                            <Label text="Dy drejtimëshe" GridPane.rowIndex="7" />
+                            <Label fx:id="Dydrejtimeshe" text="Dy drejtimëshe" GridPane.rowIndex="7" />
                             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
                                 <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -187,17 +187,17 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                 <children>
-                                    <RadioButton mnemonicParsing="false" onAction="#dyDrejtimesh" text="PO">
+                                    <RadioButton fx:id="Po" mnemonicParsing="false" onAction="#dyDrejtimesh" text="PO">
                                         <toggleGroup>
                                             <ToggleGroup fx:id="drejtimi" />
                                         </toggleGroup></RadioButton>
-                                    <RadioButton mnemonicParsing="false" onAction="#njeDrejtimesh" text="JO" toggleGroup="$drejtimi" GridPane.columnIndex="1" />
+                                    <RadioButton fx:id="No" mnemonicParsing="false" onAction="#njeDrejtimesh" text="JO" toggleGroup="$drejtimi" GridPane.columnIndex="1" />
                                 </children>
                             </GridPane>
-                            <Label text="Statusi i fluturimit" GridPane.rowIndex="9" />
+                            <Label fx:id="StatusiFluturimit" text="Statusi i fluturimit" GridPane.rowIndex="9" />
                             <TextField fx:id="statusi" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                             <TextField fx:id="kohezgjatja" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                            <Label text="Kohezgjatja(h)" GridPane.rowIndex="8" />
+                            <Label fx:id="Kohezgjatja" text="Kohezgjatja(h)" GridPane.rowIndex="8" />
                         </children>
                     </GridPane>
                 </children>

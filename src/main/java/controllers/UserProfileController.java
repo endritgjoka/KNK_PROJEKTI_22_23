@@ -85,7 +85,7 @@ public class UserProfileController extends HomeController implements Initializab
         name.setText(translate.getString("label.name"));
         surname.setText(translate.getString("label.surname"));
         birthday.setText(translate.getString("label.birthday"));
-        profilePicture.setText(translate.getString("label.profilePicture"));
+       // profilePicture.setText(translate.getString("label.profilePicture"));
         addPicture.setText(translate.getString("button.addPicture"));
         goBackk.setText(translate.getString("button.goBackk"));
         saveChanges.setText(translate.getString("button.saveChanges"));
