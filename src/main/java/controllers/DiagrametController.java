@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.*;
+import javafx.scene.image.ImageView;
 import service.DBConnection;
 
 import java.io.IOException;
@@ -24,8 +25,20 @@ public class DiagrametController extends HomeController implements Initializable
     @FXML
     private PieChart pieChart;
 
+    @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        albanianFlag.setOnMouseClicked(e->{
+            translateAlbanian();
+        });
+        americanFlag.setOnMouseClicked(e->{
+            translateEnglish();
+        });
+
         // Fetch data from the database and populate the charts
         loadData();
     }

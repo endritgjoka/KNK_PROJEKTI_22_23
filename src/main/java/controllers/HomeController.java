@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import models.Rezervimi;
 
@@ -17,7 +18,15 @@ public class HomeController {
 
     @FXML
     private Hyperlink login;
-     void translateEnglish(){
+
+    @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
+
+
+
+    void translateEnglish(){
 
      };
      void translateAlbanian(){

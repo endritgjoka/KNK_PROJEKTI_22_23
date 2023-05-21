@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import models.*;
@@ -58,6 +59,12 @@ public class PagesaController extends HomeController {
     private Button Rezervoo;
     @FXML
     private Button anuloo;
+
+    @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
+
     private static Pasagjeri pasagjeri;
     private static Rezervimi rezervimi;
     private static Bileta bileta;

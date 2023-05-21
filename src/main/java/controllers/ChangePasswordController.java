@@ -2,19 +2,23 @@ package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import models.Perdoruesi;
 import service.UserSevice;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class ChangePasswordController extends HomeController{
+public class ChangePasswordController extends HomeController implements Initializable {
 
     @FXML
     private PasswordField newPasswordField;
@@ -36,6 +40,13 @@ public class ChangePasswordController extends HomeController{
     private Button saveNewPassword;
     @FXML
     private Button cancel;
+
+    @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
+
+
 
     @FXML
     void savePass(ActionEvent event) throws SQLException {
@@ -92,7 +103,7 @@ public class ChangePasswordController extends HomeController{
         Locale currentLocale = new Locale("sq");
 
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
-        changePassword.setText(translate.getString("label.changePassword1"));
+        changePassword.setText(translate.getString("label.changePassword"));
         oldPassword.setText(translate.getString("label.oldPassword"));
         newPassword.setText(translate.getString("label.newPassword"));
         confirmNewPassword.setText(translate.getString("label.confirmNewPassword"));
@@ -101,5 +112,18 @@ public class ChangePasswordController extends HomeController{
 
     }
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Locale.setDefault(new Locale("sq"));
+        translateAlbanian();
+        albanianFlag.setOnMouseClicked(e->{
+            translateAlbanian();
+        });
+        americanFlag.setOnMouseClicked(e->{
+            translateEnglish();
+        });
+
+    }
 }
 

@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import models.Aeroporti;
@@ -92,6 +93,12 @@ public class ShtoFluturimController extends HomeController implements Initializa
     private RadioButton Po;
     @FXML
     private RadioButton No;
+
+    @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
+
     Alert alert = new Alert(Alert.AlertType.ERROR,"");
 //dataKthimit.getValue() != null &&
 //        && !oraKthimit.getText().isEmpty()

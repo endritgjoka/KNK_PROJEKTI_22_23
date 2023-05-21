@@ -51,9 +51,9 @@
             </HBox>
         </top>
         <left>
-            <VBox prefHeight="281.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="281.0" prefWidth="174.0" style="-fx-border-color: black; -fx-border-radius: 5;" BorderPane.alignment="CENTER">
                 <children>
-                    <Hyperlink onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
@@ -61,7 +61,7 @@
                             <Insets left="10.0" />
                         </VBox.margin>
                     </Hyperlink>
-                    <Hyperlink onAction="#goToProfile" text="User profile" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#goToProfile" text="User profile" textFill="#4e4e4e">
                         <VBox.margin>
                             <Insets left="10.0" top="5.0" />
                         </VBox.margin>
@@ -69,7 +69,7 @@
                             <Font name="System Bold" size="20.0" />
                         </font>
                     </Hyperlink>
-                    <Hyperlink onAction="#help" text="Help" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#help" text="Help" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>

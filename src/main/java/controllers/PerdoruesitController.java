@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import models.Perdoruesi;
 import repository.UserRepository;
 
@@ -59,6 +60,12 @@ public class PerdoruesitController extends HomeController implements Initializab
     private TableColumn gjinia;
 
     @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
+
+
+    @FXML
     void fshijPerdoruesinEPerzgjedhur(ActionEvent event) throws Exception{
         Perdoruesi perdoruesi = (Perdoruesi) tabela.getSelectionModel().getSelectedItem();
         if (perdoruesi != null){
@@ -88,6 +95,12 @@ public class PerdoruesitController extends HomeController implements Initializab
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        albanianFlag.setOnMouseClicked(e->{
+            translateAlbanian();
+        });
+        americanFlag.setOnMouseClicked(e->{
+            translateEnglish();
+        });
         emri.setCellValueFactory(new PropertyValueFactory<>("emri"));
         mbiemri.setCellValueFactory(new PropertyValueFactory<>("mbiemri"));
         username.setCellValueFactory(new PropertyValueFactory<>("username"));
@@ -120,7 +133,7 @@ public class PerdoruesitController extends HomeController implements Initializab
         Kerko.setText(translate.getString("button.Kerko"));
         TeGjitha.setText(translate.getString("button.TeGjitha"));
         FshijPerdoruesin.setText(translate.getString("button.FshijPerdoruesin"));
-        Fluturimett.setText(translate.getString("label.Fluturimett"));
+
     }
 
     @Override
@@ -130,7 +143,6 @@ public class PerdoruesitController extends HomeController implements Initializab
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
         TeGjitha.setText(translate.getString("button.TeGjitha"));
         FshijPerdoruesin.setText(translate.getString("button.FshijPerdoruesin"));
-        Fluturimett.setText(translate.getString("label.Fluturimett"));
 
     }
 }

@@ -15,48 +15,54 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShtoFluturimController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShtoFluturimController">
 <children>
     <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="594.0" prefWidth="700.0" style="-fx-background-color: white;">
         <top>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                <children>
-                    <ImageView fitHeight="65.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../photos/airport_logo.png" />
-                        </image>
-                        <HBox.margin>
-                            <Insets left="10.0" top="10.0" />
-                        </HBox.margin>
-                    </ImageView>
-                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kosovo International Airport">
-                        <font>
-                            <Font name="System Bold" size="20.0" />
-                        </font>
-                        <HBox.margin>
-                            <Insets left="10.0" top="25.0" />
-                        </HBox.margin>
-                    </Text>
-                    <Hyperlink onAction="#goToLogin" text="Sign out" textFill="#4e4e4e">
-                        <font>
-                            <Font name="System Bold" size="20.0" />
-                        </font>
-                        <HBox.margin>
-                            <Insets left="250.0" top="20.0" />
-                        </HBox.margin>
-                    </Hyperlink>
-                </children>
+               <children>
+                  <Pane prefHeight="82.0" prefWidth="981.0">
+                     <children>
+                        <ImageView fitHeight="65.0" fitWidth="56.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../photos/airport_logo.png" />
+                           </image>
+                        </ImageView>
+                        <Text layoutX="88.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kosovo International Airport">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                        <Hyperlink focusTraversable="false" layoutX="597.0" layoutY="38.0" onAction="#goToLogin" style="-fx-border-color: black; -fx-border-radius: 5; -fx-border-style: solid;" text="Sign out" textFill="#4e4e4e">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Hyperlink>
+                        <ImageView fx:id="albanianFlag" fitHeight="22.0" fitWidth="51.0" layoutX="582.0" layoutY="3.0">
+                           <image>
+                              <Image url="@../photos/Flag_of_Albania.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="americanFlag" fitHeight="22.0" fitWidth="46.0" layoutX="643.0" layoutY="3.0">
+                           <image>
+                              <Image url="@../photos/America_Flag.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
             </HBox>
         </top>
         <left>
-            <VBox prefHeight="281.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="281.0" prefWidth="174.0" style="-fx-border-color: black; -fx-border-radius: 5;" BorderPane.alignment="CENTER">
                 <children>
-                    <Hyperlink onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#goToFluturimet" text="Flights" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
@@ -64,7 +70,7 @@
                             <Insets left="10.0" />
                         </VBox.margin>
                     </Hyperlink>
-                    <Hyperlink onAction="#goToUsers" text="Users" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#goToUsers" text="Users" textFill="#4e4e4e">
                         <VBox.margin>
                             <Insets left="10.0" top="5.0" />
                         </VBox.margin>
@@ -72,7 +78,7 @@
                             <Font name="System Bold" size="20.0" />
                         </font>
                     </Hyperlink>
-                    <Hyperlink onAction="#goToStats" text="Statistics" textFill="#4e4e4e">
+                    <Hyperlink focusTraversable="false" onAction="#goToStats" text="Statistics" textFill="#4e4e4e">
                         <font>
                             <Font name="System Bold" size="20.0" />
                         </font>
@@ -116,19 +122,20 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="25.600012207031227" minHeight="3.2000488281249773" prefHeight="3.2000488281249773" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="57.59995117187498" minHeight="10.0" prefHeight="57.59995117187498" vgrow="SOMETIMES" />
                         </rowConstraints>
                         <children>
                             <Label fx:id="AeroportiNisjes" prefHeight="21.0" prefWidth="102.0" text="Aeroporti i nisjes" />
                             <Label fx:id="QytetiNisjes" text="Qyteti i nisjes" GridPane.rowIndex="1" />
                             <Label fx:id="QytetiArritjes" text="Qyteti i arritjes" GridPane.rowIndex="3" />
                             <Label fx:id="AeroportiArritjes" text="Aeroporti i arritjes" GridPane.rowIndex="2" />
-                            <Button fx:id="shto" mnemonicParsing="false" onAction="#shto" prefHeight="26.0" prefWidth="85.0" stylesheets="@../styling/style.css" text="Shto" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                            <Button fx:id="shto" mnemonicParsing="false" onAction="#shto" prefHeight="35.0" prefWidth="63.0" stylesheets="@../styling/style.css" text="Shto" GridPane.columnIndex="1" GridPane.rowIndex="13">
                                 <GridPane.margin>
                                     <Insets left="170.0" top="10.0" />
                                 </GridPane.margin>
                             </Button>
-                            <Button fx:id="kthehuMbrapa" mnemonicParsing="false" onAction="#kthehu" stylesheets="@../styling/style.css" text="Kthehu mbrapa" GridPane.rowIndex="12">
+                            <Button fx:id="kthehuMbrapa" mnemonicParsing="false" onAction="#kthehu" stylesheets="@../styling/style.css" text="Kthehu mbrapa" GridPane.rowIndex="13">
                                 <GridPane.margin>
                                     <Insets top="10.0" />
                                 </GridPane.margin>

@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -24,24 +25,37 @@
         <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="518.0" prefWidth="963.0" style="-fx-background-color: white;">
             <top>
                 <HBox prefHeight="100.0" prefWidth="774.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <ImageView fitHeight="65.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../photos/airport_logo.png" />
-                            </image>
-                            <HBox.margin>
-                                <Insets left="10.0" top="10.0" />
-                            </HBox.margin>
+               <children>
+                  <Pane prefHeight="92.0" prefWidth="962.0">
+                     <children>
+                        <ImageView fitHeight="65.0" fitWidth="56.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../photos/airport_logo.png" />
+                           </image>
                         </ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kosovo International Airport">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                            <HBox.margin>
-                                <Insets left="10.0" top="25.0" />
-                            </HBox.margin>
+                        <Text layoutX="88.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kosovo International Airport">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
                         </Text>
-                    </children>
+                        <Hyperlink focusTraversable="false" layoutX="856.0" layoutY="41.0" onAction="#goToLogin" style="-fx-border-color: black; -fx-border-radius: 5; -fx-border-style: solid;" text="Sign out" textFill="#4e4e4e">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Hyperlink>
+                        <ImageView fx:id="albanianFlag" fitHeight="22.0" fitWidth="51.0" layoutX="844.0" layoutY="14.0">
+                           <image>
+                              <Image url="@../photos/Flag_of_Albania.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="americanFlag" fitHeight="22.0" fitWidth="46.0" layoutX="902.0" layoutY="14.0">
+                           <image>
+                              <Image url="@../photos/America_Flag.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
                 </HBox>
             </top>
             <left>
@@ -118,10 +132,5 @@
                 </AnchorPane>
             </center>
         </BorderPane>
-            <Hyperlink focusTraversable="false" layoutX="791.0" layoutY="14.0" onAction="#goToLogin" style="-fx-border-color: black; -fx-border-radius: 5; -fx-border-style: solid;" text="Sign out" textFill="#4e4e4e" AnchorPane.rightAnchor="5.0">
-                <font>
-                    <Font name="System Bold" size="20.0" />
-                </font>
-            </Hyperlink>
     </children>
 </AnchorPane>

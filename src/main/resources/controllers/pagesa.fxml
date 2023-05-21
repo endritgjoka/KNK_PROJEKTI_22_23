@@ -40,6 +40,22 @@
                     </font>
                 </Label>
                 <Region HBox.hgrow="ALWAYS" />
+            <ImageView fx:id="albanianFlag" fitHeight="22.0" fitWidth="51.0">
+               <image>
+                  <Image url="@../photos/Flag_of_Albania.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="30.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="americanFlag" fitHeight="22.0" fitWidth="46.0">
+               <image>
+                  <Image url="@../photos/America_Flag.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="30.0" />
+               </HBox.margin>
+            </ImageView>
             </HBox>
         </top>
         <center>

@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import models.Fluturimet;
@@ -49,6 +50,11 @@ public class FluturimetController extends HomeController implements Initializabl
     private Button goBack;
     @FXML
     private Pagination pagination;
+
+    @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
     private int rowsPerPage = 6;
     ObservableList<Fluturimet> fluturimet = null;
     private Alert alert = new Alert(Alert.AlertType.ERROR,"");
@@ -133,8 +139,6 @@ public class FluturimetController extends HomeController implements Initializabl
         teGjitha.setText(translate.getString("button.teGjitha"));
         fshijFluturimin.setText(translate.getString("button.fshijFluturimin"));
         shtoFluturim.setText(translate.getString("button.shtoFluturim"));
-        menaxhoPerdoruesit.setText(translate.getString("button.menaxhoPerdoruesit"));
-        shikoDiagramet.setText(translate.getString("button.shikoDiagramet"));
         goBack.setText(translate.getString("button.goBack"));
 
 
@@ -150,8 +154,6 @@ public class FluturimetController extends HomeController implements Initializabl
         teGjitha.setText(translate.getString("button.teGjitha"));
         fshijFluturimin.setText(translate.getString("button.fshijFluturimin"));
         shtoFluturim.setText(translate.getString("button.shtoFluturim"));
-        menaxhoPerdoruesit.setText(translate.getString("button.menaxhoPerdoruesit"));
-        shikoDiagramet.setText(translate.getString("button.shikoDiagramet"));
         goBack.setText(translate.getString("button.goBack"));
 
 
@@ -178,6 +180,12 @@ public class FluturimetController extends HomeController implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        albanianFlag.setOnMouseClicked(e->{
+            translateAlbanian();
+        });
+        americanFlag.setOnMouseClicked(e->{
+            translateEnglish();
+        });
         linja.setCellValueFactory(new PropertyValueFactory<>("linja"));
         nisja.setCellValueFactory(new PropertyValueFactory<>("nisja"));
         kthimi.setCellValueFactory(new PropertyValueFactory<>("kthimi"));

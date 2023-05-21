@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import models.Pasagjeri;
 import models.Perdoruesi;
@@ -48,6 +49,11 @@ public class PasagjerController extends HomeController implements Initializable{
 
      @FXML
      private Button anulo;
+
+    @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
 
     @FXML
     public void goToPagesa(ActionEvent event) throws Exception {

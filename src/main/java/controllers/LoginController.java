@@ -3,10 +3,12 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -15,11 +17,12 @@ import models.Rezervimi;
 import service.UserSevice;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class LoginController extends  HomeController{
+public class LoginController extends  HomeController implements Initializable {
 
     @FXML
     private TextField username;
@@ -33,6 +36,12 @@ public class LoginController extends  HomeController{
     private Button signIn;
     @FXML
     private Button signUp;
+
+    @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
+
 
 
 
@@ -96,6 +105,19 @@ public class LoginController extends  HomeController{
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
         signIn.setText(translate.getString("button.signIn"));
         signUp.setText(translate.getString("button.signUp"));
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Locale.setDefault(new Locale("sq"));
+        translateAlbanian();
+        albanianFlag.setOnMouseClicked(e->{
+            translateAlbanian();
+        });
+        americanFlag.setOnMouseClicked(e->{
+            translateEnglish();
+        });
 
     }
 }

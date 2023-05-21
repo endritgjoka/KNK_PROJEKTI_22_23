@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import models.Bagazhet;
@@ -50,6 +51,12 @@ public class RezervimController extends HomeController implements Initializable 
     private Label cmimi;
     @FXML
     private Button vazhdo;
+
+    @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
+
     public static int pasagjeriId;
     private int qmimi;
 

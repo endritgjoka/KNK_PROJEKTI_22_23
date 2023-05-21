@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import models.Perdoruesi;
 import service.UserSevice;
@@ -19,7 +20,7 @@ import java.time.Period;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class SignUpController extends HomeController {
+public class SignUpController extends HomeController implements Initializable {
     @FXML
     private TextField emri;
     @FXML
@@ -56,6 +57,12 @@ public class SignUpController extends HomeController {
     private Button sign_up;
     @FXML
     private ToggleGroup gjinia;
+
+    @FXML
+    private ImageView albanianFlag;
+    @FXML
+    private ImageView americanFlag;
+
 
 
     public void setPgjinia(char pgjinia) {
@@ -135,4 +142,13 @@ public class SignUpController extends HomeController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        albanianFlag.setOnMouseClicked(e->{
+            translateAlbanian();
+        });
+        americanFlag.setOnMouseClicked(e->{
+            translateEnglish();
+        });
+    }
 }
