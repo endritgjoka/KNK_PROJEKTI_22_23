@@ -9,6 +9,7 @@ import service.DBConnection;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class DiagrametController extends HomeController implements Initializable {
@@ -92,6 +93,7 @@ public class DiagrametController extends HomeController implements Initializable
 
     @Override
     void translateEnglish(){
+
 
     }
     @Override

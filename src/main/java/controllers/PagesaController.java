@@ -15,8 +15,10 @@ import repository.PagesaRepository;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
-public class PagesaController {
+public class PagesaController extends HomeController {
 
     @FXML
     private TextField cardNameField;
@@ -41,8 +43,22 @@ public class PagesaController {
 
     @FXML
     private BorderPane root;
+    @FXML
+    private Label emriKartes;
+    @FXML
+    private Label nrKartes;
+    @FXML
+    private Label dataSkadimit;
+    @FXML
+    private Label kodiCVV;
+    @FXML
+    private Button Rezervoo;
+    @FXML
+    private Button anuloo;
+
     Alert alert = new Alert(Alert.AlertType.ERROR,"");
     public static int bId;
+
 
     @FXML
     void rezervo(ActionEvent event) throws SQLException {
@@ -118,5 +134,29 @@ public class PagesaController {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    @Override
+    void translateEnglish(){
+        Locale currentLocale = new Locale("en");
 
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        emriKartes.setText(translate.getString("label.emriKartes"));
+        nrKartes.setText(translate.getString("label.nrKartes"));
+        dataSkadimit.setText(translate.getString("label.dataSkadimit"));
+        kodiCVV.setText(translate.getString("label.kodiCVV"));
+        Rezervoo.setText(translate.getString("button.Rezervoo"));
+        anuloo.setText(translate.getString("button.anuloo"));
+    }
+    @Override
+    void translateAlbanian(){
+        Locale currentLocale = new Locale("sq");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        emriKartes.setText(translate.getString("label.emriKartes"));
+        nrKartes.setText(translate.getString("label.nrKartes"));
+        dataSkadimit.setText(translate.getString("label.dataSkadimit"));
+        kodiCVV.setText(translate.getString("label.kodiCVV"));
+        Rezervoo.setText(translate.getString("button.Rezervoo"));
+        anuloo.setText(translate.getString("button.anuloo"));
+    }
 }
+
