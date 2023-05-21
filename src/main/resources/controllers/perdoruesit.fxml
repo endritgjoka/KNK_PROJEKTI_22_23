@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
@@ -16,7 +17,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="933.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PerdoruesitController">
 <children>
@@ -112,9 +112,9 @@
                                     <Image url="@../photos/airport_logo.png" />
                                 </image>
                             </ImageView>
-                            <Button fx:id="teGjitha" layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithePerdoruesit" stylesheets="@../styling/style.css" text="Te gjitha" />
-                            <Button fx:id="kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoStudentin" stylesheets="@../styling/style.css" text="Kërko" />
-                            <Button fx:id="fshijperdoruesin" layoutX="597.0" layoutY="375.0" mnemonicParsing="false" onAction="#fshijPerdoruesinEPerzgjedhur" stylesheets="@../styling/style.css" text="Fshij perdoruesin" />
+                            <Button fx:id="TeGjitha" layoutX="469.0" layoutY="50.0" mnemonicParsing="false" onAction="#shfaqTeGjithePerdoruesit" stylesheets="@../styling/style.css" text="Te gjitha" />
+                            <Button fx:id="Kerko" layoutX="297.0" layoutY="50.0" mnemonicParsing="false" onAction="#kerkoStudentin" stylesheets="@../styling/style.css" text="Kërko" />
+                            <Button fx:id="FshijPerdoruesin" layoutX="597.0" layoutY="375.0" mnemonicParsing="false" onAction="#fshijPerdoruesinEPerzgjedhur" stylesheets="@../styling/style.css" text="Fshij perdoruesin" />
                         </children>
                     </Pane>
                 </children>

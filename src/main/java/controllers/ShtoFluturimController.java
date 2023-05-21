@@ -19,9 +19,10 @@ import service.FluturimService;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class ShtoFluturimController implements Initializable {
+public class ShtoFluturimController extends HomeController implements Initializable {
 
     @FXML
     private TextField statusi;
@@ -61,6 +62,36 @@ public class ShtoFluturimController implements Initializable {
 
     @FXML
     private TextField tipi;
+    @FXML
+    private Label AeroportiNisjes;
+    @FXML
+    private Label QytetiNisjes;
+    @FXML
+    private Label AeroportiArritjes;
+    @FXML
+    private Label QytetiArritjes;
+    @FXML
+    private Label KompaniaFluturimeve;
+    @FXML
+    private Label KapacitetiAeroplanit;
+    @FXML
+    private Label TipiAeroplanit;
+    @FXML
+    private Label Dydrejtimeshe;
+    @FXML
+    private Label Kohezgjatja;
+    @FXML
+    private Label StatusiFluturimit;
+    @FXML
+    private Label dataDheOraNisjes;
+    @FXML
+    private Button kthehuMbrapa;
+    @FXML
+    private Button shto;
+    @FXML
+    private RadioButton Po;
+    @FXML
+    private RadioButton No;
     Alert alert = new Alert(Alert.AlertType.ERROR,"");
 //dataKthimit.getValue() != null &&
 //        && !oraKthimit.getText().isEmpty()
@@ -155,4 +186,50 @@ public class ShtoFluturimController implements Initializable {
         }
         return  false;
     }
+    @Override
+    void translateEnglish() {
+        Locale currentLocale = new Locale("en");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        AeroportiNisjes.setText(translate.getString("label.AeroportiNisjes"));
+        QytetiNisjes.setText(translate.getString("label.QytetiNisjes"));
+        AeroportiArritjes.setText(translate.getString("label.AeroportiArritjes"));
+        QytetiArritjes.setText(translate.getString("label.QytetiArritjes"));
+        KompaniaFluturimeve.setText(translate.getString("label.KompaniaFluturimeve"));
+        KapacitetiAeroplanit.setText(translate.getString("label.KapacitetiAeroplanit"));
+        TipiAeroplanit.setText(translate.getString("label.TipiAeroplanit"));
+        Dydrejtimeshe.setText(translate.getString("label.Dydrejtimeshe"));
+        Kohezgjatja.setText(translate.getString("label.Kohezgjatja"));
+        StatusiFluturimit.setText(translate.getString("label.StatusiFluturimit"));
+        dataDheOraNisjes.setText(translate.getString("label.dataDheOraNisjes"));
+        kthehuMbrapa.setText(translate.getString("button.kthehuMbrapa"));
+        shto.setText(translate.getString("button.shto"));
+        Po.setText(translate.getString("radioButton.Po"));
+        No.setText(translate.getString("radioButton.No"));
+
+    }
+
+
+    @Override
+    void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        AeroportiNisjes.setText(translate.getString("label.AeroportiNisjes"));
+        QytetiNisjes.setText(translate.getString("label.QytetiNisjes"));
+        AeroportiArritjes.setText(translate.getString("label.AeroportiArritjes"));
+        QytetiArritjes.setText(translate.getString("label.QytetiArritjes"));
+        KompaniaFluturimeve.setText(translate.getString("label.KompaniaFluturimeve"));
+        KapacitetiAeroplanit.setText(translate.getString("label.KapacitetiAeroplanit"));
+        TipiAeroplanit.setText(translate.getString("label.TipiAeroplanit"));
+        Dydrejtimeshe.setText(translate.getString("label.Dydrejtimeshe"));
+        Kohezgjatja.setText(translate.getString("label.Kohezgjatja"));
+        StatusiFluturimit.setText(translate.getString("label.StatusiFluturimit"));
+        dataDheOraNisjes.setText(translate.getString("label.dataDheOraNisjes"));
+        kthehuMbrapa.setText(translate.getString("button.kthehuMbrapa"));
+        shto.setText(translate.getString("button.shto"));
+        Po.setText(translate.getString("radioButton.Po"));
+        No.setText(translate.getString("radioButton.No"));
+    }
+
 }
