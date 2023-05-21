@@ -17,6 +17,7 @@ import repository.UserRepository;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class PerdoruesitController extends HomeController implements Initializable {
@@ -25,16 +26,16 @@ public class PerdoruesitController extends HomeController implements Initializab
     private TextField filterField;
 
     @FXML
-    private Label fluturimett;
+    private Label Fluturimett;
 
     @FXML
-    private Button fshijperdoruesin;
+    private Button FshijPerdoruesin;
 
     @FXML
     private Button goBack;
 
     @FXML
-    private Button kerko;
+    private Button Kerko;
 
     @FXML
     private TableColumn emri;
@@ -49,7 +50,7 @@ public class PerdoruesitController extends HomeController implements Initializab
     private TableView tabela;
 
     @FXML
-    private Button teGjitha;
+    private Button TeGjitha;
 
     @FXML
     private TableColumn username;
@@ -113,11 +114,23 @@ public class PerdoruesitController extends HomeController implements Initializab
 
     @Override
     void translateEnglish(){
+        Locale currentLocale = new Locale("en");
 
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        Kerko.setText(translate.getString("button.Kerko"));
+        TeGjitha.setText(translate.getString("button.TeGjitha"));
+        FshijPerdoruesin.setText(translate.getString("button.FshijPerdoruesin"));
+        Fluturimett.setText(translate.getString("label.Fluturimett"));
     }
 
     @Override
     void translateAlbanian(){
+        Locale currentLocale = new Locale("sq");
+
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        TeGjitha.setText(translate.getString("button.TeGjitha"));
+        FshijPerdoruesin.setText(translate.getString("button.FshijPerdoruesin"));
+        Fluturimett.setText(translate.getString("label.Fluturimett"));
 
     }
 }
