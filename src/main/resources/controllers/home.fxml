@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.image.Image?>
@@ -11,10 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
    <children>
-      <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: white;">
+      <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="518.0" prefWidth="850.0" style="-fx-background-color: white;">
          <top>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
@@ -34,21 +32,21 @@
                         <Insets left="10.0" top="25.0" />
                      </HBox.margin>
                   </Text>
-                  <Hyperlink onAction="#goToLogin" style="-fx-border-color: transparent;" text="Sign out" textFill="#4e4e4e">
+                  <Hyperlink focusTraversable="false" onAction="#goToLogin" style="-fx-border-color: black; -fx-border-radius: 5; DARKGRAY: solid;" text="Sign out" textFill="#4e4e4e">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="250.0" top="20.0" />
+                        <Insets left="390.0" top="20.0" />
                      </HBox.margin>
                   </Hyperlink>
                </children>
             </HBox>
          </top>
          <left>
-            <VBox prefHeight="281.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="408.0" prefWidth="169.0" style="-fx-border-color: black; -fx-border-radius: 5;" BorderPane.alignment="CENTER">
                <children>
-                  <Hyperlink onAction="#goToFluturimet" style=" -fx-border-color: transparent;" text="Flights" textFill="#4e4e4e">
+                  <Hyperlink focusTraversable="false" onAction="#goToFluturimet" style=" -fx-border-color: transparent;" text="Flights" textFill="#4e4e4e">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -56,7 +54,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Hyperlink>
-                  <Hyperlink onAction="#goToProfile" text="User profile" textFill="#4e4e4e">
+                  <Hyperlink focusTraversable="false" onAction="#goToProfile" text="User profile" textFill="#4e4e4e">
                      <VBox.margin>
                         <Insets left="10.0" top="5.0" />
                      </VBox.margin>
@@ -64,7 +62,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Hyperlink>
-                  <Hyperlink onAction="#help" text="Help" textFill="#4e4e4e">
+                  <Hyperlink focusTraversable="false" onAction="#help" text="Help" textFill="#4e4e4e">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -75,18 +73,15 @@
                </children>
             </VBox>
          </left>
-         <bottom>
-            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-         </bottom>
          <center>
             <Pane prefHeight="413.0" prefWidth="526.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text layoutX="31.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Kosovo International Airport">
+                  <Text layoutX="113.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Kosovo International Airport">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="255.0" fitWidth="399.0" layoutX="70.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="388.0" fitWidth="549.0" layoutX="70.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../photos/airportmap.png" />
                      </image>
