@@ -62,16 +62,6 @@ public class FluturimetController extends HomeController implements Initializabl
     public void btnFilter(ActionEvent actionEvent) {
     }
 
-    @FXML
-    private void goBack(ActionEvent event) throws IOException {
-        Parent parenti = FXMLLoader.load(getClass().getResource("home.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-
 
     @FXML
     public void shfaqTeGjithaFluturimet(ActionEvent actionEvent) throws Exception {
@@ -194,21 +184,4 @@ public class FluturimetController extends HomeController implements Initializabl
         vendi_arritjes.setCellValueFactory(new PropertyValueFactory<>("qyteti2"));
     }
 
-
-    @FXML
-    public void goToUsers(ActionEvent actionEvent) throws IOException {
-        goTo("Perdoruesit", "perdoruesit.fxml", actionEvent);
-    }
-
-    @FXML
-    public void goToStats(ActionEvent actionEvent) throws IOException {
-        goTo("Statistikat", "diagramet.fxml", actionEvent);
-
-    }
-
-    @FXML
-    public void goToFluturimet(ActionEvent actionEvent) throws IOException {
-        goTo("Fluturimet", "fluturimet.fxml", actionEvent);
-
-    }
 }

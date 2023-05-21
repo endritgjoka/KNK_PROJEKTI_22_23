@@ -201,9 +201,5 @@ public class UserProfileController extends HomeController implements Initializab
         }
     }
 
-    @FXML
-    private void goBack(ActionEvent event) throws IOException {
-        goTo("Home", "home.fxml", event);
-    }
 
 }

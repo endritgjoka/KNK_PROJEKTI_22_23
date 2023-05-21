@@ -107,23 +107,6 @@ public class PerdoruesitController extends HomeController implements Initializab
         gjinia.setCellValueFactory(new PropertyValueFactory<>("gjinia"));
     }
 
-    @FXML
-    public void goToUsers(ActionEvent actionEvent) throws IOException {
-        goTo("Perdoruesit", "perdoruesit.fxml", actionEvent);
-
-    }
-
-    @FXML
-    public void goToStats(ActionEvent actionEvent) throws IOException {
-        goTo("Statistikat", "diagramet.fxml", actionEvent);
-
-    }
-
-    @FXML
-    public void goToFluturimet(ActionEvent actionEvent) throws IOException {
-        goTo("Fluturimet", "fluturimet.fxml", actionEvent);
-
-    }
 
     @Override
     void translateEnglish(){

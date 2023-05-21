@@ -91,12 +91,6 @@ public class FromToController extends HomeController implements Initializable {
     private boolean dyDrejtimeshi = true;
 
     public static int fId;
-    @FXML
-    public void goToLogin(ActionEvent event) throws Exception{
-        Rezervimi.setPerdoruesi(null);
-        goTo("Log In", "login.fxml", event);
-
-    }
 
     @Override
     void translateEnglish() {

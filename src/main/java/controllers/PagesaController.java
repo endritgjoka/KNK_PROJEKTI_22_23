@@ -3,6 +3,7 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,12 +18,13 @@ import repository.PagesaRepository;
 import repository.RezervimiRepository;
 import service.PasagjeriService;
 
+import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class PagesaController extends HomeController {
+public class PagesaController extends HomeController implements Initializable {
 
     @FXML
     private TextField cardNameField;
@@ -153,5 +155,14 @@ public class PagesaController extends HomeController {
         stage.close();
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        albanianFlag.setOnMouseClicked(e->{
+            translateAlbanian();
+        });
+        americanFlag.setOnMouseClicked(e->{
+            translateEnglish();
+        });
+    }
 }
 

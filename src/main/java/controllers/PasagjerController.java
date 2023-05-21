@@ -82,6 +82,13 @@ public class PasagjerController extends HomeController implements Initializable{
         this.mbiemri.setText(perdoruesi.getMbiemri());
         this.ditelindja.setValue(perdoruesi.getDitelindja().toLocalDate());
 
+        albanianFlag.setOnMouseClicked(e->{
+            translateAlbanian();
+        });
+        americanFlag.setOnMouseClicked(e->{
+            translateEnglish();
+        });
+
     }
 
     @Override

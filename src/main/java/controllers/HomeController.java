@@ -66,4 +66,24 @@ public class HomeController {
     public void goToProfile(ActionEvent event) throws Exception{
         goTo("User Profile", "userProfile.fxml", event);
     }
+
+    @FXML
+    public void goToUsers(ActionEvent event) throws Exception{
+        goTo("Perdoruesit", "perdoruesit.fxml", event);
+    }
+
+    @FXML
+    public void goToStats(ActionEvent event) throws Exception{
+        goTo("Statistikat", "diagramet.fxml", event);
+    }
+
+    @FXML
+    public void kthehu(ActionEvent event) throws Exception{
+        goTo("Fluturimet", "fluturimet.fxml", event);
+    }
+
+    @FXML
+    private void goBack(ActionEvent event) throws IOException {
+        goTo("Home", "home.fxml", event);
+    }
 }

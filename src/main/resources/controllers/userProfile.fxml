@@ -108,17 +108,17 @@
                             <Image url="@../photos/edit.png" />
                         </image>
                     </ImageView>
-                    <ImageView fx:id="editName" fitHeight="18.0" fitWidth="17.0" layoutX="240.0" layoutY="241.0">
+                    <ImageView fx:id="editName" fitHeight="18.0" fitWidth="17.0" layoutX="240.0" layoutY="183.0">
                         <image>
                             <Image url="@../photos/edit.png" />
                         </image>
                     </ImageView>
-                    <ImageView fx:id="editSurname" fitHeight="18.0" fitWidth="17.0" layoutX="240.0" layoutY="298.0">
+                    <ImageView fx:id="editSurname" fitHeight="18.0" fitWidth="17.0" layoutX="240.0" layoutY="247.0">
                         <image>
                             <Image url="@../photos/edit.png" />
                         </image>
                     </ImageView>
-                    <ImageView fx:id="editBirth" fitHeight="18.0" fitWidth="17.0" layoutX="240.0" layoutY="176.0">
+                    <ImageView fx:id="editBirth" fitHeight="18.0" fitWidth="17.0" layoutX="240.0" layoutY="298.0">
                         <image>
                             <Image url="@../photos/edit.png" />
                         </image>

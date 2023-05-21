@@ -51,7 +51,8 @@ public class RezervimController extends HomeController implements Initializable 
     private Label cmimi;
     @FXML
     private Button vazhdo;
-
+    @FXML
+    private Button anulo;
     @FXML
     private ImageView albanianFlag;
     @FXML
@@ -125,6 +126,13 @@ public class RezervimController extends HomeController implements Initializable 
         validateField(numriBagazhev);
         validateField(numriUleses);
 
+        albanianFlag.setOnMouseClicked(e->{
+            translateAlbanian();
+        });
+        americanFlag.setOnMouseClicked(e->{
+            translateEnglish();
+        });
+
     }
 
 
@@ -149,7 +157,7 @@ public class RezervimController extends HomeController implements Initializable 
         nrBagazhit.setText(translate.getString("label.nrBagazhit"));
         cmimi.setText(translate.getString("label.cmimi"));
         vazhdo.setText(translate.getString("button.vazhdo"));
-
+        anulo.setText(translate.getString("button.anulo"));
 
     }
 
@@ -164,6 +172,7 @@ public class RezervimController extends HomeController implements Initializable 
         nrBagazhit.setText(translate.getString("label.nrBagazhit"));
         cmimi.setText(translate.getString("label.cmimi"));
         vazhdo.setText(translate.getString("button.vazhdo"));
+        anulo.setText(translate.getString("button.anulo"));
 
     }
 

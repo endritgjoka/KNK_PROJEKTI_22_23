@@ -100,8 +100,7 @@ public class ShtoFluturimController extends HomeController implements Initializa
     private ImageView americanFlag;
 
     Alert alert = new Alert(Alert.AlertType.ERROR,"");
-//dataKthimit.getValue() != null &&
-//        && !oraKthimit.getText().isEmpty()
+
     @FXML
     public void shto(ActionEvent actionEvent) throws Exception {
         if (!statusi.getText().isEmpty() && !aeroportiArritjes.getText().isEmpty() && !aeroportiNisjes.getText().isEmpty()
@@ -146,15 +145,6 @@ public class ShtoFluturimController extends HomeController implements Initializa
         }
 
 
-    }
-
-    @FXML
-    public void kthehu(ActionEvent event) throws Exception{
-        Parent parenti = FXMLLoader.load(getClass().getResource("fluturimet.fxml"));
-        Scene scene = new Scene(parenti);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
     @Override
